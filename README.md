@@ -22,3 +22,16 @@ url='https://lostark.game.onstove.com/Market/List_v2?firstCategory=90000&secondC
 
 #### 고고학
 url='https://lostark.game.onstove.com/Market/List_v2?firstCategory=90000&secondCategory=90700&characterClass=&tier=0&grade=99&itemName=&pageNo=1&isInit=false&sortType=7&_=1623805762408'
+
+
+<details>
+<summary>접기/펼치기 버튼</summary>
+<div markdown="1">
+
+|제목|내용|
+|--|--|
+|1|1|
+|2|10|
+
+</div>
+</details>
