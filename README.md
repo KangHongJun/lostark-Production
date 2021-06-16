@@ -1,5 +1,18 @@
 # lostark-Production
  
+ 
+ 
+ <details>
+<summary>분야별링크</summary>
+<div markdown="1">
+
+|제목|링크|
+|--|--|
+|전체|url='https://lostark.game.onstove.com/Market/List_v2?firstCategory=90000&secondCategory=0&characterClass=&tier=0&grade=99&itemName=&pageNo=1&isInit=false&sortType=7&_=1623805762401'|
+|2|10|
+
+</div>
+</details>
  # 분야별 링크
  
 #### 전체
@@ -24,14 +37,4 @@ url='https://lostark.game.onstove.com/Market/List_v2?firstCategory=90000&secondC
 url='https://lostark.game.onstove.com/Market/List_v2?firstCategory=90000&secondCategory=90700&characterClass=&tier=0&grade=99&itemName=&pageNo=1&isInit=false&sortType=7&_=1623805762408'
 
 
-<details>
-<summary>접기/펼치기 버튼</summary>
-<div markdown="1">
 
-|제목|내용|
-|--|--|
-|1|1|
-|2|10|
-
-</div>
-</details>
