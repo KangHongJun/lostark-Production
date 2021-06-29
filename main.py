@@ -1,37 +1,51 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget,QPushButton, QToolTip, QMainWindow
+from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QIcon
-from PyQt5.QtCore import QCoreApplication
-from PyQt5.QtGui import QFont
+from PyQt5.QtCore import QDate, Qt
+
+
 
 class MyApp(QMainWindow):
-
     def __init__(self):
         super().__init__()
         self.initUI()
+        self.make_tap()
+
+
+
+
+
 
     def initUI(self):
-
-        self.statusBar().showMessage('Ready')
-
-
-        
-        QToolTip.setFont(QFont('SansSerif',10))
-        self.setToolTip('this is a <b>Qwidget</b> widget')
-
-        btn = QPushButton('Button',self)
-        btn.setToolTip('this is a <b>Qwidget</b> widget')
-        btn.move(50,50)
-        btn.resize(btn.sizeHint())
+        #UI 기본
+        self.setWindowIcon(QIcon('lostark.jpg'))
+        self.setWindowTitle('제작효율')
+        self.setGeometry(100, 100, 400, 300)
 
 
-        self.setWindowTitle('로스트아크 영지제작')
-        self.setWindowIcon(QIcon('rimworld.jpg'))
-        self.setGeometry(1000, 300, 300, 200)
-        self.show()
+        # 하단에 날짜 출력
+        self.date = QDate.currentDate()
+        self.statusBar().showMessage(self.date.toString(Qt.DefaultLocaleLongDate))
+
+    def make_tap(self):
+        # QWidget 적용
+        tabs = QTabWidget()
+        tabs.addTab(self.tab1(), 'Tab1')
+        self.setCentralWidget(tabs)
+
+    def tab1(self):
+        button1 = QPushButton('버튼1',self)
+
+        vbox = QHBoxLayout()
+        vbox.addWidget(button1)
+
+        tab = QWidget()
+        tab.setLayout(vbox)
+        return tab
 
 
 if __name__ == '__main__':
-   app = QApplication(sys.argv)
-   ex = MyApp()
-   sys.exit(app.exec_())
+    app = QApplication(sys.argv)
+    ex = MyApp()
+    ex.show()
+    sys.exit(app.exec_())
