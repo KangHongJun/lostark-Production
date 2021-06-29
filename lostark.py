@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[2]:
-
-
 import requests
 from bs4 import BeautifulSoup
 
@@ -20,15 +14,6 @@ else :
     print(response.status_code)
 
 
-# In[ ]:
-
-
-
-
-
-# In[3]:
-
-
 import requests
 from bs4 import BeautifulSoup
 
@@ -43,15 +28,6 @@ if response.status_code == 200:
     print(title)
 else : 
     print(response.status_code)
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
 
 
 
