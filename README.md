@@ -1,4 +1,6 @@
 # lostark-Production
+
+실시간 재료의 가격을 가져와서 영지제작 효율을 알 수 있는 pyqt5로 만든 GUI프로그램이다.
  
  
  
