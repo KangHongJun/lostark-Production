@@ -27,6 +27,7 @@ def Fishing_price():
 
         #갈색 진주
         P_Brown = soup.select_one('#tbodyItemList > tr:nth-child(2) > td:nth-child(4) > div > em')
+        P_Brown = int(P_Brown.text)
         #검은 진주
         P_Dark = soup.select_one('#tbodyItemList > tr:nth-child(3) > td:nth-child(4) > div > em')
         #삼색 진주
@@ -36,10 +37,12 @@ def Fishing_price():
         print(P_Dark)
         print(P_ThreeColors)
 
+
         con = sqlite3.connect("test.db")
         cursor = con.cursor()
-        cursor.execute("UPDATE test SET ID = 1200 where NAME='이혜리'")
+        cursor.execute("UPDATE test SET ID = ? WHERE NAME='sd'",(P_Brown,))
         con.commit()
+
 
 
 

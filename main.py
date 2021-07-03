@@ -6,6 +6,7 @@ import Fishing_list
 
 Fishing_list.Fishing_price()
 
+
 import sqlite3
 con = sqlite3.connect("test.db")
 cursor=con.cursor()
@@ -13,16 +14,13 @@ cursor.execute("SELECT * FROM test")
 
 r = cursor.fetchall()
 print(r[0][0])
-print(r[0][1])
 print(r[1][0])
-print(r[1][1])
 print(r[2][0])
 print(r[3][0])
 print(r[4][0])
 
 
 
-#Fishing_list.Fishing_price()
 
 class grid(QWidget):
     def __init__(self):
