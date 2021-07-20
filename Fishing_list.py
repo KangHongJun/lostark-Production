@@ -51,7 +51,7 @@ def Fishing_price():
         
         DECLARE @K_Carp
         
-        UPDATE tablename SET K_Carp=@K_Carp, O_Carp='@O_Carp', Red_Fish = @Red_Fish, Pearl = @Pearl, Fish = @Fish
+         cursor.execute("UPDATE tablename SET K_Carp=?, O_Carp='?', Red_Fish = ?, Pearl = ?, Fish = ?",(K_Carp,O_Carp,Red_Fish,Pearl,Fish,))
         
         """
 
