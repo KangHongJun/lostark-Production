@@ -20,15 +20,15 @@ def Get_price():
         
         #희귀한 유물 
         Rare_Relic= soup.select_one('#tbodyItemList > tr:nth-child(2) > td:nth-child(4) > div > em')
-        int(K_Relic.text)
+        int(Rare_Relic.text)
         
         #오레하 유물 
         O_Relic = soup.select_one('#tbodyItemList > tr:nth-child(4) > td:nth-child(4) > div > em')
-        int(K_Relic.text)
+        int(O_Relic.text)
         
         #고대 유물 
         Ancient_Relic = soup.select_one('#tbodyItemList > tr:nth-child(5) > td:nth-child(4) > div > em')
-        int(K_Relic.text)
+        int(Ancient_Relic.text)
         
         #고고학 결정(3)
        
