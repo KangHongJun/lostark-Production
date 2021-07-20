@@ -46,6 +46,14 @@ def Fishing_price():
         cursor.execute("UPDATE test SET ID = ? WHERE NAME='sd'",(K_Carp,))
         con.commit()
 
+        """
+        primary key(고정값) number 설정, ID를 PRICE로 변경
+        
+        DECLARE @K_Carp
+        
+        UPDATE tablename SET K_Carp=@K_Carp, O_Carp='@O_Carp', Red_Fish = @Red_Fish, Pearl = @Pearl, Fish = @Fish
+        
+        """
 
 
 
