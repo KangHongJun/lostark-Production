@@ -12,9 +12,20 @@ def Mining_price():
     if response.status_code == 200:
         html = response.text
         soup = BeautifulSoup(html, 'html.parser')
-        #데이터 하나씩 뽑아와야함
-        title = soup.select_one('#tbodyItemList > tr:nth-child(9) > td:nth-child(4) > div > em')
-        print(title)
+        
+        #철광석 
+        iron_ore = soup.select_one('#tbodyItemList > tr:nth-child(2) > td:nth-child(4) > div > em')
+        int(iron_ore.text)        
+        
+        #묵직한 철광석
+        heavy_iron_ore = soup.select_one('#tbodyItemList > tr:nth-child(1) > td:nth-child(4) > div > em')
+        int(heavy_iron_ore.text)    
+    
+        #단단한 철광석 
+        hard_iron_ore = soup.select_one('#tbodyItemList > tr:nth-child(3) > td:nth-child(4) > div > em')
+        int(hard_iron_ore.text)    
+        
+        
     else:
         print(response.status_code)
         print('sd')
