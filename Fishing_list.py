@@ -35,25 +35,19 @@ def Fishing_price():
         Fish = int(Fish.text)
         #낚시 결정 5
 
-        
-        
-        print(K_Carp)
-        
 
-
-        con = sqlite3.connect("test.db")
+        #나중에 한번에 하는법을 익혀보자
+        con = sqlite3.connect("life.db")
         cursor = con.cursor()
-        cursor.execute("UPDATE test SET ID = ? WHERE NAME='sd'",(K_Carp,))
+        cursor.execute("UPDATE life SET Price = ? WHERE Number = 1",(K_Carp,))
+        cursor.execute("UPDATE life SET Price = ? WHERE Number = 2", (O_Carp,))
+        cursor.execute("UPDATE life SET Price = ? WHERE Number = 3", (Red_Fish,))
+        cursor.execute("UPDATE life SET Price = ? WHERE Number = 4", (Pearl,))
+        cursor.execute("UPDATE life SET Price = ? WHERE Number = 5", (Fish,))
         con.commit()
 
-        """
-        primary key(고정값) number 설정, ID를 PRICE로 변경
-        
-        DECLARE @K_Carp
-        
-         cursor.execute("UPDATE tablename SET K_Carp=?, O_Carp='?', Red_Fish = ?, Pearl = ?, Fish = ?",(K_Carp,O_Carp,Red_Fish,Pearl,Fish,))
-        
-        """
+
+
 
 
 

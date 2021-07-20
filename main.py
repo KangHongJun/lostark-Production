@@ -8,25 +8,24 @@ Fishing_list.Fishing_price()
 
 
 import sqlite3
-con = sqlite3.connect("test.db")
+con = sqlite3.connect("life.db")
 cursor=con.cursor()
-cursor.execute("SELECT * FROM test")
+cursor.execute("SELECT * FROM life")
 
 r = cursor.fetchall()
-print(r[0][0])
-print(r[1][0])
-print(r[2][0])
-print(r[3][0])
-print(r[4][0])
+rr = r[0][2]
 
-
+print(r[0][2])
+print(r[1][2])
+print(r[2][2])
+print(r[3][2])
+print(r[4][2])
 
 
 class grid(QWidget):
     def __init__(self):
         super(grid, self).__init__()
         self.leftlist = QListWidget()
-
         self.leftlist.insertItem(0, '1')
         self.leftlist.insertItem(1, '2')
         self.leftlist.insertItem(2, '3')
