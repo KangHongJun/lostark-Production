@@ -1,1 +1,53 @@
-sd
+case 1 : pyqt5 db연동
+
+#db 연결 예제
+from PyQt5.QtSql import QSqlDatabase, QSqlQuery
+from PyQt5.QtWidgets import QApplication, QMessageBox, QLabel
+
+#db Driver
+con = QSqlDatabase.addDatabase("QSQLITE")
+con.setDatabaseName("contacts.sqlite")
+
+if not con.open():
+    QMessageBox.critical(
+        None,
+        "App Name - Error!",
+        "Database Error: %s" % con.lastError().databaseText(),
+    )
+    sys.exit(1)
+#Query Select문으로 구한 값 변수에 넣어보기
+createTableQuery = QSqlQuery()
+createTableQuery.exec(
+    """
+    CREATE TABLE contacts (
+        id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL,
+        name VARCHAR(40) NOT NULL,
+        job VARCHAR(50),
+        email VARCHAR(40) NOT NULL
+    )
+    """
+)  
+print(con.tables())
+    
+    
+win = QLabel("Connection Successfully Opened!")
+win.setWindowTitle("App Name")
+win.resize(200, 100)
+win.show()
+sys.exit(app.exec_())
+
+case 2 : use data frame with pandas
+
+import pandas as pd
+from pandas import Series, DataFrame
+
+ import sqlite3
+con = sqlite3.connect("life.db")
+
+df = pd.read_sql("SELECT * FROM kakao", con, index_col=None)
+df
+#df_list = df.values.tolist() -> return
+#import하고 그것의 변수 사용가능
+
+
+ 
