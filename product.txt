@@ -1,1 +1,40 @@
-sd
+pyqt5 db연동
+
+
+
+#db 연결 예제
+from PyQt5.QtSql import QSqlDatabase, QSqlQuery
+from PyQt5.QtWidgets import QApplication, QMessageBox, QLabel
+
+#db Driver
+con = QSqlDatabase.addDatabase("QSQLITE")
+con.setDatabaseName("contacts.sqlite")
+
+if not con.open():
+    QMessageBox.critical(
+        None,
+        "App Name - Error!",
+        "Database Error: %s" % con.lastError().databaseText(),
+    )
+    sys.exit(1)
+#Query Select문으로 구한 값 변수에 넣어보기
+createTableQuery = QSqlQuery()
+createTableQuery.exec(
+    """
+    CREATE TABLE contacts (
+        id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL,
+        name VARCHAR(40) NOT NULL,
+        job VARCHAR(50),
+        email VARCHAR(40) NOT NULL
+    )
+    """
+)  
+print(con.tables())
+    
+    
+win = QLabel("Connection Successfully Opened!")
+win.setWindowTitle("App Name")
+win.resize(200, 100)
+win.show()
+sys.exit(app.exec_())
+ 
