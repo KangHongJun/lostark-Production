@@ -46,7 +46,8 @@ con = sqlite3.connect("life.db")
 
 df = pd.read_sql("SELECT * FROM kakao", con, index_col=None)
 df
-
+#df_list = df.values.tolist() -> return
+#import하고 그것의 변수 사용가능
 
 
  
