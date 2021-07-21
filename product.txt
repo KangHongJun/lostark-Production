@@ -1,6 +1,4 @@
-pyqt5 db연동
-
-
+case 1 : pyqt5 db연동
 
 #db 연결 예제
 from PyQt5.QtSql import QSqlDatabase, QSqlQuery
@@ -37,4 +35,18 @@ win.setWindowTitle("App Name")
 win.resize(200, 100)
 win.show()
 sys.exit(app.exec_())
+
+case 2 : use data frame with pandas
+
+import pandas as pd
+from pandas import Series, DataFrame
+
+ import sqlite3
+con = sqlite3.connect("life.db")
+
+df = pd.read_sql("SELECT * FROM kakao", con, index_col=None)
+df
+
+
+
  
