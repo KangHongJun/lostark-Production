@@ -1,4 +1,6 @@
 import sys
+import pandas as pd
+from pandas import Series, DataFrame
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
@@ -11,15 +13,23 @@ import sqlite3
 con = sqlite3.connect("life.db")
 cursor=con.cursor()
 cursor.execute("SELECT * FROM life")
-
 r = cursor.fetchall()
-rr = r[0][2]
 
 print(r[0][2])
 print(r[1][2])
 print(r[2][2])
 print(r[3][2])
 print(r[4][2])
+
+conn = sqlite3.connect("life.db")
+df = pd.read_sql("SELECT * FROM life",conn,index_col=None)
+df_list = df.values.tolist()
+
+
+global Q
+Q = str(df_list[0][2])
+print(Q)
+
 
 
 class grid(QWidget):
@@ -29,10 +39,12 @@ class grid(QWidget):
         self.leftlist.insertItem(0, '1')
         self.leftlist.insertItem(1, '2')
         self.leftlist.insertItem(2, '3')
-
         self.stack1 = QWidget()
         self.stack2 = QWidget()
         self.stack3 = QWidget()
+
+
+
 
         self.stack1UI()
         self.stack2UI()
@@ -59,8 +71,10 @@ class grid(QWidget):
         layout.addRow("Name", QLineEdit())
         layout.addRow("Address", QLineEdit())
         # self.setTabText(0,"Contact Details")
+        label = QLabel()
+        label.setText(Q)
+        layout.addWidget(label)
         self.stack1.setLayout(layout)
-
 
     def stack2UI(self):
         layout = QFormLayout()
@@ -69,7 +83,6 @@ class grid(QWidget):
         sex.addWidget(QRadioButton("Female"))
         layout.addRow(QLabel("Sex"), sex)
         layout.addRow("Date of Birth", QLineEdit())
-
         self.stack2.setLayout(layout)
 
 
