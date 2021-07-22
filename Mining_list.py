@@ -14,21 +14,26 @@ def Mining_price():
         soup = BeautifulSoup(html, 'html.parser')
         
         #철광석 
-        iron_ore = soup.select_one('#tbodyItemList > tr:nth-child(2) > td:nth-child(4) > div > em')
+        Iron_ore = soup.select_one('#tbodyItemList > tr:nth-child(2) > td:nth-child(4) > div > em')
         int(iron_ore.text)        
         
         #묵직한 철광석
-        heavy_iron_ore = soup.select_one('#tbodyItemList > tr:nth-child(1) > td:nth-child(4) > div > em')
+        Heavy_Iron_ore = soup.select_one('#tbodyItemList > tr:nth-child(1) > td:nth-child(4) > div > em')
         int(heavy_iron_ore.text)    
     
         #단단한 철광석 
-        hard_iron_ore = soup.select_one('#tbodyItemList > tr:nth-child(3) > td:nth-child(4) > div > em')
+        Hard_Iron_ore = soup.select_one('#tbodyItemList > tr:nth-child(3) > td:nth-child(4) > div > em')
         int(hard_iron_ore.text)    
         
+        con = sqlite3.connect("life.db")
+        cursor = con.cursor()
+        cursor.execute("UPDATE life SET Price = ? WHERE Number = 18",(Iron_ore,))
+        cursor.execute("UPDATE life SET Price = ? WHERE Number = 19", (Heavy_Iron_ore,))
+        cursor.execute("UPDATE life SET Price = ? WHERE Number = 20", (Hard_Iron_ore,))
+        con.commit()
         
-    else:
-        print(response.status_code)
-        print('sd')
+        
+  
 
 
 
