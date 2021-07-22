@@ -18,28 +18,28 @@ def Get_price():
         K_Relic = soup.select_one('#tbodyItemList > tr:nth-child(1) > td:nth-child(4) > div > em')
         int(K_Relic.text)
         
-        #희귀한 유물 
-        Rare_Relic= soup.select_one('#tbodyItemList > tr:nth-child(2) > td:nth-child(4) > div > em')
-        int(Rare_Relic.text)
-        
         #오레하 유물 
         O_Relic = soup.select_one('#tbodyItemList > tr:nth-child(4) > td:nth-child(4) > div > em')
         int(O_Relic.text)
+        
+        #희귀한 유물 
+        Rare_Relic= soup.select_one('#tbodyItemList > tr:nth-child(2) > td:nth-child(4) > div > em')
+        int(Rare_Relic.text)
         
         #고대 유물 
         Ancient_Relic = soup.select_one('#tbodyItemList > tr:nth-child(5) > td:nth-child(4) > div > em')
         int(Ancient_Relic.text)
         
         #고고학 결정(3)
+        con = sqlite3.connect("life.db")
+        cursor = con.cursor()
+        cursor.execute("UPDATE life SET Price = ? WHERE Number = 21",(K_Relic,))
+        cursor.execute("UPDATE life SET Price = ? WHERE Number = 22", (O_Relic,))
+        cursor.execute("UPDATE life SET Price = ? WHERE Number = 23", (Rare_Relic,))
+        cursor.execute("UPDATE life SET Price = ? WHERE Number = 24", (Ancient_Relic,))
+        con.commit()
        
         
-       
-        print(Broken_Patterns)
-
-    else:
-        print(response.status_code)
-        print('sd')
-
 
 
 
