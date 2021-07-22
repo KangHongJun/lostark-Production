@@ -36,9 +36,17 @@ def Get_price():
     #화려한 버섯 
     Fancy_mushroom = soup.select_one('#tbodyItemList > tr:nth-child(4) > td:nth-child(4) > div > em')
     int(Fancy_mushroom.text)
+    
+    con = sqlite3.connect("life.db")
+    cursor = con.cursor()
+    cursor.execute("UPDATE life SET Price = ? WHERE Number = 6",(Flower,))
+    cursor.execute("UPDATE life SET Price = ? WHERE Number = 7", (Shy_flower,))
+    cursor.execute("UPDATE life SET Price = ? WHERE Number = 8", (Bright_flower,))
+    cursor.execute("UPDATE life SET Price = ? WHERE Number = 9", (Coarse_mushroom,))
+    cursor.execute("UPDATE life SET Price = ? WHERE Number = 10", (Fresh_mushroom,))
+    cursor.execute("UPDATE life SET Price = ? WHERE Number = 11", (Fancy_mushroom,))
+    con.commit()
 
        
     
-    else:
-        print(response.status_code)
-        print('sd')
+   
