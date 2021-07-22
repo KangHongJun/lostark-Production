@@ -31,7 +31,6 @@ Q = str(df_list[0][2])
 print(Q)
 
 
-
 class grid(QWidget):
     def __init__(self):
         super(grid, self).__init__()
@@ -42,9 +41,10 @@ class grid(QWidget):
         self.stack1 = QWidget()
         self.stack2 = QWidget()
         self.stack3 = QWidget()
-
-
-
+        
+        #leftlist를 treelist로 만들어보기
+        
+        
 
         self.stack1UI()
         self.stack2UI()
@@ -64,8 +64,8 @@ class grid(QWidget):
         self.setGeometry(300, 50, 10, 10)
         self.setWindowTitle('StackedWidget demo')
         self.show()
-
-
+    
+    #조합식 적기
     def stack1UI(self):
         layout = QFormLayout()
         layout.addRow("Name", QLineEdit())
@@ -96,8 +96,9 @@ class grid(QWidget):
 
     def display(self, i):
         self.Stack.setCurrentIndex(i)
-
-
+#2번탭 만들기
+        
+        
 class MyApp(QMainWindow):
     def __init__(self):
         super().__init__()
