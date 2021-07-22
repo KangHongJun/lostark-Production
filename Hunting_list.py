@@ -17,6 +17,10 @@ def Get_price():
         Meat = soup.select_one('#tbodyItemList > tr:nth-child(1) > td:nth-child(4) > div > em')
         Meat = int(Meat.text)
         
+        #두툼한 생고기(100) 
+        Thick_Meat= soup.select_one('#tbodyItemList > tr:nth-child(6) > td:nth-child(4) > div > em')
+        Thick_Meat = int(Thick_Meat.text)
+        
         #칼다르 두툼한 생고기 
         K_Meat= soup.select_one('#tbodyItemList > tr:nth-child(2) > td:nth-child(4) > div > em')
         K_Meat = int(K_Meat.text)
@@ -25,9 +29,7 @@ def Get_price():
         O_Meat= soup.select_one('#tbodyItemList > tr:nth-child(4) > td:nth-child(4) > div > em')
         O_Meat = int(O_Meat.text)
         
-        #두툼한 생고기(100) 
-        Thick_Meat= soup.select_one('#tbodyItemList > tr:nth-child(6) > td:nth-child(4) > div > em')
-        Thick_Meat = int(Thick_Meat.text)
+        
 
         #질긴가죽 
         Tough_Leather= soup.select_one('#tbodyItemList > tr:nth-child(3) > td:nth-child(4) > div > em')
@@ -37,7 +39,11 @@ def Get_price():
 
 
        
-        print(Meat)
-    else:
-        print(response.status_code)
-        print('sd')
+        con = sqlite3.connect("life.db")
+        cursor = con.cursor()
+        cursor.execute("UPDATE life SET Price = ? WHERE Number = 12",(Meat,))
+        cursor.execute("UPDATE life SET Price = ? WHERE Number = 13", (Thick_Meat,))
+        cursor.execute("UPDATE life SET Price = ? WHERE Number = 14", (K_Meat,))
+        cursor.execute("UPDATE life SET Price = ? WHERE Number = 15", (O_Meat,))
+        cursor.execute("UPDATE life SET Price = ? WHERE Number = 16", (Tough_Leather,))
+        con.commit()
