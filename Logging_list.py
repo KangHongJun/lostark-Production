@@ -24,7 +24,9 @@ def Get_price():
     Strong_Wood = soup.select_one('#tbodyItemList > tr:nth-child(2) > td:nth-child(4) > div > em')
     int(Strong_Wood.text)
     
-       
-    else:
-        print(response.status_code)
-        print('sd')
+    con = sqlite3.connect("life.db")
+    cursor = con.cursor()
+    cursor.execute("UPDATE life SET Price = ? WHERE Number = 15",(Wood,))
+    cursor.execute("UPDATE life SET Price = ? WHERE Number = 16", (Soft_Wood,))
+    cursor.execute("UPDATE life SET Price = ? WHERE Number = 17", (Strong_Wood,))
+    con.commit()
