@@ -25,10 +25,18 @@ conn = sqlite3.connect("life.db")
 df = pd.read_sql("SELECT * FROM life",conn,index_col=None)
 df_list = df.values.tolist()
 
-
+#df = {(1, "name",price),(2, "name",price))...}
 global Q
 Q = str(df_list[0][2])
 print(Q)
+
+#굳이 변수를 일일히 추가하기 보다는 리스트에 global을 주고 그때그때 접근하는게 나은가?
+#gloal price_list = 반복문으로 가격값 다 넣기-> 생성된 리스트로 연산
+
+Price_list = []
+for i in range(0,len(df_list)):
+    Price_list[i] = df_list[i][2]
+print(Price_list)    
 
 
 class grid(QWidget):
