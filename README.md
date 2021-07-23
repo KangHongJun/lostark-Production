@@ -1,15 +1,14 @@
 # lostark-Production
 
-실시간 재료의 가격을 가져와서 영지제작 효율을 알 수 있는 pyqt5로 만든 GUI프로그램이다.
- 
- 
+GUI program make by pyqt5 and using Sqlite3
+  
  
  <details>
 <summary>분야별링크</summary>
  링크는 network에서 얻음
 <div markdown="1">
 
-|제목|링크|
+|Name|Link|
 |---|---|
 |전체|url='https://lostark.game.onstove.com/Market/List_v2?firstCategory=90000&secondCategory=0&characterClass=&tier=0&grade=99&itemName=&pageNo=1&isInit=false&sortType=7&_=1623805762401'|
 |식물|url='https://lostark.game.onstove.com/Market/List_v2?firstCategory=90000&secondCategory=90200&characterClass=&tier=0&grade=99&itemName=&pageNo=1&isInit=false&sortType=7&_=1623805762402'|
