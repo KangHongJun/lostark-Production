@@ -38,14 +38,11 @@ class grid(QWidget):
         self.leftlist.insertItem(0, '1')
         self.leftlist.insertItem(1, '2')
         self.leftlist.insertItem(2, '3')
+        
         self.stack1 = QWidget()
         self.stack2 = QWidget()
         self.stack3 = QWidget()
         
-        #leftlist를 treelist로 만들어보기
-        
-        
-
         self.stack1UI()
         self.stack2UI()
         self.stack3UI()
@@ -96,7 +93,67 @@ class grid(QWidget):
 
     def display(self, i):
         self.Stack.setCurrentIndex(i)
-#2번탭 만들기
+
+#2번탭 
+class grid2(QWidget):
+    def __init__(self):
+        super(grid2, self).__init__()
+        
+        treeWidget = QTreeWidget()
+        treewidget.setColumnCount(1)
+        *> QList<QTreeWidgetItem()
+        #headers = QStringList()    headers << tr("Subject") << tr("Default")   treeWidget.setHeaderLabels(headers)
+        
+        for i in range(0, 10):
+              items.append(QTreeWidgetItem(QTreeWidget (None), QStringList(QString("item: %1").arg(i))))
+        treeWidget.insertTopLevelItems(0, items)
+        #위젯의 각열에 대한 섹션이 포하묀 헤더는 setHeaderLabels()로 구성, 커스텀헤더는 QTreeWidgetItem 그리고 트리에 아이템구나는 setHeaderItem()
+        
+        #참고 https://doc.qt.io/qtforpython/overviews/model-view-programming.html#model-view-programming
+        """
+        cities = QTreeWidgetItem(treeWidget)
+        cities.setText(0, tr("Cities"))
+        osloItem = QTreeWidgetItem(cities)
+        osloItem.setText(0, tr("Oslo"))
+        osloItem.setText(1, tr("Yes"))
+        planets = QTreeWidgetItem(treeWidget, cities)
+        """
+        
+        
+
+        self.stack1UI()
+        self.stack2UI()
+        self.stack3UI()
+
+        self.Stack = QStackedWidget(self)
+        self.Stack.addWidget(self.stack1)
+        self.Stack.addWidget(self.stack2)
+        self.Stack.addWidget(self.stack3)
+
+        hbox = QHBoxLayout(self)
+        hbox.addWidget(self.leftlist)
+        hbox.addWidget(self.Stack)
+
+        self.setLayout(hbox)
+        self.leftlist.currentRowChanged.connect(self.display)
+        self.setGeometry(300, 50, 10, 10)
+        self.setWindowTitle('StackedWidget demo')
+        self.show()
+    
+    #조합식 적기
+    def stack1UI(self):
+        layout = QFormLayout()
+        layout.addRow("Name", QLineEdit())
+        layout.addRow("Address", QLineEdit())
+        # self.setTabText(0,"Contact Details")
+        label = QLabel()
+        label.setText(Q)
+        layout.addWidget(label)
+        self.stack1.setLayout(layout)
+
+
+    def display(self, i):
+        self.Stack.setCurrentIndex(i)
         
         
 class MyApp(QMainWindow):
