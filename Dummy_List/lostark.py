@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+#파싱기본
 
 url = 'https://lostark.game.onstove.com/Market/List_v2?firstCategory=90000&secondCategory=90400&characterClass=&tier=0&grade=99&itemName=&pageNo=1&isInit=false&sortType=7&_=1623805762400'
 
