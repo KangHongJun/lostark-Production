@@ -4,9 +4,9 @@ from pandas import Series, DataFrame
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
-import Fishing_list
+import Life_list
 
-Fishing_list.Fishing_price()
+Life_list.Life()
 
 
 import sqlite3
@@ -33,10 +33,12 @@ print(Q)
 #굳이 변수를 일일히 추가하기 보다는 리스트에 global을 주고 그때그때 접근하는게 나은가?
 #gloal price_list = 반복문으로 가격값 다 넣기-> 생성된 리스트로 연산
 
+"""
 Price_list = []
 for i in range(0,len(df_list)):
     Price_list[i] = df_list[i][2]
-print(Price_list)    
+print(Price_list)  
+"""
 
 
 class grid(QWidget):
@@ -116,17 +118,22 @@ class grid(QWidget):
 class grid2(QWidget):
     def __init__(self):
         super(grid2, self).__init__()
-        
+
+        """
         treeWidget = QTreeWidget()
         treewidget.setColumnCount(1)
-        *> QList<QTreeWidgetItem()
+        QList<QTreeWidgetItem()
         #headers = QStringList()    headers << tr("Subject") << tr("Default")   treeWidget.setHeaderLabels(headers)
-        
+
         for i in range(0, 10):
               items.append(QTreeWidgetItem(QTreeWidget (None), QStringList(QString("item: %1").arg(i))))
         treeWidget.insertTopLevelItems(0, items)
-        #위젯의 각열에 대한 섹션이 포하묀 헤더는 setHeaderLabels()로 구성, 커스텀헤더는 QTreeWidgetItem 그리고 트리에 아이템구나는 setHeaderItem()
         
+        """
+
+
+        #위젯의 각열에 대한 섹션이 포하묀 헤더는 setHeaderLabels()로 구성, 커스텀헤더는 QTreeWidgetItem 그리고 트리에 아이템구나는 setHeaderItem()
+
         #참고 https://doc.qt.io/qtforpython/overviews/model-view-programming.html#model-view-programming
         """
         cities = QTreeWidgetItem(treeWidget)
