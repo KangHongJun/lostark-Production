@@ -11,56 +11,24 @@ def Potion #이후 수정
 
 
     #회복약
-    K_Carp =  soup.select_one('#tbodyItemList > tr:nth-child(1) > td:nth-child(4) > div > em')
-    K_Carp = int(K_Carp.text)
+    Healing =  soup.select_one('#tbodyItemList > tr:nth-child(1) > td:nth-child(4) > div > em')
+    Healing = int(Healing.text)
 
     #고급 회복약
-    O_Carp = soup.select_one('#tbodyItemList > tr:nth-child(4) > td:nth-child(4) > div > em')
-    O_Carp = int(O_Carp.text)
+    Rare_Healing = soup.select_one('#tbodyItemList > tr:nth-child(2) > td:nth-child(4) > div > em')
+    Rare_Healing = int(Rare_Healing.text)
 
     #정령의 회복약
-    Red_Fish = soup.select_one('#tbodyItemList > tr:nth-child(2) > td:nth-child(4) > div > em')
-    Red_Fish = int(Red_Fish.text)
+    Spirit_Healing = Spirit_Healing.select_one('#tbodyItemList > tr:nth-child(3) > td:nth-child(4) > div > em')
+    Spirit_Healing = int(Spirit_Healing.text)
 
     #빛나는 정령의 회복약
-    Pearl = soup.select_one('#tbodyItemList > tr:nth-child(3) > td:nth-child(4) > div > em')
-    Pearl = int(Pearl.text)
+    S_Spirit_Healing = S_Spirit_Healing.select_one('#tbodyItemList > tr:nth-child(4) > td:nth-child(4) > div > em')
+    S_Spirit_Healing = int(S_Spirit_Healing.text)
 
-    #만능 물약
-    Fish = soup.select_one('#tbodyItemList > tr:nth-child(6) > td:nth-child(4) > div > em')
-    Fish = int(Fish.text)
     
-    #빛나는 만능 물약
-    Fish = soup.select_one('#tbodyItemList > tr:nth-child(6) > td:nth-child(4) > div > em')
-    Fish = int(Fish.text)
     
-    #각성 물약
-    Fish = soup.select_one('#tbodyItemList > tr:nth-child(6) > td:nth-child(4) > div > em')
-    Fish = int(Fish.text)
     
-    #보호 물약
-    Fish = soup.select_one('#tbodyItemList > tr:nth-child(6) > td:nth-child(4) > div > em')
-    Fish = int(Fish.text)
-    
-    #빛나는 보호 물약
-    Fish = soup.select_one('#tbodyItemList > tr:nth-child(6) > td:nth-child(4) > div > em')
-    Fish = int(Fish.text)
-    
-    #천둥 물약
-    Fish = soup.select_one('#tbodyItemList > tr:nth-child(6) > td:nth-child(4) > div > em')
-    Fish = int(Fish.text)
-    
-    #빛나는 천둥 물약
-    Fish = soup.select_one('#tbodyItemList > tr:nth-child(6) > td:nth-child(4) > div > em')
-    Fish = int(Fish.text)
-    
-    #아드로핀 물약
-    Fish = soup.select_one('#tbodyItemList > tr:nth-child(6) > td:nth-child(4) > div > em')
-    Fish = int(Fish.text)
-    
-    #시간 정지 물약
-    Fish = soup.select_one('#tbodyItemList > tr:nth-child(6) > td:nth-child(4) > div > em')
-    Fish = int(Fish.text)
     
     
     
