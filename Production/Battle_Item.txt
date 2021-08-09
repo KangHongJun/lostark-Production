@@ -87,7 +87,8 @@
 천둥 3
 화려한 버섯 10
 15/216
------------------------------
+----------------------------
+
 #폭탄(Bomb)
 
 -수면 Sleeping 
@@ -144,6 +145,8 @@
 투박한 버섯 32
 묵직한 철광석 6
 15/144
+ Pheromones = soup.select_one('#tbodyItemList > tr:nth-child(6) > td:nth-child(4) > div > em')
+    Pheromones = int(Pheromones.text)
 -----------------------------
 
 #수류탄 (Grenade)
