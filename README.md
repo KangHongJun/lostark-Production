@@ -7,6 +7,7 @@ GUI program make by pyqt5 and using Sqlite3
 
  링크는 network에서 얻음
 <div markdown="1">
+  <summary>분야별링크</summary>
 
 |Name|Link|
 |---|---|
