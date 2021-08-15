@@ -5,8 +5,11 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 import Life_list
+import Attack_Item_list
 
 Life_list.Life()
+Attack_Item_list.Attack()
+
 
 
 import sqlite3
@@ -74,24 +77,32 @@ class grid(QWidget):
     
     #조합식 적기
     def stack1UI(self):
+
         layout = QFormLayout()
-        layout.addRow("Name", QLineEdit())
-        layout.addRow("Address", QLineEdit())
-        # self.setTabText(0,"Contact Details")
-        """
-        회복약
-        
-        수줍은 들꽃x5 (가격)
-        들꽃x10 (가격) 
-        실링x1200
-        조합비/활동력
-        (총가격)
-        (거래소 가격 - (총가격))
-        """
-        label = QLabel()
-        label.setText(Q)
-        layout.addWidget(label)
+
+        label1 = QLabel()
+        label1.setText("회복약\n")
+
+        label2 = QLabel()
+        label2.setText("수줍은 들꽃x5 - "+ Q+"골드")
+
+        label3 = QLabel()
+        label3.setText("들꽃x10")
+
+        label4 = QLabel()
+        label4.setText('실링 x1200')
+
+        label5 = QLabel()
+        label5.setText("0골드")
+
+        layout.addWidget(label1)
+        layout.addWidget(label2)
+        layout.addWidget(label3)
+        layout.addWidget(label4)
+        layout.addWidget(label5)
+
         self.stack1.setLayout(layout)
+        # self.setTabText(0,"Contact Details")
 
     def stack2UI(self):
         layout = QFormLayout()
