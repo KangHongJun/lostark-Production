@@ -75,7 +75,6 @@ class grid(QWidget):
         self.setWindowTitle('StackedWidget demo')
         self.show()
     
-    #조합식 적기
     def stack1UI(self):
 
         layout = QFormLayout()
@@ -94,6 +93,8 @@ class grid(QWidget):
 
         label5 = QLabel()
         label5.setText("0골드")
+        
+        #label1.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
 
         layout.addWidget(label1)
         layout.addWidget(label2)
