@@ -1,11 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 
-def Potion #이후 수정
+def Potion: #이후 수정
     P_url='https://lostark.game.onstove.com/Market/List_v2?firstCategory=60000&secondCategory=60200&characterClass=&tier=0&grade=99&itemName=&pageNo=1 '/
-    '&isInit=false&sortType=7&_=1627911349463'
+    '&isInit=false&sortType=1&_=1627911349463'
 
-    response = requests.get(F_url)
+    response = requests.get(P_url)
     html = response.text
     soup = BeautifulSoup(html, 'html.parser')
 
@@ -26,18 +26,10 @@ def Potion #이후 수정
     S_Spirit_Healing = S_Spirit_Healing.select_one('#tbodyItemList > tr:nth-child(4) > td:nth-child(4) > div > em')
     S_Spirit_Healing = int(S_Spirit_Healing.text)
 
-    
-    
-    
-    
-    
-    
-
-    con = sqlite3.connect("life.db")
+    con = sqlite3.connect(".db")
     cursor = con.cursor()
-    cursor.execute("UPDATE life SET Price = ? WHERE Number = 1",(K_Carp,))
-    cursor.execute("UPDATE life SET Price = ? WHERE Number = 2", (O_Carp,))
-    cursor.execute("UPDATE life SET Price = ? WHERE Number = 3", (Red_Fish,))
-    cursor.execute("UPDATE life SET Price = ? WHERE Number = 4", (Pearl,))
-    cursor.execute("UPDATE life SET Price = ? WHERE Number = 5", (Fish,))
+    cursor.execute("UPDATE life SET Price = ? WHERE Number = 1",(Healing,))
+    cursor.execute("UPDATE life SET Price = ? WHERE Number = 2", (Rare_Healing,))
+    cursor.execute("UPDATE life SET Price = ? WHERE Number = 3", (Spirit_Healing,))
+    cursor.execute("UPDATE life SET Price = ? WHERE Number = 4", (S_Spirit_Healing,))
     con.commit()
