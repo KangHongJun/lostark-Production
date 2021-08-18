@@ -33,17 +33,6 @@ global Q
 Q = str(df_list[0][2])
 print(Q)
 
-#굳이 변수를 일일히 추가하기 보다는 리스트에 global을 주고 그때그때 접근하는게 나은가?
-#gloal price_list = 반복문으로 가격값 다 넣기-> 생성된 리스트로 연산
-
-"""
-Price_list = []
-for i in range(0,len(df_list)):
-    Price_list[i] = df_list[i][2]
-print(Price_list)  
-"""
-
-
 class grid(QWidget):
     def __init__(self):
         super(grid, self).__init__()
@@ -94,7 +83,11 @@ class grid(QWidget):
         label5 = QLabel()
         label5.setText("0골드")
         
-        #label1.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
+        Profit = Label()
+        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+
+        
+        #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
 
         layout.addWidget(label1)
         layout.addWidget(label2)
