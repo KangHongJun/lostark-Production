@@ -184,6 +184,16 @@ class grid2(QWidget):
 
     def display(self, i):
         self.Stack.setCurrentIndex(i)
+    
+    #수수료    
+    def lifting(value):
+      if(value == 1):
+        return 0
+      if ((value*0.05)%10 != 0):
+        value = int(value*0.05) + 1
+        return value
+      if ((value*0.05)%10 == 0):
+        return int(value*0.05)
         
         
 class MyApp(QMainWindow):
