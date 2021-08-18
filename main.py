@@ -50,8 +50,8 @@ class grid(QWidget):
         
         self.Healing()
         self.Rare_Healing()
-        self.stack3UI()
-        self.stack4UI()
+        self.Spirit_Healing()
+        self.S_Spirit_Healing()
 
         self.Stack = QStackedWidget(self)
         self.Stack.addWidget(self.stack1)
@@ -84,12 +84,15 @@ class grid(QWidget):
 
         label4 = QLabel()
         label4.setText('실링 x1200')
+        label4.setText(str(df_list[0][2]))
 
         label5 = QLabel()
         label5.setText("0골드")
         
-        Profit = Label()
-        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+        profit = QLabel()
+        profit.setText(Q)
+
+        str(df_list[0][2])
 
         
         #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
@@ -99,7 +102,7 @@ class grid(QWidget):
         layout.addWidget(label3)
         layout.addWidget(label4)
         layout.addWidget(label5)
-        layout.addWidget(Profit)
+        layout.addWidget(profit)
 
         self.stack1.setLayout(layout)
         
@@ -117,10 +120,10 @@ class grid(QWidget):
         label3.setText("들꽃x18")
 
         label4 = QLabel()
-        label5.setText("15골드")
+        label4.setText("15골드")
         
-        Profit = Label()
-        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+        profit = QLabel()
+        profit.setText("제작템 값*수수료 계산" + "재료값" +"= 이익")
 
         
         #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
@@ -128,7 +131,7 @@ class grid(QWidget):
         layout.addWidget(label2)
         layout.addWidget(label3)
         layout.addWidget(label4)
-        layout.addWidget(Profit)
+        layout.addWidget(profit)
 
         self.stack1.setLayout(layout)
 
@@ -152,8 +155,7 @@ class grid(QWidget):
         label5 = QLabel()
         label5.setText("30골드")
         
-        Profit = Label()
-        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+
 
         
         #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
@@ -162,7 +164,7 @@ class grid(QWidget):
         layout.addWidget(label3)
         layout.addWidget(label4)
         layout.addWidget(label5)
-        layout.addWidget(Profit)
+
 
         self.stack1.setLayout(layout)
 
@@ -180,21 +182,18 @@ class grid(QWidget):
         label3.setText("화사한 들꽃x8")
 
         label4 = QLabel()
-        label5.setText("30골드")
+        label4.setText("30골드")
         
-        Profit = Label()
-        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+
 
         #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
         layout.addWidget(label1)
         layout.addWidget(label2)
         layout.addWidget(label3)
         layout.addWidget(label4)
-        layout.addWidget(Profit)
+
 
         self.stack1.setLayout(layout)
-
-
 
     def display(self, i):
         self.Stack.setCurrentIndex(i)
@@ -229,11 +228,10 @@ class grid2(QWidget):
         planets = QTreeWidgetItem(treeWidget, cities)
         """
         
-        
 
-        self.stack1UI()
-        self.stack2UI()
-        self.stack3UI()
+        self.Protection()
+        self.Flag()
+        self.Quick()
 
         self.Stack = QStackedWidget(self)
         self.Stack.addWidget(self.stack1)
@@ -272,15 +270,14 @@ class grid2(QWidget):
         label6 = QLabel()
         label6.setText("15골드")
         
-        Profit = Label()
-        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+
 
         #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
         layout.addWidget(label1)
         layout.addWidget(label2)
         layout.addWidget(label3)
         layout.addWidget(label4)
-        layout.addWidget(Profit)
+
 
         self.stack1.setLayout(layout)
 
@@ -303,15 +300,14 @@ class grid2(QWidget):
         label5 = QLabel()
         label5.setText("15골드")
         
-        Profit = Label()
-        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+
 
         #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
         layout.addWidget(label1)
         layout.addWidget(label2)
         layout.addWidget(label3)
         layout.addWidget(label4)
-        layout.addWidget(Profit)
+
 
         self.stack1.setLayout(layout)
         
@@ -334,16 +330,14 @@ class grid2(QWidget):
 
         label5 = QLabel()
         label5.setText("15골드")
-        
-        Profit = Label()
-        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+
 
         #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
         layout.addWidget(label1)
         layout.addWidget(label2)
         layout.addWidget(label3)
         layout.addWidget(label4)
-        layout.addWidget(Profit)
+
 
         self.stack1.setLayout(layout)
         
@@ -372,15 +366,14 @@ class grid2(QWidget):
         label7 = QLabel()
         label7.setText("15골드")
         
-        Profit = Label()
-        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+
 
         #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
         layout.addWidget(label1)
         layout.addWidget(label2)
         layout.addWidget(label3)
         layout.addWidget(label4)
-        layout.addWidget(Profit)
+
 
         self.stack1.setLayout(layout)
         
@@ -409,15 +402,14 @@ class grid2(QWidget):
         label7 = QLabel()
         label7.setText("30골드")
         
-        Profit = Label()
-        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+
 
         #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
         layout.addWidget(label1)
         layout.addWidget(label2)
         layout.addWidget(label3)
         layout.addWidget(label4)
-        layout.addWidget(Profit)
+
 
         self.stack1.setLayout(layout)
         
@@ -437,15 +429,14 @@ class grid2(QWidget):
         label4 = QLabel()
         label4.setText("15골드")
         
-        Profit = Label()
-        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+
 
         #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
         layout.addWidget(label1)
         layout.addWidget(label2)
         layout.addWidget(label3)
         layout.addWidget(label4)
-        layout.addWidget(Profit)
+
 
         self.stack1.setLayout(layout)
         
@@ -465,15 +456,14 @@ class grid2(QWidget):
         label4 = QLabel()
         label4.setText("15골드")
         
-        Profit = Label()
-        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+
 
         #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
         layout.addWidget(label1)
         layout.addWidget(label2)
         layout.addWidget(label3)
         layout.addWidget(label4)
-        layout.addWidget(Profit)
+
 
         self.stack1.setLayout(layout)
         
@@ -493,15 +483,14 @@ class grid2(QWidget):
         label4 = QLabel()
         label4.setText("15골드")
         
-        Profit = Label()
-        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+
 
         #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
         layout.addWidget(label1)
         layout.addWidget(label2)
         layout.addWidget(label3)
         layout.addWidget(label4)
-        layout.addWidget(Profit)
+
 
         self.stack1.setLayout(layout)
 
