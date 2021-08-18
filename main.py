@@ -33,6 +33,7 @@ global Q
 Q = str(df_list[0][2])
 print(Q)
 
+#포션
 class grid(QWidget):
     def __init__(self):
         super(grid, self).__init__()
@@ -40,19 +41,23 @@ class grid(QWidget):
         self.leftlist.insertItem(0, '1')
         self.leftlist.insertItem(1, '2')
         self.leftlist.insertItem(2, '3')
+        self.leftlist.insertItem(3, '4')
         
         self.stack1 = QWidget()
         self.stack2 = QWidget()
         self.stack3 = QWidget()
+        self.stack4 = QWidget()
         
-        self.stack1UI()
-        self.stack2UI()
+        self.Healing()
+        self.Rare_Healing()
         self.stack3UI()
+        self.stack4UI()
 
         self.Stack = QStackedWidget(self)
         self.Stack.addWidget(self.stack1)
         self.Stack.addWidget(self.stack2)
         self.Stack.addWidget(self.stack3)
+        self.Stack.addWidget(self.stack4)
 
         hbox = QHBoxLayout(self)
         hbox.addWidget(self.leftlist)
@@ -64,15 +69,15 @@ class grid(QWidget):
         self.setWindowTitle('StackedWidget demo')
         self.show()
     
-    def stack1UI(self):
-
+    #회복약
+    def Healing(self):
         layout = QFormLayout()
 
         label1 = QLabel()
         label1.setText("회복약\n")
 
         label2 = QLabel()
-        label2.setText("수줍은 들꽃x5 - "+ Q+"골드")
+        label2.setText("수줍은 들꽃x5 - " + "골드")
 
         label3 = QLabel()
         label3.setText("들꽃x10")
@@ -94,32 +99,107 @@ class grid(QWidget):
         layout.addWidget(label3)
         layout.addWidget(label4)
         layout.addWidget(label5)
+        layout.addWidget(Profit)
 
         self.stack1.setLayout(layout)
-        # self.setTabText(0,"Contact Details")
-
-    def stack2UI(self):
+        
+    #고급 회복약
+    def Rare_Healing (self):
         layout = QFormLayout()
-        sex = QHBoxLayout()
-        sex.addWidget(QRadioButton("Male"))
-        sex.addWidget(QRadioButton("Female"))
-        layout.addRow(QLabel("Sex"), sex)
-        layout.addRow("Date of Birth", QLineEdit())
-        self.stack2.setLayout(layout)
+
+        label1 = QLabel()
+        label1.setText("고급 회복약\n")
+
+        label2 = QLabel()
+        label2.setText("수줍은 들꽃x9 - " + "골드")
+
+        label3 = QLabel()
+        label3.setText("들꽃x18")
+
+        label4 = QLabel()
+        label5.setText("15골드")
+        
+        Profit = Label()
+        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+
+        
+        #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
+        layout.addWidget(label1)
+        layout.addWidget(label2)
+        layout.addWidget(label3)
+        layout.addWidget(label4)
+        layout.addWidget(Profit)
+
+        self.stack1.setLayout(layout)
 
 
-    def stack3UI(self):
-        layout = QHBoxLayout()
-        layout.addWidget(QLabel("subjects"))
-        layout.addWidget(QCheckBox("Physics"))
-        layout.addWidget(QCheckBox("Maths"))
-        self.stack3.setLayout(layout)
+
+    def Spirit_Healing(self):
+        layout = QFormLayout()
+
+        label1 = QLabel()
+        label1.setText("정령의 회복약\n")
+
+        label2 = QLabel()
+        label2.setText("화사한 들꽃x6 - " + "골드")
+
+        label3 = QLabel()
+        label3.setText("수줍은 들꽃x24")
+
+        label4 = QLabel()
+        label4.setText('들꽃x48')
+
+        label5 = QLabel()
+        label5.setText("30골드")
+        
+        Profit = Label()
+        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+
+        
+        #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
+        layout.addWidget(label1)
+        layout.addWidget(label2)
+        layout.addWidget(label3)
+        layout.addWidget(label4)
+        layout.addWidget(label5)
+        layout.addWidget(Profit)
+
+        self.stack1.setLayout(layout)
+
+        
+    def S_Spirit_Healing(self):
+        layout = QFormLayout()
+
+        label1 = QLabel()
+        label1.setText("고급 정령의 회복약\n")
+
+        label2 = QLabel()
+        label2.setText("정령의 회복약x3 - " + "골드")
+
+        label3 = QLabel()
+        label3.setText("화사한 들꽃x8")
+
+        label4 = QLabel()
+        label5.setText("30골드")
+        
+        Profit = Label()
+        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+
+        #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
+        layout.addWidget(label1)
+        layout.addWidget(label2)
+        layout.addWidget(label3)
+        layout.addWidget(label4)
+        layout.addWidget(Profit)
+
+        self.stack1.setLayout(layout)
+
 
 
     def display(self, i):
         self.Stack.setCurrentIndex(i)
 
-#2번탭 
+#버프 아이템
 class grid2(QWidget):
     def __init__(self):
         super(grid2, self).__init__()
@@ -170,20 +250,264 @@ class grid2(QWidget):
         self.setWindowTitle('StackedWidget demo')
         self.show()
     
-    #조합식 적기
-    def stack1UI(self):
+    #보호 물약
+    def Protection(self):
         layout = QFormLayout()
-        layout.addRow("Name", QLineEdit())
-        layout.addRow("Address", QLineEdit())
-        # self.setTabText(0,"Contact Details")
-        label = QLabel()
-        label.setText(Q)
-        layout.addWidget(label)
+
+        label1 = QLabel()
+        label1.setText("보호 물약\n")
+
+        label2 = QLabel()
+        label2.setText("화려한 버섯x4 - " + "골드")
+
+        label3 = QLabel()
+        label3.setText("싱싱한 버섯x16")
+        
+        label4 = QLabel()
+        label4.setText("투박한 버섯x32")
+        
+        label5 = QLabel()
+        label5.setText("희귀한 유물x5")
+
+        label6 = QLabel()
+        label6.setText("15골드")
+        
+        Profit = Label()
+        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+
+        #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
+        layout.addWidget(label1)
+        layout.addWidget(label2)
+        layout.addWidget(label3)
+        layout.addWidget(label4)
+        layout.addWidget(Profit)
+
         self.stack1.setLayout(layout)
 
+    #진군의 깃발
+    def Flag(self):
+        layout = QFormLayout()
+
+        label1 = QLabel()
+        label1.setText("진군의 깃발\n")
+
+        label2 = QLabel()
+        label2.setText("화려한 버섯x4 - " + "골드")
+
+        label3 = QLabel()
+        label3.setText("투박한 버섯x38")
+        
+        label4 = QLabel()
+        label4.setText("자연산 진주x8")
+
+        label5 = QLabel()
+        label5.setText("15골드")
+        
+        Profit = Label()
+        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+
+        #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
+        layout.addWidget(label1)
+        layout.addWidget(label2)
+        layout.addWidget(label3)
+        layout.addWidget(label4)
+        layout.addWidget(Profit)
+
+        self.stack1.setLayout(layout)
+        
+    #신속 로브
+    def Quick(self):
+        layout = QFormLayout()
+
+        label1 = QLabel()
+        label1.setText("신속 로브\n")
+
+        label2 = QLabel()
+        label2.setText("질간 가죽x22 - " + "골드")
+
+        label3 = QLabel()
+        label3.setText("수줍은 들꽃x17")
+        
+        label4 = QLabel()
+        label4.setText("들꽃x27")
+        
+
+        label5 = QLabel()
+        label5.setText("15골드")
+        
+        Profit = Label()
+        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+
+        #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
+        layout.addWidget(label1)
+        layout.addWidget(label2)
+        layout.addWidget(label3)
+        layout.addWidget(label4)
+        layout.addWidget(Profit)
+
+        self.stack1.setLayout(layout)
+        
+    #각성 물약
+    def Arousal(self):
+        layout = QFormLayout()
+
+        label1 = QLabel()
+        label1.setText("각성 물약\n")
+
+        label2 = QLabel()
+        label2.setText("화려한 버섯x5 - " + "골드")
+
+        label3 = QLabel()
+        label3.setText("싱싱한 버섯x20")
+        
+        label4 = QLabel()
+        label4.setText("투박한 버섯x40")
+        
+        label5 = QLabel()
+        label5.setText("희귀한 유물x4")
+        
+        label6 = QLabel()
+        label6.setText("튼튼한 목재x2")
+
+        label7 = QLabel()
+        label7.setText("15골드")
+        
+        Profit = Label()
+        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+
+        #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
+        layout.addWidget(label1)
+        layout.addWidget(label2)
+        layout.addWidget(label3)
+        layout.addWidget(label4)
+        layout.addWidget(Profit)
+
+        self.stack1.setLayout(layout)
+        
+    #아드로핀 물약
+    def Atropine(self):
+        layout = QFormLayout()
+
+        label1 = QLabel()
+        label1.setText("아드로핀 물약\n")
+
+        label2 = QLabel()
+        label2.setText("화사한 들꽃x6 - " + "골드")
+
+        label3 = QLabel()
+        label3.setText("수줍은 들꽃x24")
+        
+        label4 = QLabel()
+        label4.setText("들꽃x48")
+        
+        label5 = QLabel()
+        label5.setText("희귀한 유물x2")
+        
+        label6 = QLabel()
+        label6.setText("단단한 철광석x2")
+
+        label7 = QLabel()
+        label7.setText("30골드")
+        
+        Profit = Label()
+        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+
+        #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
+        layout.addWidget(label1)
+        layout.addWidget(label2)
+        layout.addWidget(label3)
+        layout.addWidget(label4)
+        layout.addWidget(Profit)
+
+        self.stack1.setLayout(layout)
+        
+    #빛나는 보호 물약
+    def S_Protection(self):
+        layout = QFormLayout()
+
+        label1 = QLabel()
+        label1.setText("빛나는 보호 물약\n")
+
+        label2 = QLabel()
+        label2.setText("보호 물약x3 - " + "골드")
+
+        label3 = QLabel()
+        label3.setText("화려한 버섯x3")
+
+        label4 = QLabel()
+        label4.setText("15골드")
+        
+        Profit = Label()
+        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+
+        #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
+        layout.addWidget(label1)
+        layout.addWidget(label2)
+        layout.addWidget(label3)
+        layout.addWidget(label4)
+        layout.addWidget(Profit)
+
+        self.stack1.setLayout(layout)
+        
+     #빛나는 진군의 깃발
+    def S_Flag(self):
+        layout = QFormLayout()
+
+        label1 = QLabel()
+        label1.setText("빛나는 진군의 깃발\n")
+
+        label2 = QLabel()
+        label2.setText("진군의 깃발x3 - " + "골드")
+
+        label3 = QLabel()
+        label3.setText("화려한 버섯x3")
+      
+        label4 = QLabel()
+        label4.setText("15골드")
+        
+        Profit = Label()
+        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+
+        #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
+        layout.addWidget(label1)
+        layout.addWidget(label2)
+        layout.addWidget(label3)
+        layout.addWidget(label4)
+        layout.addWidget(Profit)
+
+        self.stack1.setLayout(layout)
+        
+     #빛나는 신속 로브
+    def S_Quick(self):
+        layout = QFormLayout()
+
+        label1 = QLabel()
+        label1.setText("빛나는 신속 물약\n")
+
+        label2 = QLabel()
+        label2.setText("신속 로브x3 - " + "골드")
+
+        label3 = QLabel()
+        label3.setText("화려한 버섯x9")
+
+        label4 = QLabel()
+        label4.setText("15골드")
+        
+        Profit = Label()
+        profit.setText("제작템 값*수수료 계산" - "재료값" +"= 이익")
+
+        #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
+        layout.addWidget(label1)
+        layout.addWidget(label2)
+        layout.addWidget(label3)
+        layout.addWidget(label4)
+        layout.addWidget(Profit)
+
+        self.stack1.setLayout(layout)
 
     def display(self, i):
         self.Stack.setCurrentIndex(i)
+    
     
     #수수료    
     def lifting(value):
@@ -194,7 +518,6 @@ class grid2(QWidget):
         return value
       if ((value*0.05)%10 == 0):
         return int(value*0.05)
-        
         
 class MyApp(QMainWindow):
     def __init__(self):
