@@ -27,17 +27,20 @@ def Flash(self):
   label1.setText("섬광 수류탄\n")
 
   label2 = QLabel()
-  label2.setText("수줍은 들꽃x5 - " + "골드")
+  label2.setText("화려한 버섯x3 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("들꽃x10")
+  label3.setText("싱싱한 버섯x12")
 
   label4 = QLabel()
-  label4.setText('실링 x1200')
+  label4.setText("투박한 버섯x24")
   label4.setText(str(df_list[0][2]))
-
+  
   label5 = QLabel()
-  label5.setText("0골드")
+  label5.setText("철광석x5")
+
+  label6 = QLabel()
+  label6.setText("15골드")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -55,18 +58,20 @@ def Flame(self):
   label1.setText("화염 수류탄\n")
 
   label2 = QLabel()
-  label2.setText("수줍은 들꽃x5 - " + "골드")
+  label2.setText("화려한 버섯x3 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("들꽃x10")
+  label3.setText("싱싱한 버섯x12")
 
   label4 = QLabel()
-  label4.setText('실링 x1200')
+  label4.setText("투박한 버섯x24")
   label4.setText(str(df_list[0][2]))
-
+  
   label5 = QLabel()
-  label5.setText("0골드")
+  label5.setText("부드러운 목재x2")
 
+  label6 = QLabel()
+  label6.setText("15골드")
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
@@ -83,17 +88,20 @@ def Cold_Air (self):
   label1.setText("냉기 수류탄\n")
 
   label2 = QLabel()
-  label2.setText("수줍은 들꽃x5 - " + "골드")
+  label2.setText("화려한 버섯x3 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("들꽃x10")
+  label3.setText("싱싱한 버섯x12")
 
   label4 = QLabel()
-  label4.setText('실링 x1200')
+  label4.setText("투박한 버섯x24")
   label4.setText(str(df_list[0][2]))
+  
+  label4 = QLabel()
+  label4.setText("철광석x5")
 
-  label5 = QLabel()
-  label5.setText("0골드")
+  label6 = QLabel()
+  label6.setText("15골드")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -111,17 +119,20 @@ def Electric  (self):
   label1.setText("전기 수류탄\n")
 
   label2 = QLabel()
-  label2.setText("수줍은 들꽃x5 - " + "골드")
+  label2.setText("화려한 버섯x3 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("들꽃x10")
+  label3.setText("싱싱한 버섯x12")
 
   label4 = QLabel()
-  label4.setText('실링 x1200')
+  label4.setText("투박한 버섯x24")
   label4.setText(str(df_list[0][2]))
+  
+  label4 = QLabel()
+  label4.setText("철광석x5")
 
-  label5 = QLabel()
-  label5.setText("0골드")
+  label6 = QLabel()
+  label6.setText("15골드")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -136,20 +147,20 @@ def Dark(self):
   layout = QFormLayout()
 
   label1 = QLabel()
-  label1.setText("엄훅 수류탄\n")
+  label1.setText("암흑 수류탄\n")
 
   label2 = QLabel()
-  label2.setText("수줍은 들꽃x5 - " + "골드")
+  label2.setText("화려한 버섯x3 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("들꽃x10")
+  label3.setText("싱싱한 버섯x12")
 
   label4 = QLabel()
-  label4.setText('실링 x1200')
+  label4.setText("투박한 버섯x24")
   label4.setText(str(df_list[0][2]))
-
+  
   label5 = QLabel()
-  label5.setText("0골드")
+  label5.setText("부드러운 목재x2")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -223,17 +234,19 @@ def Tornado(self):
   label1.setText("회오리 수류탄\n")
 
   label2 = QLabel()
-  label2.setText("수줍은 들꽃x5 - " + "골드")
+  label2.setText("화려한 버섯x3 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("들꽃x10")
+  label3.setText("싱싱한 버섯x12")
 
   label4 = QLabel()
-  label4.setText('실링 x1200')
-  label4.setText(str(df_list[0][2]))
-
+  label4.setText("투박한 버섯x24")
+  
   label5 = QLabel()
-  label5.setText("0골드")
+  label5.setText("철광석x5")
+
+  label6 = QLabel()
+  label6.setText("15골드")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -250,18 +263,21 @@ def Clay(self):
   label1 = QLabel()
   label1.setText("점토 수류탄\n")
 
+
   label2 = QLabel()
-  label2.setText("수줍은 들꽃x5 - " + "골드")
+  label2.setText("화려한 버섯x3 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("들꽃x10")
+  label3.setText("싱싱한 버섯x12")
 
   label4 = QLabel()
-  label4.setText('실링 x1200')
-  label4.setText(str(df_list[0][2]))
-
+  label4.setText("투박한 버섯x24")
+  
   label5 = QLabel()
-  label5.setText("0골드")
+  label5.setText("철광석x5")
+
+  label6 = QLabel()
+  label6.setText("15골드")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -279,17 +295,19 @@ def Sleeping(self):
   label1.setText("수면 폭탄\n")
 
   label2 = QLabel()
-  label2.setText("수줍은 들꽃x5 - " + "골드")
+  label2.setText("화려한 버섯x4 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("들꽃x10")
+  label3.setText("싱싱한 버섯x12")
 
   label4 = QLabel()
-  label4.setText('실링 x1200')
-  label4.setText(str(df_list[0][2]))
-
+  label4.setText('투박한 버섯x32')
+  
   label5 = QLabel()
-  label5.setText("0골드")
+  label5.setText('철광석x10')
+
+  label6 = QLabel()
+  label6.setText("15골드")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -309,17 +327,19 @@ def Holy(self):
   label1.setText("성스러운 폭탄\n")
 
   label2 = QLabel()
-  label2.setText("수줍은 들꽃x5 - " + "골드")
+  label2.setText("화려한 버섯x3 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("들꽃x10")
+  label3.setText("싱싱한 버섯x12")
 
   label4 = QLabel()
-  label4.setText('실링 x1200')
-  label4.setText(str(df_list[0][2]))
-
+  label4.setText('투박한 버섯x24')
+  
   label5 = QLabel()
-  label5.setText("0골드")
+  label5.setText('철광석x3')
+
+  label6 = QLabel()
+  label6.setText("15골드")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -344,7 +364,6 @@ def Destruction (self):
 
   label4 = QLabel()
   label4.setText('실링 x1200')
-  label4.setText(str(df_list[0][2]))
 
   label5 = QLabel()
   label5.setText("0골드")
@@ -365,24 +384,18 @@ def S_Flash (self):
   label1.setText("빛나는 섬광 수류탄\n")
 
   label2 = QLabel()
-  label2.setText("수줍은 들꽃x5 - " + "골드")
+  label2.setText("섬광 수류탄x3 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("들꽃x10")
+  label3.setText("화려한 버섯x4")
 
   label4 = QLabel()
-  label4.setText('실링 x1200')
-  label4.setText(str(df_list[0][2]))
-
-  label5 = QLabel()
-  label5.setText("0골드")
+  label4.setText("15골드")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
-  layout.addWidget(label5)
-  layout.addWidget(profit)
 
   self.stack1.setLayout(layout)
   
@@ -393,17 +406,13 @@ def S_Flame(self):
   label1.setText("빛나는 화염 수류탄\n")
 
   label2 = QLabel()
-  label2.setText("수줍은 들꽃x5 - " + "골드")
+  label2.setText("화염 수류탄x3 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("들꽃x10")
+  label3.setText("화려한 버섯x4")
 
   label4 = QLabel()
-  label4.setText('실링 x1200')
-  label4.setText(str(df_list[0][2]))
-
-  label5 = QLabel()
-  label5.setText("0골드")
+  label4.setText("15골드")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -420,25 +429,19 @@ def S_Cold_Air (self):
   label1 = QLabel()
   label1.setText("빛나는 냉기 수류탄\n")
 
-  label2 = QLabel()
-  label2.setText("수줍은 들꽃x5 - " + "골드")
+ label2 = QLabel()
+  label2.setText("냉기 수류탄x3 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("들꽃x10")
+  label3.setText("화려한 버섯x4")
 
   label4 = QLabel()
-  label4.setText('실링 x1200')
-  label4.setText(str(df_list[0][2]))
-
-  label5 = QLabel()
-  label5.setText("0골드")
+  label4.setText("15골드")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
-  layout.addWidget(label5)
-  layout.addWidget(profit)
 
   self.stack1.setLayout(layout)
   
@@ -449,24 +452,18 @@ def S_Electric (self):
   label1.setText("빛나는 전기 수류탄\n")
 
   label2 = QLabel()
-  label2.setText("수줍은 들꽃x5 - " + "골드")
+  label2.setText("전기 수류탄x3 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("들꽃x10")
+  label3.setText("화려한 버섯x4")
 
   label4 = QLabel()
-  label4.setText('실링 x1200')
-  label4.setText(str(df_list[0][2]))
-
-  label5 = QLabel()
-  label5.setText("0골드")
+  label4.setText("15골드")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
-  layout.addWidget(label5)
-  layout.addWidget(profit)
 
   self.stack1.setLayout(layout)
   
@@ -477,25 +474,18 @@ def S_Clay (self):
   label1.setText("빛나는 점토 수류탄\n")
 
   label2 = QLabel()
-  label2.setText("수줍은 들꽃x5 - " + "골드")
+  label2.setText("점토 수류탄x3 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("들꽃x10")
+  label3.setText("화려한 버섯x4")
 
   label4 = QLabel()
-  label4.setText('실링 x1200')
-  label4.setText(str(df_list[0][2]))
-
-  label5 = QLabel()
-  label5.setText("0골드")
+  label4.setText("15골드")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
-  layout.addWidget(label5)
-  layout.addWidget(profit)
-
   self.stack1.setLayout(layout)  
   
 def S_Tornado  (self):
@@ -504,25 +494,19 @@ def S_Tornado  (self):
   label1 = QLabel()
   label1.setText("빛나는 회오리 수류탄\n")
 
-  label2 = QLabel()
-  label2.setText("수줍은 들꽃x5 - " + "골드")
+ label2 = QLabel()
+  label2.setText("회오리 수류탄x3 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("들꽃x10")
+  label3.setText("화려한 버섯x4")
 
   label4 = QLabel()
-  label4.setText('실링 x1200')
-  label4.setText(str(df_list[0][2]))
-
-  label5 = QLabel()
-  label5.setText("0골드")
+  label4.setText("15골드")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
-  layout.addWidget(label5)
-  layout.addWidget(profit)
 
   self.stack1.setLayout(layout)  
   
@@ -532,19 +516,14 @@ def S_Dark (self):
   label1 = QLabel()
   label1.setText("빛나는 암흑 수류탄\n")
 
-  label2 = QLabel()
-  label2.setText("수줍은 들꽃x5 - " + "골드")
+ label2 = QLabel()
+  label2.setText("암흑 수류탄x3 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("들꽃x10")
+  label3.setText("화려한 버섯x4")
 
   label4 = QLabel()
-  label4.setText('실링 x1200')
-  label4.setText(str(df_list[0][2]))
-
-  label5 = QLabel()
-  label5.setText("0골드")
-
+  label4.setText("15골드")
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
@@ -561,17 +540,13 @@ def S_sleeping(self):
   label1.setText("빛나는 수면 폭탄\n")
 
   label2 = QLabel()
-  label2.setText("수줍은 들꽃x5 - " + "골드")
+  label2.setText("수면 폭탄x3 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("들꽃x10")
-
-  label4 = QLabel()
-  label4.setText('실링 x1200')
-  label4.setText(str(df_list[0][2]))
+  label3.setText("화려한 버섯x2")
 
   label5 = QLabel()
-  label5.setText("0골드")
+  label5.setText("15골드")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
