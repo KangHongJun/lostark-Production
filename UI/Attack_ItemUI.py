@@ -176,20 +176,21 @@ def Corrosion(self):
 
   label1 = QLabel()
   label1.setText("부식 폭탄\n")
-
-  label2 = QLabel()
-  label2.setText("수줍은 들꽃x5 - " + "골드")
+label2 = QLabel()
+  label2.setText("화려한 버섯x4 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("들꽃x10")
+  label3.setText("싱싱한 버섯x12")
 
   label4 = QLabel()
-  label4.setText('실링 x1200')
-  label4.setText(str(df_list[0][2]))
+  label4.setText("투박한 버섯x32")
+  
+  label4 = QLabel()
+  label4.setText("묵직한 철광석x5")
 
-  label5 = QLabel()
-  label5.setText("0골드")
-
+  label6 = QLabel()
+  label6.setText("15골드")
+  
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
@@ -356,17 +357,20 @@ def Destruction (self):
   label1 = QLabel()
   label1.setText("파괴 폭탄\n")
 
-  label2 = QLabel()
-  label2.setText("수줍은 들꽃x5 - " + "골드")
+ label2 = QLabel()
+  label2.setText("화려한 버섯x4 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("들꽃x10")
+  label3.setText("싱싱한 버섯x12")
 
   label4 = QLabel()
-  label4.setText('실링 x1200')
-
+  label4.setText('투박한 버섯x32')
+  
   label5 = QLabel()
-  label5.setText("0골드")
+  label5.setText('묵직한 철광석x6')
+
+  label6 = QLabel()
+  label6.setText("15골드")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -565,17 +569,13 @@ def S_Destruction (self):
   label1.setText("빛나는 파괴 폭탄\n")
 
   label2 = QLabel()
-  label2.setText("수줍은 들꽃x5 - " + "골드")
+  label2.setText("파괴 폭탄x3 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("들꽃x10")
-
-  label4 = QLabel()
-  label4.setText('실링 x1200')
-  label4.setText(str(df_list[0][2]))
+  label3.setText("화려한 버섯x2")
 
   label5 = QLabel()
-  label5.setText("0골드")
+  label5.setText("15골드")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
