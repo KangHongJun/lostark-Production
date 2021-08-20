@@ -2,7 +2,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-def Assistance:
+def Assistance():
     A_url='https://lostark.game.onstove.com/Market/List_v2?firstCategory=60000&secondCategory=60000&characterClass=&tier=0&grade=99&itemName=&pageNo=1&isInit=false&sortType=1&_=1627911349466'
    
     response = requests.get(A_url)
