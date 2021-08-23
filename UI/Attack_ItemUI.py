@@ -15,9 +15,12 @@ Life_list = Life.values.tolist()
 
 #read db Attack_item
 conn = sqlite3.connect("Attack_item.db")
-attack = pd.read_sql("SELECT * FROM Attack_item",conn,index_col=None)
-attack_list = attack.values.tolist()
-
+Attack = pd.read_sql("SELECT * FROM Attack_item",conn,index_col=None)
+Attack_list = Attack.values.tolist()
+  
+class Get_Profit():
+  def four(self,x,y,z,p):
+    return x+y+z+p
   
   
 def Flash(self):
@@ -27,7 +30,7 @@ def Flash(self):
   label1.setText("섬광 수류탄\n")
 
   label2 = QLabel()
-  label2.setText("화려한 버섯x3 - " + "골드")
+  label2.setText("화려한 버섯x3 - " + "골드") 
 
   label3 = QLabel()
   label3.setText("싱싱한 버섯x12")
@@ -41,12 +44,18 @@ def Flash(self):
 
   label6 = QLabel()
   label6.setText("15골드")
+  
+  propit = QLabel()
+  get = Get_Profit()
+  get = get.four(Life_list[2][11], Life_list[2][10], Life_list[2][9], Life_list[2][20])
+  propit.setText("제작템-수수료 - get = 이익금")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
   layout.addWidget(label5)
+  layout.addWidget(label6)
   layout.addWidget(profit)
 
   self.stack1.setLayout(layout)
@@ -72,11 +81,18 @@ def Flame(self):
 
   label6 = QLabel()
   label6.setText("15골드")
+  
+  propit = QLabel()
+  get = Get_Profit()
+  get = get.four(Life_list[2][11], Life_list[2][10], Life_list[2][9], Life_list[2][18])
+  propit.setText("제작템-수수료 - get = 이익금")
+  
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
   layout.addWidget(label5)
+  layout.addWidget(label6)
   layout.addWidget(profit)
 
   self.stack1.setLayout(layout)
@@ -97,17 +113,23 @@ def Cold_Air (self):
   label4.setText("투박한 버섯x24")
   label4.setText(str(df_list[0][2]))
   
-  label4 = QLabel()
-  label4.setText("철광석x5")
+  label5 = QLabel()
+  label5.setText("철광석x5")
 
   label6 = QLabel()
   label6.setText("15골드")
+  
+  propit = QLabel()
+  get = Get_Profit()
+  get = get.four(Life_list[2][11], Life_list[2][10], Life_list[2][9], Life_list[2][20])
+  propit.setText("제작템-수수료 - get = 이익금")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
   layout.addWidget(label5)
+  layout.addWidget(label6)
   layout.addWidget(profit)
 
   self.stack1.setLayout(layout)
@@ -126,19 +148,24 @@ def Electric  (self):
 
   label4 = QLabel()
   label4.setText("투박한 버섯x24")
-  label4.setText(str(df_list[0][2]))
   
-  label4 = QLabel()
-  label4.setText("철광석x5")
+  label5 = QLabel()
+  label5.setText("철광석x5")
 
   label6 = QLabel()
   label6.setText("15골드")
+  
+  propit = QLabel()
+  get = Get_Profit()
+  get = get.four(Life_list[2][11], Life_list[2][10], Life_list[2][9], Life_list[2][20])
+  propit.setText("제작템-수수료 - get = 이익금")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
   layout.addWidget(label5)
+  layout.addWidget(label6)
   layout.addWidget(profit)
 
   self.stack1.setLayout(layout)      
@@ -157,10 +184,14 @@ def Dark(self):
 
   label4 = QLabel()
   label4.setText("투박한 버섯x24")
-  label4.setText(str(df_list[0][2]))
   
   label5 = QLabel()
-  label5.setText("부드러운 목재x2")
+  label5.setText("부드러운 목재x3")
+  
+  propit = QLabel()
+  get = Get_Profit()
+  get = get.four(Life_list[2][11], Life_list[2][10], Life_list[2][9], Life_list[2][18])
+  propit.setText("제작템-수수료 - get = 이익금")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -176,7 +207,8 @@ def Corrosion(self):
 
   label1 = QLabel()
   label1.setText("부식 폭탄\n")
-label2 = QLabel()
+  
+  label2 = QLabel()
   label2.setText("화려한 버섯x4 - " + "골드")
 
   label3 = QLabel()
@@ -185,17 +217,23 @@ label2 = QLabel()
   label4 = QLabel()
   label4.setText("투박한 버섯x32")
   
-  label4 = QLabel()
-  label4.setText("묵직한 철광석x5")
+  label5 = QLabel()
+  label5.setText("묵직한 철광석x6")
 
   label6 = QLabel()
   label6.setText("15골드")
+  
+  propit = QLabel()
+  get = Get_Profit()
+  get = get.four(Life_list[2][11], Life_list[2][10], Life_list[2][9], Life_list[2][21])
+  propit.setText("제작템-수수료 - get = 이익금")
   
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
   layout.addWidget(label5)
+  layout.addWidget(label6)
   layout.addWidget(profit)
 
   self.stack1.setLayout(layout)
@@ -207,23 +245,31 @@ def Thunder(self):
   label1.setText("천둥 물약\n")
 
   label2 = QLabel()
-  label2.setText("수줍은 들꽃x5 - " + "골드")
+  label2.setText("화려한 버섯x4 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("들꽃x10")
+  label3.setText("싱싱한 버섯x16")
 
   label4 = QLabel()
-  label4.setText('실링 x1200')
-  label4.setText(str(df_list[0][2]))
-
+  label4.setText("투박한 버섯x32")
+  
   label5 = QLabel()
-  label5.setText("0골드")
+  label5.setText("희귀한 유물x5")
 
+  label6 = QLabel()
+  label6.setText("15골드")
+  
+  propit = QLabel()
+  get = Get_Profit()
+  get = get.four(Life_list[2][11], Life_list[2][10], Life_list[2][9], Life_list[2][25])
+  propit.setText("제작템-수수료 - get = 이익금")
+  
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
   layout.addWidget(label5)
+  layout.addWidget(label6)
   layout.addWidget(profit)
 
   self.stack1.setLayout(layout)
@@ -248,6 +294,11 @@ def Tornado(self):
 
   label6 = QLabel()
   label6.setText("15골드")
+  
+  propit = QLabel()
+  get = Get_Profit()
+  get = get.four(Life_list[2][11], Life_list[2][10], Life_list[2][9], Life_list[2][20])
+  propit.setText("제작템-수수료 - get = 이익금")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -279,6 +330,11 @@ def Clay(self):
 
   label6 = QLabel()
   label6.setText("15골드")
+  
+  propit = QLabel()
+  get = Get_Profit()
+  get = get.four(Life_list[2][11], Life_list[2][10], Life_list[2][9], Life_list[2][20])
+  propit.setText("제작템-수수료 - get = 이익금")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -309,12 +365,18 @@ def Sleeping(self):
 
   label6 = QLabel()
   label6.setText("15골드")
+  
+  propit = QLabel()
+  get = Get_Profit()
+  get = get.four(Life_list[2][11], Life_list[2][10], Life_list[2][9], Life_list[2][20])
+  propit.setText("제작템-수수료 - get = 이익금")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
   layout.addWidget(label5)
+  layout.addWidget(label6)
   layout.addWidget(profit)
 
   self.stack1.setLayout(layout)  
@@ -341,12 +403,18 @@ def Holy(self):
 
   label6 = QLabel()
   label6.setText("15골드")
+  
+  propit = QLabel()
+  get = Get_Profit()
+  get = get.four(Life_list[2][11], Life_list[2][10], Life_list[2][9], Life_list[2][20])
+  propit.setText("제작템-수수료 - get = 이익금")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
   layout.addWidget(label5)
+  layout.addWidget(label6)
   layout.addWidget(profit)
 
   self.stack1.setLayout(layout)
@@ -371,12 +439,18 @@ def Destruction (self):
 
   label6 = QLabel()
   label6.setText("15골드")
+  
+  propit = QLabel()
+  get = Get_Profit()
+  get = get.four(Life_list[2][11], Life_list[2][10], Life_list[2][9], Life_list[2][21])
+  propit.setText("제작템-수수료 - get = 이익금")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
   layout.addWidget(label5)
+  layout.addWidget(label6)
   layout.addWidget(profit)
 
   self.stack1.setLayout(layout)
@@ -395,6 +469,11 @@ def S_Flash (self):
 
   label4 = QLabel()
   label4.setText("15골드")
+  
+  propit = QLabel()
+  get = Get_Profit()
+  get = get.four()
+  propit.setText("제작템-수수료 - get = 이익금")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -417,6 +496,11 @@ def S_Flame(self):
 
   label4 = QLabel()
   label4.setText("15골드")
+  
+  propit = QLabel()
+  get = Get_Profit()
+  get = get.four(Life_list[2][11])
+  propit.setText("제작템-수수료 - get = 이익금")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -441,6 +525,11 @@ def S_Cold_Air (self):
 
   label4 = QLabel()
   label4.setText("15골드")
+  
+  propit = QLabel()
+  get = Get_Profit()
+  get = get.four(Life_list[2][11])
+  propit.setText("제작템-수수료 - get = 이익금")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -463,6 +552,11 @@ def S_Electric (self):
 
   label4 = QLabel()
   label4.setText("15골드")
+  
+  propit = QLabel()
+  get = Get_Profit()
+  get = get.four(Life_list[2][11])
+  propit.setText("제작템-수수료 - get = 이익금")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -485,6 +579,11 @@ def S_Clay (self):
 
   label4 = QLabel()
   label4.setText("15골드")
+  
+  propit = QLabel()
+  get = Get_Profit()
+  get = get.four(Life_list[2][11])
+  propit.setText("제작템-수수료 - get = 이익금")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -498,7 +597,7 @@ def S_Tornado  (self):
   label1 = QLabel()
   label1.setText("빛나는 회오리 수류탄\n")
 
- label2 = QLabel()
+  label2 = QLabel()
   label2.setText("회오리 수류탄x3 - " + "골드")
 
   label3 = QLabel()
@@ -506,6 +605,11 @@ def S_Tornado  (self):
 
   label4 = QLabel()
   label4.setText("15골드")
+  
+  propit = QLabel()
+  get = Get_Profit()
+  get = get.four(Life_list[2][11])
+  propit.setText("제작템-수수료 - get = 이익금")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -520,7 +624,7 @@ def S_Dark (self):
   label1 = QLabel()
   label1.setText("빛나는 암흑 수류탄\n")
 
- label2 = QLabel()
+  label2 = QLabel()
   label2.setText("암흑 수류탄x3 - " + "골드")
 
   label3 = QLabel()
@@ -528,6 +632,12 @@ def S_Dark (self):
 
   label4 = QLabel()
   label4.setText("15골드")
+  
+  propit = QLabel()
+  get = Get_Profit()
+  get = get.four(Life_list[2][11])
+  propit.setText("제작템-수수료 - get = 이익금")
+  
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
@@ -551,6 +661,11 @@ def S_sleeping(self):
 
   label5 = QLabel()
   label5.setText("15골드")
+  
+  propit = QLabel()
+  get = Get_Profit()
+  get = get.four(Life_list[2][11])
+  propit.setText("제작템-수수료 - get = 이익금")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -576,6 +691,11 @@ def S_Destruction (self):
 
   label5 = QLabel()
   label5.setText("15골드")
+  
+  propit = QLabel()
+  get = Get_Profit()
+  get = get.four(Life_list[2][11])
+  propit.setText("제작템-수수료 - get = 이익금")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -604,6 +724,11 @@ def S_Corrosion (self):
 
   label5 = QLabel()
   label5.setText("0골드")
+  
+  propit = QLabel()
+  get = Get_Profit()
+  get = get.four(Life_list[2][6], Life_list[2][7])
+  propit.setText("제작템-수수료 - get = 이익금")
 
   layout.addWidget(label1)
   layout.addWidget(label2)
