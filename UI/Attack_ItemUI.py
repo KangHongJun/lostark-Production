@@ -49,6 +49,8 @@ def Set_Profit(val,get):
   text = str(val) + "(" + str(Lift_val) +")" + "-" + str(get) + "=" + str(Lift_val - get)
   return text
   
+  
+#class 추가 고민  
 def Flash(self):
   layout = QFormLayout()
 
