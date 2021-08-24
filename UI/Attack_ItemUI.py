@@ -3,6 +3,7 @@ import pandas as pd
 from pandas import Series, DataFrame
 from multipledispatch import dispatch
 from PyQt5.QtWidgets import *
+import sqlite3
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 
@@ -74,8 +75,8 @@ def Flash(self):
   
   propit = QLabel()
   get = Get_Profit()
-  get = get.four(Life_list[10]21], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
-  propit.setText(Set_Profit(Attack_list[0][2]), get)
+  #get = get.pri(Life_list[10][21], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
+  #propit.setText(Set_Profit(Attack_list[0][2]), 1)
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -83,7 +84,7 @@ def Flash(self):
   layout.addWidget(label4)
   layout.addWidget(label5)
   layout.addWidget(label6)
-  layout.addWidget(profit)
+  #layout.addWidget(propit)
 
   self.stack1.setLayout(layout)
 
@@ -119,7 +120,7 @@ def Flame(self):
   layout.addWidget(label4)
   layout.addWidget(label5)
   layout.addWidget(label6)
-  layout.addWidget(profit)
+  layout.addWidget(propit)
 
   self.stack1.setLayout(layout)
 
@@ -155,7 +156,7 @@ def Cold_Air (self):
   layout.addWidget(label4)
   layout.addWidget(label5)
   layout.addWidget(label6)
-  layout.addWidget(profit)
+  layout.addWidget(propit)
 
   self.stack1.setLayout(layout)
 
@@ -192,7 +193,7 @@ def Electric  (self):
   layout.addWidget(label4)
   layout.addWidget(label5)
   layout.addWidget(label6)
-  layout.addWidget(profit)
+  layout.addWidget(propit)
 
   self.stack1.setLayout(layout)      
 
@@ -227,8 +228,7 @@ def Dark(self):
   layout.addWidget(label3)
   layout.addWidget(label4)
   layout.addWidget(label5)
-  layout.addWidget(label6)
-  layout.addWidget(profit)
+  layout.addWidget(propit)
 
   self.stack1.setLayout(layout)
 
@@ -264,7 +264,7 @@ def Corrosion(self):
   layout.addWidget(label4)
   layout.addWidget(label5)
   layout.addWidget(label6)
-  layout.addWidget(profit)
+  layout.addWidget(propit)
 
   self.stack1.setLayout(layout)
 
@@ -300,7 +300,7 @@ def Thunder(self):
   layout.addWidget(label4)
   layout.addWidget(label5)
   layout.addWidget(label6)
-  layout.addWidget(profit)
+  layout.addWidget(propit)
 
   self.stack1.setLayout(layout)
 
@@ -328,14 +328,14 @@ def Tornado(self):
   propit = QLabel()
   get = Get_Profit()
   get = get.four(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
- propit.setText(Set_Profit(Attack_list[7][2]), get)
+  propit.setText(Set_Profit(Attack_list[7][2]), get)
 
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
   layout.addWidget(label5)
-  layout.addWidget(profit)
+  layout.addWidget(propit)
 
   self.stack1.setLayout(layout)
 
@@ -371,7 +371,7 @@ def Clay(self):
   layout.addWidget(label3)
   layout.addWidget(label4)
   layout.addWidget(label5)
-  layout.addWidget(profit)
+  layout.addWidget(propit)
 
   self.stack1.setLayout(layout)     
 
@@ -407,7 +407,7 @@ def Sleeping(self):
   layout.addWidget(label4)
   layout.addWidget(label5)
   layout.addWidget(label6)
-  layout.addWidget(profit)
+  layout.addWidget(propit)
 
   self.stack1.setLayout(layout)  
   
@@ -445,7 +445,7 @@ def Holy(self):
   layout.addWidget(label4)
   layout.addWidget(label5)
   layout.addWidget(label6)
-  layout.addWidget(profit)
+  layout.addWidget(propit)
 
   self.stack1.setLayout(layout)
   
@@ -455,7 +455,7 @@ def Destruction (self):
   label1 = QLabel()
   label1.setText("파괴 폭탄\n")
 
- label2 = QLabel()
+  label2 = QLabel()
   label2.setText("화려한 버섯x4 - " + "골드")
 
   label3 = QLabel()
@@ -481,7 +481,7 @@ def Destruction (self):
   layout.addWidget(label4)
   layout.addWidget(label5)
   layout.addWidget(label6)
-  layout.addWidget(profit)
+  layout.addWidget(propit)
 
   self.stack1.setLayout(layout)
   
@@ -536,8 +536,7 @@ def S_Flame(self):
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
-  layout.addWidget(label5)
-  layout.addWidget(profit)
+  layout.addWidget(propit)
 
   self.stack1.setLayout(layout)
   
@@ -547,11 +546,11 @@ def S_Cold_Air (self):
   label1 = QLabel()
   label1.setText("빛나는 냉기 수류탄\n")
 
- label2 = QLabel()
+  label2 = QLabel()
   label2.setText("냉기 수류탄x3 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("화려한 버섯x4")ㅇ
+  label3.setText("화려한 버섯x4")
 
   label4 = QLabel()
   label4.setText("15골드")
@@ -674,8 +673,7 @@ def S_Dark (self):
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
-  layout.addWidget(label5)
-  layout.addWidget(profit)
+  layout.addWidget(propit)
 
   self.stack1.setLayout(layout)    
   
@@ -702,9 +700,8 @@ def S_sleeping(self):
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
-  layout.addWidget(label4)
   layout.addWidget(label5)
-  layout.addWidget(profit)
+  layout.addWidget(propit)
 
   self.stack1.setLayout(layout)      
   
@@ -732,9 +729,8 @@ def S_Destruction (self):
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
-  layout.addWidget(label4)
   layout.addWidget(label5)
-  layout.addWidget(profit)
+  layout.addWidget(propit)
 
   self.stack1.setLayout(layout)     
   
@@ -762,7 +758,7 @@ def S_Corrosion (self):
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
-  layout.addWidget(profit)
+  layout.addWidget(propit)
 
   self.stack1.setLayout(layout)    
   
@@ -790,8 +786,7 @@ def S_Holy(self):
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
-  layout.addWidget(label5)
-  layout.addWidget(profit)
+  layout.addWidget(propit)
 
   self.stack1.setLayout(layout)      
 

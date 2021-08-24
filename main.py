@@ -599,7 +599,7 @@ class grid(QWidget):
         layout.addWidget(label4)
         layout.addWidget(profit)
 
-        self.stack1.setLayout(layout)
+        self.stack2.setLayout(layout)
 
 
 
@@ -669,14 +669,20 @@ class grid2(QWidget):
     def __init__(self):
         super(grid2, self).__init__()
 
-        self.Protection()
-        self.Flag()
-        self.Quick()
+        self.leftlist = QListWidget()
+        self.leftlist.insertItem(0, '1')
+        self.leftlist.insertItem(1, '2')
+        self.leftlist.insertItem(2, '3')
+        self.leftlist.insertItem(3, '4')
+
+        self.stack1 = QWidget()
+
+        Attack_ItemUI.Flash(self)
+
+
 
         self.Stack = QStackedWidget(self)
         self.Stack.addWidget(self.stack1)
-        self.Stack.addWidget(self.stack2)
-        self.Stack.addWidget(self.stack3)
 
         hbox = QHBoxLayout(self)
         hbox.addWidget(self.leftlist)
@@ -688,9 +694,8 @@ class grid2(QWidget):
         self.setWindowTitle('StackedWidget demo')
         self.show()
         
-        
-    def Flash(self):
-        Attack_ItemUI.Flash()
+
+
         
 
     

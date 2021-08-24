@@ -6,11 +6,14 @@ import sqlite3
 
 
 def Attack():
-    A_url1 = 'https://lostark.game.onstove.com/Market/List_v2?firstCategory=60000&secondCategory=60300&characterClass=&tier=0&grade=99&itemName=&pageNo=1&isInit=false&sortType=1&_=1627911349464'
+    A_url1 = 'https://lostark.game.onstove.com/Market/List_v2?firstCategory=60000&secondCategory=60300&characterClass=&tier=0&grade=99' \
+             '&itemName=&pageNo=1&isInit=false&sortType=1&_=1627911349464'
     print(A_url1)
-    A_url2 = 'https://lostark.game.onstove.com/Market/List_v2?firstCategory=60000&secondCategory=60300&characterClass=&tier=0&grade=99&itemName=&pageNo=2&isInit=false&sortType=1&_=1627911349464'
+    A_url2 = 'https://lostark.game.onstove.com/Market/List_v2?firstCategory=60000&secondCategory=60300&characterClass=&tier=0&grade=99' \
+             '&itemName=&pageNo=2&isInit=false&sortType=1&_=1627911349464'
 
-    A_url3 = 'https://lostark.game.onstove.com/Market/List_v2?firstCategory=60000&secondCategory=60300&characterClass=&tier=0&grade=99&itemName=&pageNo=3&isInit=false&sortType=1&_=1627911349464'
+    A_url3 = 'https://lostark.game.onstove.com/Market/List_v2?firstCategory=60000&secondCategory=60300&characterClass=&tier=0&grade=99' \
+             '&itemName=&pageNo=3&isInit=false&sortType=1&_=1627911349464'
 
     response1 = requests.get(A_url1)
     response2 = requests.get(A_url2)
@@ -146,14 +149,14 @@ def Attack():
     S_Corrosion = int(S_Corrosion.text)
 
     # 빛나는 성스러운 폭탄
-    S_Holy = soup3.select_one('#tbodyItemList > tr:nth-child(3) > td:nth-child(4) > div > em')
-    S_Holy = int(S_Holy.text)
+    #S_Holy = soup3.select_one('#tbodyItemList > tr:nth-child(3) > td:nth-child(4) > div > em')
+    #S_Holy = int(S_Holy.text)
 
     con = sqlite3.connect("Attack_item.db")
     cursor = con.cursor()
     cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 21", (S_Destruction,))
     cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 22", (S_Corrosion,))
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 33", (S_Holy,))
+    #cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 23", (S_Holy,))
     con.commit()
 
 
