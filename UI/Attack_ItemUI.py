@@ -43,7 +43,7 @@ def Lifting(value):
   if ((value*0.05)%10 == 0):
     return int(value*0.05)  
   
-#  Attack_list[0][2] + + "-"+ get "제작템-수수료 - get = 이익금"
+#템 값(수수료빠진 값) - 재료값 = 이익
 def Set_Profit(val,get):
   Lift_val = Lifting(val)
   text = str(val) + "(" + str(Lift_val) +")" + "-" + str(get) + "=" + str(Lift_val - get)
