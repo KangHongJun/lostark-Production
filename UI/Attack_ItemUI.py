@@ -19,20 +19,28 @@ Life_list = Life.values.tolist()
 conn = sqlite3.connect("Attack_item.db")
 Attack = pd.read_sql("SELECT * FROM Attack_item",conn,index_col=None)
 Attack_list = Attack.values.tolist()
-  
-class Get_Profit():
+
+#class Material_price를 아래의 수수료 / 이익금 까지 넣을지 고민
+
+#재료값*개수 + ..., 조합비)
+class Material_price():
+  @dispatch(int, int, int, int, int, int, int, int, int, int, int)
+  def Mprice(self,pri(self,Item_one, first, Item_two, second, Item_three, third, Item_four, fourth, Item_five, fifth fee):
+    result = Item_one*first + Item_two*second + Item_three*third + Item_four*fourth + Item_five*fifth + fee
+    return result    
+  @dispatch(int, int, int, int, int, int, int, int, int)
+  def Mprice(self,pri(self,Item_one, first, Item_two, second, Item_three, third, Item_four, fourth, fee):
+    result = Item_one*first + Item_two*second + Item_three*third + Item_four*fourth+fee
+    return result           
+  @dispatch(int, int, int, int, int, int, int)
+  def Mprice(self,pri(self,Item_one, first, Item_two, second, Item_three, third, fee):
+    result = Item_one*first + Item_two*second + Item_three*third + fee
+    return result
+             
   @dispatch(int, int, int, int, int)
-  def pri(self,x,y,z,p):
-    return x+y+z+p
-  @dispatch(int, int, int, int)
-  def pri(self,x,y,z,p):
-    return x+y+z+p
-  @dispatch(int, int, int)
-  def pri(self,x,y,z,p):
-    return x+y+z+p
-  @dispatch(int, int)
-  def pri(self,x,y):
-    return x+y
+  def Mprice(self,pri(self,Item_one, first, Item_two, second, fee):
+    result = Item_one*first + Item_two*second + fee
+    return result
   
 #수수료    
 def Lifting(value):
@@ -44,10 +52,10 @@ def Lifting(value):
   if ((value*0.05)%10 == 0):
     return int(value*0.05)  
   
-#템 값(수수료빠진 값) - 재료값 = 이익
-def Set_Profit(val,get):
-  Lift_val = Lifting(val)
-  text = str(val) + "(" + str(Lift_val) +")" + "-" + str(get) + "=" + str(Lift_val - get)
+#템 값(수수료빠진 값) - 재료값 = 이익 / 
+def Set_Profit(Item,Mprice):
+  Lift_Item = Lifting(Item)
+  text = str(Item) + "(" + str(Lift_Item) +")" + "-" + str(Mprice) + "=" + str(Lift_Item-Mprice) + "골드"
   return text
   
   
@@ -71,12 +79,12 @@ def Flash(self):
   label5.setText("철광석x5")
 
   label6 = QLabel()
-  label6.setText("15골드")
+  label6.setText("15골드\n")
   
   propit = QLabel()
   get = Get_Profit()
-  #get = get.pri(Life_list[10][21], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
-  #propit.setText(Set_Profit(Attack_list[0][2]), 1)
+  get = get.pri(Life_list[0][21], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
+  propit.setText(Set_Profit(Attack_list[0][2]), get)
 
   layout.addWidget(label1)
   layout.addWidget(label2)
