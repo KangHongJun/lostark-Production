@@ -82,9 +82,9 @@ def Flash(self):
   label6.setText("15골드\n")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.pri(Life_list[0][21], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
-  propit.setText(Set_Profit(Attack_list[0][2]), get)
+  mprice = Material_price()
+  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
+  propit.setText(Set_Profit(Attack_list[0][2]), mprice)
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -92,9 +92,9 @@ def Flash(self):
   layout.addWidget(label4)
   layout.addWidget(label5)
   layout.addWidget(label6)
-  #layout.addWidget(propit)
+  layout.addWidget(propit)
 
-  self.stack1.setLayout(layout)
+  self.flash.setLayout(layout)
 
 def Flame(self):
   layout = QFormLayout()
@@ -118,9 +118,9 @@ def Flame(self):
   label6.setText("15골드")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[17][2],15)
-  propit.setText(Set_Profit(Attack_list[1][2]), get)
+  mprice = Material_price()
+  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[17][2],15))
+  propit.setText(Set_Profit(Attack_list[1][2]), mprice)
   
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -130,9 +130,9 @@ def Flame(self):
   layout.addWidget(label6)
   layout.addWidget(propit)
 
-  self.stack1.setLayout(layout)
+  self.flame.setLayout(layout)
 
-def Cold_Air (self):
+def Cold_Air(self):
   layout = QFormLayout()
 
   label1 = QLabel()
@@ -152,11 +152,11 @@ def Cold_Air (self):
 
   label6 = QLabel()
   label6.setText("15골드")
-  
+             
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
-  propit.setText(Set_Profit(Attack_list[2][2]), get)
+  mprice = Material_price()
+  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
+  propit.setText(Set_Profit(Attack_list[2][2]), mprice)
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -166,9 +166,9 @@ def Cold_Air (self):
   layout.addWidget(label6)
   layout.addWidget(propit)
 
-  self.stack1.setLayout(layout)
+  self.coldair.setLayout(layout)
 
-def Electric  (self):
+def Electric(self):
   layout = QFormLayout()
 
   label1 = QLabel()
@@ -188,13 +188,12 @@ def Electric  (self):
 
   label6 = QLabel()
   label6.setText("15골드")
-  
+             
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
-  propit.setText(Set_Profit(Attack_list[3][2]), get)
-
-
+  mprice = Material_price()
+  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
+  propit.setText(Set_Profit(Attack_list[3][2]), mprice)
+             
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
@@ -203,7 +202,7 @@ def Electric  (self):
   layout.addWidget(label6)
   layout.addWidget(propit)
 
-  self.stack1.setLayout(layout)      
+  self.electric.setLayout(layout)      
 
 def Dark(self):
   layout = QFormLayout()
@@ -227,9 +226,9 @@ def Dark(self):
   label5.setText("15골드")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[17][2],15)
-  propit.setText(Set_Profit(Attack_list[4][2]), get)
+  mprice = Material_price()
+  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[17][2],15)
+  propit.setText(Set_Profit(Attack_list[4][2]), mprice)
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -238,7 +237,7 @@ def Dark(self):
   layout.addWidget(label5)
   layout.addWidget(propit)
 
-  self.stack1.setLayout(layout)
+  self.dark.setLayout(layout)
 
 def Corrosion(self):
   layout = QFormLayout()
@@ -262,9 +261,9 @@ def Corrosion(self):
   label6.setText("15골드")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[20][2],15)
-  propit.setText(Set_Profit(Attack_list[5][2]), get)
+  mprice = Material_price()
+  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[20][2],15)
+  propit.setText(Set_Profit(Attack_list[5][2]), mprice)
   
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -274,7 +273,7 @@ def Corrosion(self):
   layout.addWidget(label6)
   layout.addWidget(propit)
 
-  self.stack1.setLayout(layout)
+  self.corrosion.setLayout(layout)
 
 def Thunder(self):
   layout = QFormLayout()
@@ -298,9 +297,9 @@ def Thunder(self):
   label6.setText("15골드")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[24][2],15)
-  propit.setText(Set_Profit(Attack_list[6][2]), get)
+  mprice = Material_price()
+  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[24][2],15)
+  propit.setText(Set_Profit(Attack_list[6][2]), mprice)
   
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -310,7 +309,7 @@ def Thunder(self):
   layout.addWidget(label6)
   layout.addWidget(propit)
 
-  self.stack1.setLayout(layout)
+  self.thunder.setLayout(layout)
 
 def Tornado(self):
   layout = QFormLayout()
@@ -334,25 +333,25 @@ def Tornado(self):
   label6.setText("15골드")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
-  propit.setText(Set_Profit(Attack_list[7][2]), get)
+  mprice = Material_price()
+  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
+  propit.setText(Set_Profit(Attack_list[7][2]), mprice)
 
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
   layout.addWidget(label5)
+  layout.addWidget(label6)           
   layout.addWidget(propit)
 
-  self.stack1.setLayout(layout)
+  self.Tornado.setLayout(layout)
 
 def Clay(self):
   layout = QFormLayout()
 
   label1 = QLabel()
   label1.setText("점토 수류탄\n")
-
 
   label2 = QLabel()
   label2.setText("화려한 버섯x3 - " + "골드")
@@ -370,9 +369,9 @@ def Clay(self):
   label6.setText("15골드")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
-  propit.setText(Set_Profit(Attack_list[8][2]), get)
+  mprice = Material_price()
+  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
+  propit.setText(Set_Profit(Attack_list[8][2]), mprice)
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -381,7 +380,7 @@ def Clay(self):
   layout.addWidget(label5)
   layout.addWidget(propit)
 
-  self.stack1.setLayout(layout)     
+  self.clay.setLayout(layout)     
 
 def Sleeping(self):
   layout = QFormLayout()
@@ -405,9 +404,9 @@ def Sleeping(self):
   label6.setText("15골드")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
-  propit.setText(Set_Profit(Attack_list[9][2]), get)
+  mprice = Material_price()
+  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
+  propit.setText(Set_Profit(Attack_list[9][2]), mprice)
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -417,10 +416,8 @@ def Sleeping(self):
   layout.addWidget(label6)
   layout.addWidget(propit)
 
-  self.stack1.setLayout(layout)  
+  self.sleeping.setLayout(layout)  
   
-
-##  
 def Holy(self):
   layout = QFormLayout()
 
@@ -443,9 +440,9 @@ def Holy(self):
   label6.setText("15골드")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
-  propit.setText(Set_Profit(Attack_list[10][2]), get)
+  mprice = Material_price()
+  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
+  propit.setText(Set_Profit(Attack_list[10][2]), mprice)
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -455,7 +452,7 @@ def Holy(self):
   layout.addWidget(label6)
   layout.addWidget(propit)
 
-  self.stack1.setLayout(layout)
+  self.holy.setLayout(layout)
   
 def Destruction (self):
   layout = QFormLayout()
@@ -479,9 +476,9 @@ def Destruction (self):
   label6.setText("15골드")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[20][2],15)
-  propit.setText(Set_Profit(Attack_list[11][2]), get)
+  mprice = Material_price()
+  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[20][2],15)
+  propit.setText(Set_Profit(Attack_list[11][2]), mprice)
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -491,7 +488,7 @@ def Destruction (self):
   layout.addWidget(label6)
   layout.addWidget(propit)
 
-  self.stack1.setLayout(layout)
+  self.destruction.setLayout(layout)
   
 def S_Flash (self):
   layout = QFormLayout()
@@ -509,8 +506,8 @@ def S_Flash (self):
   label4.setText("15골드")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Attack_list[0][2],Life_list[10][2],15)
+  mprice = Material_price()
+  mprice = mprice.Mprice(Attack_list[0][2],Life_list[10][2],15)
   propit.setText(Set_Profit(Attack_list[12][2]), get)
 
   layout.addWidget(label1)
@@ -518,7 +515,7 @@ def S_Flash (self):
   layout.addWidget(label3)
   layout.addWidget(label4)
 
-  self.stack1.setLayout(layout)
+  self.S_flash.setLayout(layout)
   
 def S_Flame(self):
   layout = QFormLayout()
@@ -536,9 +533,9 @@ def S_Flame(self):
   label4.setText("15골드")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Attack_list[1][2],Life_list[10][2],15)
-  propit.setText(Set_Profit(Attack_list[13][2]), get)
+  mprice = Material_price()
+  mprice = mprice.Mprice(Attack_list[1][2],Life_list[10][2],15)
+  propit.setText(Set_Profit(Attack_list[13][2]), mprice)
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -546,7 +543,7 @@ def S_Flame(self):
   layout.addWidget(label4)
   layout.addWidget(propit)
 
-  self.stack1.setLayout(layout)
+  self.S_flame.setLayout(layout)
   
 def S_Cold_Air (self):
   layout = QFormLayout()
@@ -564,16 +561,16 @@ def S_Cold_Air (self):
   label4.setText("15골드")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Attack_list[2][2],Life_list[10][2],15)
-  propit.setText(Set_Profit(Attack_list[14][2]), get)
+  mprice = Material_price()
+  mprice = mprice.Mprice(Attack_list[2][2],Life_list[10][2],15)
+  propit.setText(Set_Profit(Attack_list[14][2]), mprice)
 
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
 
-  self.stack1.setLayout(layout)
+  self.S_coldair.setLayout(layout)
   
 def S_Electric (self):
   layout = QFormLayout()
@@ -591,9 +588,9 @@ def S_Electric (self):
   label4.setText("15골드")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Attack_list[3][2],Life_list[10][2],15)
-  propit.setText(Set_Profit(Attack_list[15][2]), get)
+  mprice = Material_price()
+  mprice = mprice.Mprice(Attack_list[3][2],Life_list[10][2],15)
+  propit.setText(Set_Profit(Attack_list[15][2]), mprice)
 
 
   layout.addWidget(label1)
@@ -601,7 +598,7 @@ def S_Electric (self):
   layout.addWidget(label3)
   layout.addWidget(label4)
 
-  self.stack1.setLayout(layout)
+  self.S_electric.setLayout(layout)
   
 def S_Clay (self):
   layout = QFormLayout()
@@ -619,16 +616,17 @@ def S_Clay (self):
   label4.setText("15골드")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Attack_list[4][2],Life_list[10][2],15)
-  propit.setText(Set_Profit(Attack_list[16][2]), get)
+  mprice = Material_price()
+  mprice = mprice.Mprice(Attack_list[4][2],Life_list[10][2],15)
+  propit.setText(Set_Profit(Attack_list[16][2]), mprice)
 
 
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
-  self.stack1.setLayout(layout)  
+             
+  self.S_clay.setLayout(layout)  
   
 def S_Tornado  (self):
   layout = QFormLayout()
@@ -646,16 +644,16 @@ def S_Tornado  (self):
   label4.setText("15골드")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Attack_list[5][2],Life_list[10][2],15)
-  propit.setText(Set_Profit(Attack_list[17][2]), get)
+  mprice = Material_price()
+  mprice = mprice.Mprice(Attack_list[5][2],Life_list[10][2],15)
+  propit.setText(Set_Profit(Attack_list[17][2]), mprice)
 
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
 
-  self.stack1.setLayout(layout)  
+  self.S_tornado.setLayout(layout)  
   
 def S_Dark (self):
   layout = QFormLayout()
@@ -673,9 +671,9 @@ def S_Dark (self):
   label4.setText("15골드")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Attack_list[6][2],Life_list[10][2],15)
-  propit.setText(Set_Profit(Attack_list[18][2]), get)
+  mprice = Material_price()
+  mprice = mprice.Mprice(Attack_list[6][2],Life_list[10][2],15)
+  propit.setText(Set_Profit(Attack_list[18][2]), mprice)
   
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -683,9 +681,9 @@ def S_Dark (self):
   layout.addWidget(label4)
   layout.addWidget(propit)
 
-  self.stack1.setLayout(layout)    
+  self.S_dark.setLayout(layout)    
   
-def S_sleeping(self):
+def S_Sleeping(self):
   layout = QFormLayout()
 
   label1 = QLabel()
@@ -701,9 +699,9 @@ def S_sleeping(self):
   label5.setText("15골드")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Attack_list[7][2],Life_list[10][2],15)
-  propit.setText(Set_Profit(Attack_list[19][2]), get)
+  mprice = Material_price()
+  mprice = mprice.Mprice(Attack_list[7][2],Life_list[10][2],15)
+  propit.setText(Set_Profit(Attack_list[19][2]), mprice)
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -711,7 +709,7 @@ def S_sleeping(self):
   layout.addWidget(label5)
   layout.addWidget(propit)
 
-  self.stack1.setLayout(layout)      
+  self.S_sleeping.setLayout(layout)      
   
 
 def S_Destruction (self):
@@ -730,9 +728,9 @@ def S_Destruction (self):
   label5.setText("15골드")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Attack_list[8][2],Life_list[10][2],15)
-  propit.setText(Set_Profit(Attack_list[20][2]), get)
+  mprice = Material_price()
+  mprice = mprice.Mprice(Attack_list[8][2],Life_list[10][2],15)
+  propit.setText(Set_Profit(Attack_list[20][2]), mprice)
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -740,7 +738,7 @@ def S_Destruction (self):
   layout.addWidget(label5)
   layout.addWidget(propit)
 
-  self.stack1.setLayout(layout)     
+  self.S_destruction.setLayout(layout)     
   
 def S_Corrosion (self):
   layout = QFormLayout()
@@ -758,9 +756,9 @@ def S_Corrosion (self):
   label4.setText("15골드")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Attack_list[9][2],Life_list[10][2],15)
-  propit.setText(Set_Profit(Attack_list[21][2]), get)
+  mprice = Material_price()
+  mprice = mprice.four(Attack_list[9][2],Life_list[10][2],15)
+  propit.setText(Set_Profit(Attack_list[21][2]), mprice)
   
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -768,7 +766,7 @@ def S_Corrosion (self):
   layout.addWidget(label4)
   layout.addWidget(propit)
 
-  self.stack1.setLayout(layout)    
+  self.S_corrosion.setLayout(layout)    
   
 def S_Holy(self):
   layout = QFormLayout()
@@ -786,9 +784,9 @@ def S_Holy(self):
   label4.setText("15골드")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Attack_list[10][2],Life_list[10][2],15)
-  propit.setText(Set_Profit(Attack_list[22][2]), get)
+  mprice = Material_price()
+  mprice = mprice.Mprice(Attack_list[10][2],Life_list[10][2],15)
+  propit.setText(Set_Profit(Attack_list[22][2]), mprice)
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -796,7 +794,7 @@ def S_Holy(self):
   layout.addWidget(label4)
   layout.addWidget(propit)
 
-  self.stack1.setLayout(layout)      
+  self.S_holy.setLayout(layout)      
 
 def display(self, i):
   self.Stack.setCurrentIndex(i)
