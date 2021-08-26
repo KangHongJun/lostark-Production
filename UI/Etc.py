@@ -13,16 +13,48 @@ conn = sqlite3.connect("life.db")
 Life = pd.read_sql("SELECT * FROM life",conn,index_col=None)
 Life_list = Life.values.tolist()
 
-#read db Attack_item
-conn = sqlite3.connect("Attack_item.db")
+#read db etc
+conn = sqlite3.connect("etc.db")
 Attack = pd.read_sql("SELECT * FROM Attack_item",conn,index_col=None)
 Attack_list = Attack.values.tolist()
   
-class Get_Profit():
-  def four(self,x,y,z,p):
-    return x+y+z+p
+#재료값*개수 + ..., 조합비)
+class Material_price():
+  @dispatch(int, int, int, int, int, int, int, int, int, int, int)
+  def Mprice(self,pri(self,Item_one, first, Item_two, second, Item_three, third, Item_four, fourth, Item_five, fifth fee):
+    result = Item_one*first + Item_two*second + Item_three*third + Item_four*fourth + Item_five*fifth + fee
+    return result    
+  @dispatch(int, int, int, int, int, int, int, int, int)
+  def Mprice(self,pri(self,Item_one, first, Item_two, second, Item_three, third, Item_four, fourth, fee):
+    result = Item_one*first + Item_two*second + Item_three*third + Item_four*fourth+fee
+    return result           
+  @dispatch(int, int, int, int, int, int, int)
+  def Mprice(self,pri(self,Item_one, first, Item_two, second, Item_three, third, fee):
+    result = Item_one*first + Item_two*second + Item_three*third + fee
+    return result
+             
+  @dispatch(int, int, int, int, int)
+  def Mprice(self,pri(self,Item_one, first, Item_two, second, fee):
+    result = Item_one*first + Item_two*second + fee
+    return result
   
+#수수료    
+def Lifting(value):
+  if(value == 1):
+    return 0
+  if ((value*0.05)%10 != 0):
+    value = int(value*0.05) + 1
+    return value
+  if ((value*0.05)%10 == 0):
+    return int(value*0.05)  
   
+#템 값(수수료빠진 값) - 재료값 = 이익 / 
+def Set_Profit(Item,Mprice):
+  Lift_Item = Lifting(Item)
+  text = str(Item) + "(" + str(Lift_Item) +")" + "-" + str(Mprice) + "=" + str(Lift_Item-Mprice) + "골드"
+  return text
+  
+#요리는 3가지-보류  
 def Artisan(self):
   layout = QFormLayout()
 
@@ -45,9 +77,9 @@ def Artisan(self):
   label6.setText("실링x1000")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Life_list[2][12], Life_list[2][13], Life_list[2][3], Life_list[2][5])
-  propit.setText("제작템-수수료 - get = 이익금")
+  mprice = Material_price()
+  mprice = mprice.Mprice(Life_list[11][2], Life_list[12][2], Life_list[2][2], Life_list[4][2])
+  propit.setText(Set_Profit("추가"), mprice)
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -57,7 +89,7 @@ def Artisan(self):
   layout.addWidget(label6)
   layout.addWidget(profit)
 
-  self.stack1.setLayout(layout)
+  self.artisan.setLayout(layout)
   
   
 def Maven(self):
@@ -88,10 +120,9 @@ def Maven(self):
   label8.setText("20골드")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Life_list[2][12], Life_list[2][13], Life_list[2][14], Life_list[2][1], Life_list[2][3], Life_list[2][5])
-  propit.setText("제작템-수수료 - get = 이익금")
-
+  mprice = Material_price()
+  mprice = mprice.Mprice(Life_list[11][2], Life_list[12][2], Life_list[13][2], Life_list[0][2], Life_list[2][2], Life_list[4][2])
+  propit.setText(Set_Profit("추가"), mprice)
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
@@ -102,7 +133,7 @@ def Maven(self):
   layout.addWidget(label8)
   layout.addWidget(profit)
 
-  self.stack1.setLayout(layout)
+  self.maven.setLayout(layout)
   
 def Matser(self):
   layout = QFormLayout()
@@ -132,10 +163,9 @@ def Matser(self):
   label6.setText("35골드")
   
   propit = QLabel()
-  get = Get_Profit()
-  get = get.four(Life_list[2][12], Life_list[2][13], Life_list[2][15], Life_list[2][2], Life_list[2][3], Life_list[2][5])
-  propit.setText("제작템-수수료 - get = 이익금")
-
+  mprice = Material_price()
+  mprice = mprice.Mprice(Life_list[11][2], Life_list[12][2], Life_list[14][2], Life_list[1][2], Life_list[2][2], Life_list[4][2])
+  propit.setText(Set_Profit("추가", mprice)
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
@@ -144,7 +174,7 @@ def Matser(self):
   layout.addWidget(label6)
   layout.addWidget(profit)
 
-  self.stack1.setLayout(layout)  
+  self.matser.setLayout(layout)  
   
 def display(self, i):
   self.Stack.setCurrentIndex(i)
