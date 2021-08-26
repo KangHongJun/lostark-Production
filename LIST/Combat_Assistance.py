@@ -115,15 +115,15 @@ def Assistance:
     
     con = sqlite3.connect(".db")
     cursor = con.cursor()
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 1", (S_Camouflage,))
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 2", (S_Bonfire,))
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 3", (S_Scarecrow,))
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 4", (S_Amulet,))
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 5", (Hiding,))
+    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 11", (S_Camouflage,))
+    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 12", (S_Bonfire,))
+    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 13", (S_Scarecrow,))
+    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 14", (S_Amulet,))
+    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 15", (Hiding,))
 
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 6", (Trumpet,))
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 7", (Static_time,))
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 8", (S_Hiding,))
+    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 16", (Trumpet,))
+    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 17", (Static_time,))
+    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 18", (S_Hiding,))
     con.commit()
     
     
