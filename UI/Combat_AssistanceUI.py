@@ -66,20 +66,16 @@ def Signal_Gun (self):
   label1.setText("신호탄\n")
 
   label2 = QLabel()
-  label2.setText("화려한 버섯x3 - " + "골드")
+  label2.setText("자연산 진주x20 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("싱싱한 버섯x12")
+  label3.setText("들꽃x35")
 
   label4 = QLabel()
-  label4.setText("투박한 버섯x24")
-  label4.setText(str(df_list[0][2]))
-  
-  label5 = QLabel()
-  label5.setText("철광석x5")
+  label4.setText("실링x1200")
 
-  label6 = QLabel()
-  label6.setText("15골드")
+  label5 = QLabel()
+  label5.setText("0골드")
   
   propit = QLabel()
   mprice = Material_price()
@@ -93,7 +89,7 @@ def Signal_Gun (self):
   layout.addWidget(label5)
   layout.addWidget(profit)
 
-  self.stack1.setLayout(layout)
+  self.signal_gun.setLayout(layout)
   
  def S_Signal_Gun (self):
   layout = QFormLayout()
@@ -102,16 +98,10 @@ def Signal_Gun (self):
   label1.setText("빛나는 신호탄\n")
 
   label2 = QLabel()
-  label2.setText("화려한 버섯x4 - " + "골드")
+  label2.setText("신호탄x3 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("싱싱한 버섯x16")
-
-  label4 = QLabel()
-  label4.setText("투박한 버섯x32")
-
-  label5 = QLabel()
-  label5.setText("희귀한 유물x5")
+  label3.setText("수줍은 들꽃x20")
 
   label6 = QLabel()
   label6.setText("15골드")
@@ -128,7 +118,7 @@ def Signal_Gun (self):
   layout.addWidget(label4)
 
 
-  self.stack1.setLayout(layout)
+  self.S_signal_gun.setLayout(layout)
   
 def All_purpose(self):
   layout = QFormLayout()
@@ -140,27 +130,34 @@ def All_purpose(self):
   label2.setText("화려한 버섯x4 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("투박한 버섯x38")
+  label3.setText("싱싱한 버섯x16")
 
   label4 = QLabel()
-  label4.setText("자연산 진주x8")
-
+  label4.setText("투박한 버섯x32")
+  
   label5 = QLabel()
-  label5.setText("15골드")
+  label5.setText("희귀한 유물x5")
 
+  label6 = QLabel()
+  label6.setText("15골드")
+  
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[17][2],15))
-  propit.setText(Set_Profit(Attack_list[2][2]), mprice)
-
-  #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
+  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[24][2],15)
+  propit.setText(Set_Profit(Attack_list[6][2]), mprice)
+  
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
+  layout.addWidget(label5)
+  layout.addWidget(label6)
+  layout.addWidget(propit)
+
+  self.all_purpose.setLayout(layout)
 
 
-  self.stack1.setLayout(layout)
+  self..setLayout(layout)
 
 def Scarecrow (self):
   layout = QFormLayout()
@@ -169,13 +166,13 @@ def Scarecrow (self):
   label1.setText("도발 허수아비\n")
 
   label2 = QLabel()
-  label2.setText("질간 가죽x22 - " + "골드")
+  label2.setText("화려한 버섯x3 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("수줍은 들꽃x17")
+  label3.setText("싱싱한 버섯x15")
 
   label4 = QLabel()
-  label4.setText("들꽃x27")
+  label4.setText("목재x13")
 
 
   label5 = QLabel()
@@ -201,23 +198,18 @@ def Bonfire (self):
     label1 = QLabel()
     label1.setText("모닥불\n")
 
-    label2 = QLabel()
-    label2.setText("화려한 버섯x5 - " + "골드")
+   label2 = QLabel()
+  label2.setText("화려한 버섯x3 - " + "골드")
 
-    label3 = QLabel()
-    label3.setText("싱싱한 버섯x20")
+  label3 = QLabel()
+  label3.setText("싱싱한 버섯x15")
 
-    label4 = QLabel()
-    label4.setText("투박한 버섯x40")
+  label4 = QLabel()
+  label4.setText("목재x13")
 
-    label5 = QLabel()
-    label5.setText("희귀한 유물x4")
 
-    label6 = QLabel()
-    label6.setText("튼튼한 목재x2")
-
-    label7 = QLabel()
-    label7.setText("15골드")
+  label5 = QLabel()
+  label5.setText("15골드")
     
     propit = QLabel()
     mprice = Material_price()
@@ -245,19 +237,16 @@ def Camouflage(self):
     label2.setText("화사한 들꽃x6 - " + "골드")
 
     label3 = QLabel()
-    label3.setText("수줍은 들꽃x24")
+    label3.setText("질긴 가죽x22")
 
     label4 = QLabel()
-    label4.setText("들꽃x48")
+    label4.setText("싱싱한 버섯x11")
 
     label5 = QLabel()
-    label5.setText("희귀한 유물x2")
-
-    label6 = QLabel()
-    label6.setText("단단한 철광석x2")
+    label5.setText("투박한 버섯x35")
 
     label7 = QLabel()
-    label7.setText("30골드")
+    label7.setText("15골드")
     
     propit = QLabel()
     mprice = Material_price()
@@ -280,11 +269,14 @@ def Amulet(self):
   label1.setText("성스러운 부적\n")
 
   label2 = QLabel()
-  label2.setText("보호 물약x3 - " + "골드")
+  label2.setText("화려한 버섯x3 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("화려한 버섯x3")
+  label3.setText("싱싱한 버섯x18")
 
+  label4 = QLabel()
+  label4.setText("투박한 버섯x30")
+  
   label4 = QLabel()
   label4.setText("15골드")
   
@@ -309,13 +301,16 @@ def Spell(self):
   label1.setText("정비소 이동 포탈 주문서\n")
 
   label2 = QLabel()
-  label2.setText("진군의 깃발x3 - " + "골드")
+  label2.setText("화사한 들꽃x18 - " + "골드")
 
   label3 = QLabel()
-  label3.setText("화려한 버섯x3")
+  label3.setText("자연산 진주x16")
+  
+  label3 = QLabel()
+  label3.setText("들꽃x14")
 
-  label4 = QLabel()
-  label4.setText("15골드")
+  label5 = QLabel()
+  label5.setText("15골드")
 
   propit = QLabel()
   mprice = Material_price()
@@ -338,10 +333,17 @@ def Pheromones(self):
     label1.setText("페로몬 폭탄\n")
 
     label2 = QLabel()
-    label2.setText("신속 로브x3 - " + "골드")
+    label2.setText("화려한 버섯x4 - " + "골드")
 
     label3 = QLabel()
-    label3.setText("화려한 버섯x9")
+    label3.setText("싱싱한 버섯x12")
+    
+    label3 = QLabel()
+    label3.setText("투박한 버섯x32")
+    
+    label3 = QLabel()
+    label3.setText("묵직한 철광석x6")
+    
 
     label4 = QLabel()
     label4.setText("15골드")
