@@ -8,7 +8,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 
 import Attack_Item_list
-Attack_Item_list.Attack()
+#Attack_Item_list.Attack()
 
 #read db life_list 
 conn = sqlite3.connect("life.db")
@@ -25,20 +25,20 @@ Attack_list = Attack.values.tolist()
 #재료값*개수 + ..., 조합비)
 class Material_price():
   @dispatch(int, int, int, int, int, int, int, int, int, int, int)
-  def Mprice(self,pri(self,Item_one, first, Item_two, second, Item_three, third, Item_four, fourth, Item_five, fifth fee):
+  def Mprice(self,Item_one, first, Item_two, second, Item_three, third, Item_four, fourth, Item_five, fifth, fee):
     result = Item_one*first + Item_two*second + Item_three*third + Item_four*fourth + Item_five*fifth + fee
     return result    
   @dispatch(int, int, int, int, int, int, int, int, int)
-  def Mprice(self,pri(self,Item_one, first, Item_two, second, Item_three, third, Item_four, fourth, fee):
+  def Mprice(self,Item_one, first, Item_two, second, Item_three, third, Item_four, fourth, fee):
     result = Item_one*first + Item_two*second + Item_three*third + Item_four*fourth+fee
     return result           
   @dispatch(int, int, int, int, int, int, int)
-  def Mprice(self,pri(self,Item_one, first, Item_two, second, Item_three, third, fee):
+  def Mprice(self,Item_one, first, Item_two, second, Item_three, third, fee):
     result = Item_one*first + Item_two*second + Item_three*third + fee
     return result
              
   @dispatch(int, int, int, int, int)
-  def Mprice(self,pri(self,Item_one, first, Item_two, second, fee):
+  def Mprice(self,Item_one, first, Item_two, second, fee):
     result = Item_one*first + Item_two*second + fee
     return result
   
@@ -119,7 +119,7 @@ def Flame(self):
   
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[17][2],15))
+  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[17][2],15)
   propit.setText(Set_Profit(Attack_list[1][2]), mprice)
   
   layout.addWidget(label1)
@@ -508,7 +508,7 @@ def S_Flash (self):
   propit = QLabel()
   mprice = Material_price()
   mprice = mprice.Mprice(Attack_list[0][2],Life_list[10][2],15)
-  propit.setText(Set_Profit(Attack_list[12][2]), get)
+  propit.setText(Set_Profit(Attack_list[12][2]), mprice)
 
   layout.addWidget(label1)
   layout.addWidget(label2)

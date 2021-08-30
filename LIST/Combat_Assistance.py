@@ -1,16 +1,17 @@
 #전투보조
 import requests
 from bs4 import BeautifulSoup
+import sqlite3
 
-def Assistance:
+def Assistance():
     A_url1='https://lostark.game.onstove.com/Market/List_v2?firstCategory=60000&secondCategory=60400&characterClass=&tier=0&grade=99&itemName=&pageNo=1&isInit=false&sortType=1&_=1627911349466'
     A_url2='https://lostark.game.onstove.com/Market/List_v2?firstCategory=60000&secondCategory=60400&characterClass=&tier=0&grade=99&itemName=&pageNo=2&isInit=false&sortType=1&_=1627911349466'
 
     response1 = requests.get(A_url1)
     response2 = requests.get(A_url2)
     
-    html = response1.text
-    html = response2.text
+    html1 = response1.text
+    html2 = response2.text
     
     soup1 = BeautifulSoup(html1, 'html.parser')
     soup2 = BeautifulSoup(html2, 'html.parser')

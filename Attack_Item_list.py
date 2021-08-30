@@ -30,6 +30,7 @@ def Attack():
     # page1
     # 섬광수류탄
     Flash = soup1.select_one('#tbodyItemList > tr:nth-child(1) > td:nth-child(4) > div > em')
+    print(Flash)
     Flash = int(Flash.text)
 
     # 화염 수류탄

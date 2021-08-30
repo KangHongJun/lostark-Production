@@ -1,14 +1,53 @@
 import requests
 from bs4 import BeautifulSoup
+import pandas as pd
+from requests.sessions import Session
+from selenium import  webdriver
+from selenium.webdriver.chrome.options import Options
+import time
+import re
+
 import sqlite3
 
-def Life():
-    F_url = 'https://lostark.game.onstove.com/Market/List_v2?firstCategory=90000&secondCategory=90600&characterClass=&tier=0' \
-            '&grade=99&itemName=&pageNo=1&isInit=false&sortType=1&_=1623805762406'
 
-    response = requests.get(F_url)
-    html = response.text
+def Life():
+
+    F_url = 'https://lostark.game.onstove.com/Market/List_v2?firstCategory=90000&secondCategory=90600&characterClass=&tier=0%27%20\%20%27&grade=99&itemName=&pageNo=1&isInit=false&sortType=1&_=1623805762406%27'
+
+
+    chrome_optios = webdriver.ChromeOptions()
+    chrome_optios.add_argument('--headless')
+    chrome_optios.add_argument('--no-sandbox')
+    chrome_optios.add_argument('--disable-dev-shm-usage')
+    chrome_optios.add_argument("disable-gpu")
+
+    driver = webdriver.Chrome('C:/Users/rkdgh/chromedriver')
+
+    #driver.get('https://member.onstove.com/auth/login')
+
+    driver.get('https://member.onstove.com/auth/login?inflow_path=lost_ark&game_no=45&redirect_url=https%3a%2f%2flostark.game.onstove.com%2fMarket')
+    login_x_path = '/html/body/div[1]/div[2]/div/fieldset[1]/div[3]/button'
+    ID = driver.find_element_by_xpath('/html/body/div[1]/div[2]/div/fieldset[1]/div[1]/div[1]/input')
+    ID.clear()
+    ID.send_keys('starmine325@gmail.com')
+    PW = driver.find_element_by_xpath('/html/body/div[1]/div[2]/div/fieldset[1]/div[1]/div[2]/input')
+    PW.clear()
+    PW.send_keys('starmine97@')
+
+    driver.find_element_by_xpath(login_x_path).click()
+    driver.implicitly_wait(10)
+    driver.find_element_by_xpath('/html/body/div[2]/div/main/div/div[2]/div[1]/ul/li[8]/a').click()
+    driver.find_element_by_xpath('/html/body/div[2]/div/main/div/div[2]/div[1]/ul/li[8]/ul/li[2]/a').click()
+    #driver.find_element_by_xpath('/html/body/div[3]/div/div/div[2]/button[2]').click()
+    #driver.find_element_by_xpath('/html/body/div[2]/header/nav/ul/li[6]/a').click()
+
+
+
+
+    html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
+
+
 
     # 칼다르 태양잉어
     K_Carp = soup.select_one('#tbodyItemList > tr:nth-child(4) > td:nth-child(4) > div > em')

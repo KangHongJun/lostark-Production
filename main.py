@@ -10,7 +10,7 @@ import Attack_Item_list
 from UI import Attack_ItemUI
 
 Life_list.Life()
-Attack_Item_list.Attack()
+#Attack_Item_list.Attack()
 
 
 
@@ -677,12 +677,12 @@ class grid2(QWidget):
 
         self.stack1 = QWidget()
 
-        Attack_ItemUI.Flash(self)
+        #Attack_ItemUI.Flash(self)
 
 
 
         self.Stack = QStackedWidget(self)
-        self.Stack.addWidget(self.stack1)
+        #self.Stack.addWidget(self.stack1)
 
         hbox = QHBoxLayout(self)
         hbox.addWidget(self.leftlist)
