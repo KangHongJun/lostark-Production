@@ -67,7 +67,7 @@ def Flash(self):
   label1.setText("섬광 수류탄\n")
 
   label2 = QLabel()
-  label2.setText("화려한 버섯x3 - " + "골드") 
+  label2.setText("화려한 버섯x3")
 
   label3 = QLabel()
   label3.setText("싱싱한 버섯x12")
@@ -84,7 +84,8 @@ def Flash(self):
   propit = QLabel()
   mprice = Material_price()
   mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
-  propit.setText(Set_Profit(Attack_list[0][2]), mprice)
+  print(mprice)
+  #propit.setText(Set_Profit(Attack_list[0][2]), mprice)
 
   layout.addWidget(label1)
   layout.addWidget(label2)

@@ -20,8 +20,7 @@ def Life():
     chrome_optios.add_argument('--no-sandbox')
     chrome_optios.add_argument('--disable-dev-shm-usage')
     chrome_optios.add_argument("disable-gpu")
-
-    driver = webdriver.Chrome('C:/Users/rkdgh/chromedriver')
+    driver = webdriver.Chrome('C:/Users/rkdgh/chromedriver',chrome_options=chrome_optios)
 
     #driver.get('https://member.onstove.com/auth/login')
 
@@ -34,18 +33,16 @@ def Life():
     PW.clear()
     PW.send_keys('starmine97@')
 
+    #login
     driver.find_element_by_xpath(login_x_path).click()
     driver.implicitly_wait(10)
+    #Life-Fishing
     driver.find_element_by_xpath('/html/body/div[2]/div/main/div/div[2]/div[1]/ul/li[8]/a').click()
-    driver.find_element_by_xpath('/html/body/div[2]/div/main/div/div[2]/div[1]/ul/li[8]/ul/li[2]/a').click()
-    #driver.find_element_by_xpath('/html/body/div[3]/div/div/div[2]/button[2]').click()
-    #driver.find_element_by_xpath('/html/body/div[2]/header/nav/ul/li[6]/a').click()
 
-
-
-
+    driver.get(F_url)
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
+
 
 
 
@@ -82,8 +79,8 @@ def Life():
     P_url = 'https://lostark.game.onstove.com/Market/List_v2?firstCategory=90000&secondCategory=90200&characterClass=&tier=0' \
             '&grade=99&itemName=&pageNo=1&isInit=false&sortType=1&_=1623805762402'
 
-    response = requests.get(P_url)
-    html = response.text
+    driver.get(P_url)
+    html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
 
     # 들꽃
@@ -123,8 +120,8 @@ def Life():
     H_url = 'https://lostark.game.onstove.com/Market/List_v2?firstCategory=90000&secondCategory=90500&characterClass=&tier=0' \
             '&grade=99&itemName=&pageNo=1&isInit=false&sortType=1&_=1623805762405'
 
-    response = requests.get(H_url)
-    html = response.text
+    driver.get(H_url)
+    html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
 
     # 다듬은 생고기
@@ -161,8 +158,8 @@ def Life():
     L_url = 'https://lostark.game.onstove.com/Market/List_v2?firstCategory=90000&secondCategory=90300&characterClass=&tier=' \
             '0&grade=99&itemName=&pageNo=1&isInit=false&sortType=1&_=1623805762403'
 
-    response = requests.get(L_url)
-    html = response.text
+    driver.get(L_url)
+    html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
 
     # 목재
@@ -187,8 +184,8 @@ def Life():
     M_url = 'https://lostark.game.onstove.com/Market/List_v2?firstCategory=90000&secondCategory=90400&characterClass=&tier=0' \
             '&grade=99&itemName=&pageNo=1&isInit=false&sortType=1&_=1623805762404'
 
-    response = requests.get(M_url)
-    html = response.text
+    driver.get(M_url)
+    html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
 
     # 철광석
@@ -213,8 +210,8 @@ def Life():
     A_url = 'https://lostark.game.onstove.com/Market/List_v2?firstCategory=90000&secondCategory=90700&characterClass=&tier=0' \
             '&grade=99&itemName=&pageNo=1&isInit=false&sortType=1&_=1623805762408'
 
-    response = requests.get(A_url)
-    html = response.text
+    driver.get(A_url)
+    html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
 
     # 칼다르 유물

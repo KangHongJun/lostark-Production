@@ -10,9 +10,7 @@ import Attack_Item_list
 from UI import Attack_ItemUI
 
 Life_list.Life()
-#Attack_Item_list.Attack()
-
-
+Attack_Item_list.Attack()
 
 import sqlite3
 con = sqlite3.connect("life.db")
@@ -20,20 +18,11 @@ cursor=con.cursor()
 cursor.execute("SELECT * FROM life")
 r = cursor.fetchall()
 
-print(r[0][2])
-print(r[1][2])
-print(r[2][2])
-print(r[3][2])
-print(r[4][2])
-
 conn = sqlite3.connect("life.db")
 df = pd.read_sql("SELECT * FROM life",conn,index_col=None)
 df_list = df.values.tolist()
-
 #df = {(1, "name",price),(2, "name",price))...}
-global Q
-Q = str(df_list[0][2])
-print(Q)
+
 
 #포션
 class grid(QWidget):
@@ -92,7 +81,7 @@ class grid(QWidget):
         label5.setText("0골드")
         
         profit = QLabel()
-        profit.setText(Q)
+
 
         str(df_list[0][2])
 
@@ -201,9 +190,9 @@ class grid(QWidget):
         self.Stack.setCurrentIndex(i)
 
 #버프 아이템
-class grid2(QWidget):
+class Attack_Item(QWidget):
     def __init__(self):
-        super(grid2, self).__init__()
+        super(Attack_Item, self).__init__()
 
         """
         treeWidget = QTreeWidget()
@@ -555,8 +544,7 @@ class grid(QWidget):
         label5 = QLabel()
         label5.setText("0골드")
         
-        profit = QLabel()
-        profit.setText(Q)
+
 
         str(df_list[0][2])
 
@@ -568,7 +556,7 @@ class grid(QWidget):
         layout.addWidget(label3)
         layout.addWidget(label4)
         layout.addWidget(label5)
-        layout.addWidget(profit)
+
 
         self.stack1.setLayout(layout)
         
@@ -665,9 +653,9 @@ class grid(QWidget):
         self.Stack.setCurrentIndex(i)
 
 #Attack_Item
-class grid2(QWidget):
+class Attack_Item(QWidget):
     def __init__(self):
-        super(grid2, self).__init__()
+        super(Attack_Item, self).__init__()
 
         self.leftlist = QListWidget()
         self.leftlist.insertItem(0, '1')
@@ -675,14 +663,15 @@ class grid2(QWidget):
         self.leftlist.insertItem(2, '3')
         self.leftlist.insertItem(3, '4')
 
-        self.stack1 = QWidget()
 
-        #Attack_ItemUI.Flash(self)
+        self.flash = QWidget()
+
+        Attack_ItemUI.Flash(self)
 
 
 
         self.Stack = QStackedWidget(self)
-        #self.Stack.addWidget(self.stack1)
+        self.Stack.addWidget(self.flash)
 
         hbox = QHBoxLayout(self)
         hbox.addWidget(self.leftlist)
@@ -742,7 +731,7 @@ class MyApp(QMainWindow):
         return tab
     
     def tab2(self):
-        wg = grid2()
+        wg = Attack_Item()
         self.setCentralWidget(wg)
 
         hbox = QHBoxLayout()

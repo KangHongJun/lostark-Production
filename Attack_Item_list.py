@@ -3,29 +3,54 @@
 import requests
 from bs4 import BeautifulSoup
 import sqlite3
+from selenium import  webdriver
 
 
 def Attack():
+    chrome_optios = webdriver.ChromeOptions()
+    chrome_optios.add_argument('--headless')
+    chrome_optios.add_argument('--no-sandbox')
+    chrome_optios.add_argument('--disable-dev-shm-usage')
+    chrome_optios.add_argument("disable-gpu")
+    driver = webdriver.Chrome('C:/Users/rkdgh/chromedriver', chrome_options=chrome_optios)
+
+    # driver.get('https://member.onstove.com/auth/login')
+
+    driver.get(
+        'https://member.onstove.com/auth/login?inflow_path=lost_ark&game_no=45&redirect_url=https%3a%2f%2flostark.game.onstove.com%2fMarket')
+    login_x_path = '/html/body/div[1]/div[2]/div/fieldset[1]/div[3]/button'
+    ID = driver.find_element_by_xpath('/html/body/div[1]/div[2]/div/fieldset[1]/div[1]/div[1]/input')
+    ID.clear()
+    ID.send_keys('starmine325@gmail.com')
+    PW = driver.find_element_by_xpath('/html/body/div[1]/div[2]/div/fieldset[1]/div[1]/div[2]/input')
+    PW.clear()
+    PW.send_keys('starmine97@')
+
+    # login
+    driver.find_element_by_xpath(login_x_path).click()
+    driver.implicitly_wait(10)
+    # Life-Fishing
+    driver.find_element_by_xpath('/html/body/div[2]/div/main/div/div[2]/div[1]/ul/li[8]/a').click()
+
     A_url1 = 'https://lostark.game.onstove.com/Market/List_v2?firstCategory=60000&secondCategory=60300&characterClass=&tier=0&grade=99' \
              '&itemName=&pageNo=1&isInit=false&sortType=1&_=1627911349464'
-    print(A_url1)
     A_url2 = 'https://lostark.game.onstove.com/Market/List_v2?firstCategory=60000&secondCategory=60300&characterClass=&tier=0&grade=99' \
              '&itemName=&pageNo=2&isInit=false&sortType=1&_=1627911349464'
 
     A_url3 = 'https://lostark.game.onstove.com/Market/List_v2?firstCategory=60000&secondCategory=60300&characterClass=&tier=0&grade=99' \
              '&itemName=&pageNo=3&isInit=false&sortType=1&_=1627911349464'
 
-    response1 = requests.get(A_url1)
-    response2 = requests.get(A_url2)
-    response3 = requests.get(A_url3)
+    driver.get(A_url1)
+    html = driver.page_source
+    soup1 = BeautifulSoup(html, 'html.parser')
 
-    html1 = response1.text
-    html2 = response2.text
-    html3 = response3.text
+    driver.get(A_url2)
+    html = driver.page_source
+    soup2 = BeautifulSoup(html, 'html.parser')
 
-    soup1 = BeautifulSoup(html1, 'html.parser')
-    soup2 = BeautifulSoup(html2, 'html.parser')
-    soup3 = BeautifulSoup(html3, 'html.parser')
+    driver.get(A_url3)
+    html = driver.page_source
+    soup3 = BeautifulSoup(html, 'html.parser')
 
     # page1
     # 섬광수류탄
