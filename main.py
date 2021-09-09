@@ -665,13 +665,16 @@ class Attack_Item(QWidget):
 
 
         self.flash = QWidget()
+        self.flame = QWidget()
 
         Attack_ItemUI.Flash(self)
+        Attack_ItemUI.Flame(self)
 
 
 
         self.Stack = QStackedWidget(self)
         self.Stack.addWidget(self.flash)
+        self.Stack.addWidget(self.flame)
 
         hbox = QHBoxLayout(self)
         hbox.addWidget(self.leftlist)
