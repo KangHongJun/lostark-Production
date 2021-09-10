@@ -6,13 +6,9 @@ from PyQt5.QtCore import *
 import Life_list
 import Attack_Item_list
 from LIST import Combat_Assistance
-from LIST import Etc_list
-
-from UI import Attack_ItemUI
+from UI import EtcUI
 
 Life_list.Life()
-Etc_list.Etc()
-Attack_Item_list.Attack()
 
 import sqlite3
 con = sqlite3.connect("life.db")
@@ -192,7 +188,7 @@ class grid(QWidget):
         self.Stack.setCurrentIndex(i)
 
 #버프 아이템
-class Attack_Item(QWidget):
+class buff_Item(QWidget):
     def __init__(self):
         super(Attack_Item, self).__init__()
 
@@ -496,23 +492,48 @@ class Attack_Item(QWidget):
         super(Attack_Item, self).__init__()
 
         self.leftlist = QListWidget()
-        self.leftlist.insertItem(0, '1')
-        self.leftlist.insertItem(1, '2')
-        self.leftlist.insertItem(2, '3')
-        self.leftlist.insertItem(3, '4')
+        self.leftlist.insertItem(0, '하급-수렵')
+        self.leftlist.insertItem(1, '중급-수렵')
+        self.leftlist.insertItem(2, '상급-수렵')
+        self.leftlist.insertItem(3, '하급-낚시')
+        self.leftlist.insertItem(4, '중급-낚시')
+        self.leftlist.insertItem(5, '상급-낚시')
+        self.leftlist.insertItem(6, '하급-고고학')
+        self.leftlist.insertItem(7, '중급-고고학')
+        self.leftlist.insertItem(8, '상급-고고학')
 
 
-        self.flash = QWidget()
-        self.flame = QWidget()
+        self.h_low = QWidget()
+        self.h_mid = QWidget()
+        self.h_high = QWidget()
+        self.f_low = QWidget()
+        self.f_mid = QWidget()
+        self.f_high = QWidget()
+        self.a_low = QWidget()
+        self.a_mid = QWidget()
+        self.a_high = QWidget()
 
-        Attack_ItemUI.Flash(self)
-        Attack_ItemUI.Flame(self)
-
-
+        EtcUI.H_Low(self)
+        EtcUI.H_Mid(self)
+        EtcUI.H_High(self)
+        EtcUI.F_Low(self)
+        EtcUI.F_Mid(self)
+        EtcUI.F_High(self)
+        EtcUI.A_Low(self)
+        EtcUI.A_Mid(self)
+        EtcUI.A_High(self)
 
         self.Stack = QStackedWidget(self)
-        self.Stack.addWidget(self.flash)
-        self.Stack.addWidget(self.flame)
+        self.Stack.addWidget(self.h_low)
+        self.Stack.addWidget(self.h_mid)
+        self.Stack.addWidget(self.h_high)
+        self.Stack.addWidget(self.f_low)
+        self.Stack.addWidget(self.f_mid)
+        self.Stack.addWidget(self.f_high)
+        self.Stack.addWidget(self.a_low)
+        self.Stack.addWidget(self.a_mid)
+        self.Stack.addWidget(self.a_high)
+
 
         hbox = QHBoxLayout(self)
         hbox.addWidget(self.leftlist)
