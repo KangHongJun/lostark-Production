@@ -1,25 +1,41 @@
 import sys
-import pandas as pd
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
-import Life_list
-import Attack_Item_list
-from LIST import Combat_Assistance
+from selenium import webdriver
 from UI import EtcUI
+from LIST import Attack_Item_list,Combat_Assistance_list,Etc_list,Life_list
 
-Life_list.Life()
+chrome_optios = webdriver.ChromeOptions()
+chrome_optios.add_argument('--headless')
+chrome_optios.add_argument('--no-sandbox')
+chrome_optios.add_argument('--disable-dev-shm-usage')
+chrome_optios.add_argument("disable-gpu")
+driver = webdriver.Chrome('C:/Users/rkdgh/chromedriver', chrome_options=chrome_optios)
 
-import sqlite3
-con = sqlite3.connect("life.db")
-cursor=con.cursor()
-cursor.execute("SELECT * FROM life")
-r = cursor.fetchall()
+# driver.get('https://member.onstove.com/auth/login')
 
-conn = sqlite3.connect("life.db")
-df = pd.read_sql("SELECT * FROM life",conn,index_col=None)
-df_list = df.values.tolist()
-#df = {(1, "name",price),(2, "name",price))...}
+driver.get(
+    'https://member.onstove.com/auth/login?inflow_path=lost_ark&game_no=45&redirect_url=https%3a%2f%2flostark.game.onstove.com%2fMarket')
+login_x_path = '/html/body/div[1]/div[2]/div/fieldset[1]/div[3]/button'
+ID = driver.find_element_by_xpath('/html/body/div[1]/div[2]/div/fieldset[1]/div[1]/div[1]/input')
+ID.clear()
+ID.send_keys('starmine325@gmail.com')
+PW = driver.find_element_by_xpath('/html/body/div[1]/div[2]/div/fieldset[1]/div[1]/div[2]/input')
+PW.clear()
+PW.send_keys('starmine97@')
+
+# login
+driver.find_element_by_xpath(login_x_path).click()
+driver.implicitly_wait(10)
+# Life-Fishing
+driver.find_element_by_xpath('/html/body/div[2]/div/main/div/div[2]/div[1]/ul/li[8]/a').click()
+
+Life_list.Life(driver)
+Etc_list.Etc(driver)
+Attack_Item_list.Attack(driver)
+Combat_Assistance_list.Assistance(driver)
+
 
 
 #포션
@@ -73,7 +89,7 @@ class grid(QWidget):
 
         label4 = QLabel()
         label4.setText('실링 x1200')
-        label4.setText(str(df_list[0][2]))
+
 
         label5 = QLabel()
         label5.setText("0골드")
@@ -81,7 +97,7 @@ class grid(QWidget):
         profit = QLabel()
 
 
-        str(df_list[0][2])
+
 
         
         #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
@@ -190,7 +206,7 @@ class grid(QWidget):
 #버프 아이템
 class buff_Item(QWidget):
     def __init__(self):
-        super(Attack_Item, self).__init__()
+        super(Special_Item, self).__init__()
 
         """
         treeWidget = QTreeWidget()
@@ -258,15 +274,12 @@ class buff_Item(QWidget):
 
         label6 = QLabel()
         label6.setText("15골드")
-        
-
 
         #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
         layout.addWidget(label1)
         layout.addWidget(label2)
         layout.addWidget(label3)
         layout.addWidget(label4)
-
 
         self.stack1.setLayout(layout)
 
@@ -486,10 +499,10 @@ class buff_Item(QWidget):
     def display(self, i):
         self.Stack.setCurrentIndex(i)
 
-#Attack_Item
-class Attack_Item(QWidget):
+#Speical_Item
+class Special_Item(QWidget):
     def __init__(self):
-        super(Attack_Item, self).__init__()
+        super(Special_Item, self).__init__()
 
         self.leftlist = QListWidget()
         self.leftlist.insertItem(0, '하급-수렵')
@@ -544,11 +557,6 @@ class Attack_Item(QWidget):
         self.setGeometry(300, 50, 10, 10)
         self.setWindowTitle('StackedWidget demo')
         self.show()
-        
-
-
-        
-
     
     def display(self, i):
         self.Stack.setCurrentIndex(i)    
@@ -574,7 +582,7 @@ class MyApp(QMainWindow):
         # QWidget 적용
         tabs = QTabWidget()
         tabs.addTab(self.tab1(), '포션')
-        tabs.addTab(self.tab2(), '전투 아이템')
+        tabs.addTab(self.tab2(), '특수 아이템')
         self.setCentralWidget(tabs)
 
     def tab1(self):
@@ -593,7 +601,7 @@ class MyApp(QMainWindow):
         return tab
     
     def tab2(self):
-        wg = Attack_Item()
+        wg = Special_Item()
         self.setCentralWidget(wg)
 
         hbox = QHBoxLayout()

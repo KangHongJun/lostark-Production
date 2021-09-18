@@ -2,37 +2,11 @@
 import requests
 from bs4 import BeautifulSoup
 import sqlite3
-from selenium import  webdriver
 
-def Assistance():
+def Assistance(driver):
     A_url1='https://lostark.game.onstove.com/Market/List_v2?firstCategory=60000&secondCategory=60400&characterClass=&tier=0&grade=99&itemName=&pageNo=1&isInit=false&sortType=1&_=1627911349466'
     A_url2='https://lostark.game.onstove.com/Market/List_v2?firstCategory=60000&secondCategory=60400&characterClass=&tier=0&grade=99&itemName=&pageNo=2&isInit=false&sortType=1&_=1627911349466'
 
-    chrome_optios = webdriver.ChromeOptions()
-    chrome_optios.add_argument('--headless')
-    chrome_optios.add_argument('--no-sandbox')
-    chrome_optios.add_argument('--disable-dev-shm-usage')
-    chrome_optios.add_argument("disable-gpu")
-    driver = webdriver.Chrome('C:/Users/rkdgh/chromedriver')
-
-    driver.get(
-        'https://member.onstove.com/auth/login?inflow_path=lost_ark&game_no=45&redirect_url=https%3a%2f%2flostark.game.onstove.com%2fMarket')
-    login_x_path = '/html/body/div[1]/div[2]/div/fieldset[1]/div[3]/button'
-    ID = driver.find_element_by_xpath('/html/body/div[1]/div[2]/div/fieldset[1]/div[1]/div[1]/input',chrome_optios=chrome_optios)
-    ID.clear()
-    ID.send_keys('starmine325@gmail.com')
-    PW = driver.find_element_by_xpath('/html/body/div[1]/div[2]/div/fieldset[1]/div[1]/div[2]/input')
-    PW.clear()
-    PW.send_keys('starmine97@')
-
-    # login
-    driver.find_element_by_xpath(login_x_path).click()
-    driver.implicitly_wait(10)
-    # Life-Fishing
-    driver.find_element_by_xpath('/html/body/div[2]/div/main/div/div[2]/div[1]/ul/li[8]/a').click()
-
-
-   
     #1page
     driver.get(A_url1)
     html = driver.page_source
@@ -92,8 +66,6 @@ def Assistance():
     cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 9", (Pheromones,))
     cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 10", (S_All_purpose,))
     con.commit()
-    
-   
    
     #2page
     driver.get(A_url2)
@@ -131,11 +103,6 @@ def Assistance():
     #빛나는 은신 로브
     S_Hiding = soup.select_one('#tbodyItemList > tr:nth-child(8) > td:nth-child(4) > div > em')
     S_Hiding = int(S_Hiding.text)
-
-    
-    
-    
-    
     
     con = sqlite3.connect(".db")
     cursor = con.cursor()

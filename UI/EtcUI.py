@@ -4,11 +4,7 @@ from pandas import Series, DataFrame
 from multipledispatch import dispatch
 from PyQt5.QtWidgets import *
 import sqlite3
-from PyQt5.QtGui import *
-from PyQt5.QtCore import *
-from LIST import Etc_list
 
-Etc_list.Etc()
 
 #read db life_list 
 conn = sqlite3.connect("life.db")

@@ -1,12 +1,8 @@
 import sys
 import pandas as pd
-from pandas import Series, DataFrame
 from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
-from PyQt5.QtCore import *
+import sqlite3
 
-import Buff_Item
-Buff_Item.Assistance()
 
 #read db life_list 
 conn = sqlite3.connect("life.db")
@@ -34,7 +30,6 @@ def Flash(self):
 
   label4 = QLabel()
   label4.setText("투박한 버섯x24")
-  label4.setText(str(df_list[0][2]))
   
   label5 = QLabel()
   label5.setText("철광석x5")
@@ -47,11 +42,9 @@ def Flash(self):
   layout.addWidget(label3)
   layout.addWidget(label4)
   layout.addWidget(label5)
-  layout.addWidget(profit)
-
   self.stack1.setLayout(layout)
   
- def Protection(self):
+def Protection(self):
   layout = QFormLayout()
 
   label1 = QLabel()

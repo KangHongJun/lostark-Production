@@ -10,32 +10,12 @@ import re
 import sqlite3
 
 
-def Life():
+def Life(driver):
 
     F_url = 'https://lostark.game.onstove.com/Market/List_v2?firstCategory=90000&secondCategory=90600&characterClass=&tier=0%27%20\%20%27&grade=99&itemName=&pageNo=1&isInit=false&sortType=1&_=1623805762406%27'
 
 
-    chrome_optios = webdriver.ChromeOptions()
-    chrome_optios.add_argument('--headless')
-    chrome_optios.add_argument('--no-sandbox')
-    chrome_optios.add_argument('--disable-dev-shm-usage')
-    chrome_optios.add_argument("disable-gpu")
-    driver = webdriver.Chrome('C:/Users/rkdgh/chromedriver',chrome_options=chrome_optios)
 
-    #driver.get('https://member.onstove.com/auth/login')
-
-    driver.get('https://member.onstove.com/auth/login?inflow_path=lost_ark&game_no=45&redirect_url=https%3a%2f%2flostark.game.onstove.com%2fMarket')
-    login_x_path = '/html/body/div[1]/div[2]/div/fieldset[1]/div[3]/button'
-    ID = driver.find_element_by_xpath('/html/body/div[1]/div[2]/div/fieldset[1]/div[1]/div[1]/input')
-    ID.clear()
-    ID.send_keys('starmine325@gmail.com')
-    PW = driver.find_element_by_xpath('/html/body/div[1]/div[2]/div/fieldset[1]/div[1]/div[2]/input')
-    PW.clear()
-    PW.send_keys('starmine97@')
-
-    #login
-    driver.find_element_by_xpath(login_x_path).click()
-    driver.implicitly_wait(10)
     #Life-Fishing
     driver.find_element_by_xpath('/html/body/div[2]/div/main/div/div[2]/div[1]/ul/li[8]/a').click()
 
@@ -67,7 +47,7 @@ def Life():
     Fish = int(Fish.text)/100
     # 낚시 결정 5
 
-    con = sqlite3.connect("life.db")
+    con = sqlite3.connect("../life.db")
     cursor = con.cursor()
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 1", (K_Carp,))
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 2", (O_Carp,))
@@ -107,7 +87,7 @@ def Life():
     Fancy_mushroom = soup.select_one('#tbodyItemList > tr:nth-child(5) > td:nth-child(4) > div > em')
     Fancy_mushroom = int(Fancy_mushroom.text)/10
 
-    con = sqlite3.connect("life.db")
+    con = sqlite3.connect("../life.db")
     cursor = con.cursor()
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 6", (Flower,))
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 7", (Shy_flower,))
@@ -146,7 +126,7 @@ def Life():
 
     # 수렵 결정 (5)
 
-    con = sqlite3.connect("life.db")
+    con = sqlite3.connect("../life.db")
     cursor = con.cursor()
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 12", (Meat,))
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 13", (Thick_Meat,))
@@ -174,7 +154,7 @@ def Life():
     Strong_Wood = soup.select_one('#tbodyItemList > tr:nth-child(3) > td:nth-child(4) > div > em')
     Strong_Wood = int(Strong_Wood.text)/10
 
-    con = sqlite3.connect("life.db")
+    con = sqlite3.connect("../life.db")
     cursor = con.cursor()
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 17", (Wood,))
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 18", (Soft_Wood,))
@@ -200,7 +180,7 @@ def Life():
     Hard_Iron_ore = soup.select_one('#tbodyItemList > tr:nth-child(3) > td:nth-child(4) > div > em')
     Hard_Iron_ore = int(Hard_Iron_ore.text)/10
 
-    con = sqlite3.connect("life.db")
+    con = sqlite3.connect("../life.db")
     cursor = con.cursor()
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 20", (Iron_ore,))
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 21", (Heavy_Iron_ore,))
@@ -232,7 +212,7 @@ def Life():
 
     # 고고학 결정(3)
 
-    con = sqlite3.connect("life.db")
+    con = sqlite3.connect("../life.db")
     cursor = con.cursor()
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 23", (K_Relic,))
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 24", (O_Relic,))

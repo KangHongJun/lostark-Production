@@ -1,13 +1,8 @@
-import sys
 import pandas as pd
-from pandas import Series, DataFrame
 from multipledispatch import dispatch
 from PyQt5.QtWidgets import *
 import sqlite3
-from PyQt5.QtGui import *
-from PyQt5.QtCore import *
 
-import Attack_Item_list
 #Attack_Item_list.Attack()
 
 #read db life_list 

@@ -3,35 +3,9 @@
 import requests
 from bs4 import BeautifulSoup
 import sqlite3
-from selenium import  webdriver
 
 
-def Attack():
-    chrome_optios = webdriver.ChromeOptions()
-    chrome_optios.add_argument('--headless')
-    chrome_optios.add_argument('--no-sandbox')
-    chrome_optios.add_argument('--disable-dev-shm-usage')
-    chrome_optios.add_argument("disable-gpu")
-    driver = webdriver.Chrome('C:/Users/rkdgh/chromedriver', chrome_options=chrome_optios)
-
-    # driver.get('https://member.onstove.com/auth/login')
-
-    driver.get(
-        'https://member.onstove.com/auth/login?inflow_path=lost_ark&game_no=45&redirect_url=https%3a%2f%2flostark.game.onstove.com%2fMarket')
-    login_x_path = '/html/body/div[1]/div[2]/div/fieldset[1]/div[3]/button'
-    ID = driver.find_element_by_xpath('/html/body/div[1]/div[2]/div/fieldset[1]/div[1]/div[1]/input')
-    ID.clear()
-    ID.send_keys('starmine325@gmail.com')
-    PW = driver.find_element_by_xpath('/html/body/div[1]/div[2]/div/fieldset[1]/div[1]/div[2]/input')
-    PW.clear()
-    PW.send_keys('starmine97@')
-
-    # login
-    driver.find_element_by_xpath(login_x_path).click()
-    driver.implicitly_wait(10)
-    # Life-Fishing
-    driver.find_element_by_xpath('/html/body/div[2]/div/main/div/div[2]/div[1]/ul/li[8]/a').click()
-
+def Attack(driver):
     A_url1 = 'https://lostark.game.onstove.com/Market/List_v2?firstCategory=60000&secondCategory=60300&characterClass=&tier=0&grade=99' \
              '&itemName=&pageNo=1&isInit=false&sortType=1&_=1627911349464'
     A_url2 = 'https://lostark.game.onstove.com/Market/List_v2?firstCategory=60000&secondCategory=60300&characterClass=&tier=0&grade=99' \
@@ -94,7 +68,7 @@ def Attack():
     Sleeping = soup1.select_one('#tbodyItemList > tr:nth-child(10) > td:nth-child(4) > div > em')
     Sleeping = int(Sleeping.text)
 
-    con = sqlite3.connect("Attack_item.db")
+    con = sqlite3.connect("../Attack_item.db")
     cursor = con.cursor()
     cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 1", (Flash,))
     cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 2", (Flame,))
@@ -150,7 +124,7 @@ def Attack():
     S_sleeping = soup2.select_one('#tbodyItemList > tr:nth-child(10) > td:nth-child(4) > div > em')
     S_sleeping = int(S_sleeping.text)
 
-    con = sqlite3.connect("Attack_item.db")
+    con = sqlite3.connect("../Attack_item.db")
     cursor = con.cursor()
     cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 11", (Holy,))
     cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 12", (Destruction,))
@@ -178,7 +152,7 @@ def Attack():
     #S_Holy = soup3.select_one('#tbodyItemList > tr:nth-child(3) > td:nth-child(4) > div > em')
     #S_Holy = int(S_Holy.text)
 
-    con = sqlite3.connect("Attack_item.db")
+    con = sqlite3.connect("../Attack_item.db")
     cursor = con.cursor()
     cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 21", (S_Destruction,))
     cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 22", (S_Corrosion,))
