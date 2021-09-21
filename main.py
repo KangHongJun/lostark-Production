@@ -3,7 +3,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from selenium import webdriver
-from UI import EtcUI
+from UI import EtcUI,Attack_ItemUI
 from LIST import Attack_Item_list,Combat_Assistance_list,Etc_list,Life_list
 
 chrome_optios = webdriver.ChromeOptions()
@@ -34,14 +34,14 @@ driver.find_element_by_xpath('/html/body/div[2]/div/main/div/div[2]/div[1]/ul/li
 Life_list.Life(driver)
 Etc_list.Etc(driver)
 Attack_Item_list.Attack(driver)
-Combat_Assistance_list.Assistance(driver)
+#Combat_Assistance_list.Assistance(driver)
 
 
 
 #포션
-class grid(QWidget):
+class Potion(QWidget):
     def __init__(self):
-        super(grid, self).__init__()
+        super(Potion, self).__init__()
         self.leftlist = QListWidget()
         self.leftlist.insertItem(0, '1')
         self.leftlist.insertItem(1, '2')
@@ -559,9 +559,127 @@ class Special_Item(QWidget):
         self.show()
     
     def display(self, i):
-        self.Stack.setCurrentIndex(i)    
-   
-        
+        self.Stack.setCurrentIndex(i)
+
+
+class Attack_Item(QWidget):
+    def __init__(self):
+        super(Attack_Item, self).__init__()
+
+        self.leftlist = QListWidget()
+        self.leftlist.insertItem(0, '섬광 수류탄')
+        self.leftlist.insertItem(1, '화염 수류탄')
+        self.leftlist.insertItem(2, '냉기 수류탄')
+        self.leftlist.insertItem(3, '전기 수류탄')
+        self.leftlist.insertItem(4, '암흑 수류탄')
+        self.leftlist.insertItem(5, '부식 폭탄')
+        self.leftlist.insertItem(6, '천둥 물약')
+        self.leftlist.insertItem(7, '회오리 수류탄')
+        self.leftlist.insertItem(8, '점토 수류탄')
+        self.leftlist.insertItem(9, '수면 폭탄')
+        self.leftlist.insertItem(10, '성스러운 폭탄')
+        self.leftlist.insertItem(11, '파괴 폭탄')
+        self.leftlist.insertItem(12, '빛나는 섬광 수류탄')
+        self.leftlist.insertItem(13, '빛나는 화염 수류탄')
+        self.leftlist.insertItem(14, '빛나는 냉기 수류탄')
+        self.leftlist.insertItem(15, '빛나는 전기 수류탄')
+        self.leftlist.insertItem(16, '빛나는 점토 수류탄')
+        self.leftlist.insertItem(17, '빛나는 회오리 수류탄')
+        self.leftlist.insertItem(18, '빛나는 암흑 수류탄')
+        self.leftlist.insertItem(19, '빛나는 수면 폭탄')
+        self.leftlist.insertItem(20, '빛나는 파괴 폭탄')
+        self.leftlist.insertItem(21, '빛나는 부식 폭탄')
+        self.leftlist.insertItem(22, '빛나는 성스러운 폭탄')
+
+        self.flash = QWidget()
+        self.flame = QWidget()
+        self.coldair = QWidget()
+        self.electric = QWidget()
+        self.dark = QWidget()
+        self.corrosion = QWidget()
+        self.thunder = QWidget()
+        self.Tornado = QWidget()
+        self.clay = QWidget()
+        self.sleeping = QWidget()
+        self.holy = QWidget()
+        self.destruction = QWidget()
+        self.s_flash = QWidget()
+        self.s_flame = QWidget()
+        self.s_coldair = QWidget()
+        self.s_electric = QWidget()
+        self.s_clay = QWidget()
+        self.s_tornado = QWidget()
+        self.s_dark = QWidget()
+        self.s_sleeping = QWidget()
+        self.s_destruction = QWidget()
+        self.s_corrosion = QWidget()
+        self.s_holy = QWidget()
+
+
+
+        Attack_ItemUI.Flash(self)
+        Attack_ItemUI.Flame(self)
+        Attack_ItemUI.Cold_Air(self)
+        Attack_ItemUI.Electric(self)
+        Attack_ItemUI.Dark(self)
+        Attack_ItemUI.Corrosion(self)
+        Attack_ItemUI.Thunder(self)
+        Attack_ItemUI.Tornado(self)
+        Attack_ItemUI.Clay(self)
+        Attack_ItemUI.Sleeping(self)
+        Attack_ItemUI.Holy(self)
+        Attack_ItemUI.Destruction(self)
+        Attack_ItemUI.S_Flash(self)
+        Attack_ItemUI.S_Flame(self)
+        Attack_ItemUI.S_Cold_Air(self)
+        Attack_ItemUI.S_Electric(self)
+        Attack_ItemUI.S_Clay(self)
+        Attack_ItemUI.S_Tornado(self)
+        Attack_ItemUI.S_Dark(self)
+        Attack_ItemUI.S_Sleeping(self)
+        Attack_ItemUI.S_Destruction(self)
+        Attack_ItemUI.S_Corrosion(self)
+        Attack_ItemUI.S_Holy(self)
+
+        self.Stack = QStackedWidget(self)
+        self.Stack.addWidget(self.flash)
+        self.Stack.addWidget(self.flame)
+        self.Stack.addWidget(self.coldair)
+        self.Stack.addWidget(self.electric)
+        self.Stack.addWidget(self.dark)
+        self.Stack.addWidget(self.corrosion)
+        self.Stack.addWidget(self.thunder)
+        self.Stack.addWidget(self.Tornado)
+        self.Stack.addWidget(self.clay)
+        self.Stack.addWidget(self.sleeping)
+        self.Stack.addWidget(self.holy)
+        self.Stack.addWidget(self.destruction)
+        self.Stack.addWidget(self.s_flash)
+        self.Stack.addWidget(self.s_flame)
+        self.Stack.addWidget(self.s_coldair)
+        self.Stack.addWidget(self.s_electric)
+        self.Stack.addWidget(self.s_clay)
+        self.Stack.addWidget(self.s_tornado)
+        self.Stack.addWidget(self.s_dark)
+        self.Stack.addWidget(self.s_sleeping)
+        self.Stack.addWidget(self.s_destruction)
+        self.Stack.addWidget(self.s_corrosion)
+        self.Stack.addWidget(self.s_holy)
+
+        hbox = QHBoxLayout(self)
+        hbox.addWidget(self.leftlist)
+        hbox.addWidget(self.Stack)
+
+        self.setLayout(hbox)
+        self.leftlist.currentRowChanged.connect(self.display)
+        self.setGeometry(300, 50, 10, 10)
+        self.setWindowTitle('StackedWidget demo')
+        self.show()
+
+    def display(self, i):
+        self.Stack.setCurrentIndex(i)
+
+
 class MyApp(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -581,12 +699,13 @@ class MyApp(QMainWindow):
     def make_tap(self):
         # QWidget 적용
         tabs = QTabWidget()
-        tabs.addTab(self.tab1(), '포션')
-        tabs.addTab(self.tab2(), '특수 아이템')
+        tabs.addTab(self.Tab_Potion(), '포션')
+        tabs.addTab(self.Tab_Special_Item(), '특수 아이템')
+        tabs.addTab(self.Tab_Attack_Item(), '공격 아이템')
         self.setCentralWidget(tabs)
 
-    def tab1(self):
-        wg = grid()
+    def Tab_Potion(self):
+        wg = Potion()
         self.setCentralWidget(wg)
 
         hbox = QHBoxLayout()
@@ -600,8 +719,23 @@ class MyApp(QMainWindow):
         tab.setLayout(vbox)
         return tab
     
-    def tab2(self):
+    def Tab_Special_Item(self):
         wg = Special_Item()
+        self.setCentralWidget(wg)
+
+        hbox = QHBoxLayout()
+        hbox.addWidget(wg)
+
+
+        vbox = QVBoxLayout()
+        vbox.addLayout(hbox)
+
+        tab = QWidget()
+        tab.setLayout(vbox)
+        return tab
+
+    def Tab_Attack_Item(self):
+        wg = Attack_Item()
         self.setCentralWidget(wg)
 
         hbox = QHBoxLayout()

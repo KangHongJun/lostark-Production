@@ -68,7 +68,7 @@ def Attack(driver):
     Sleeping = soup1.select_one('#tbodyItemList > tr:nth-child(10) > td:nth-child(4) > div > em')
     Sleeping = int(Sleeping.text)
 
-    con = sqlite3.connect("../Attack_item.db")
+    con = sqlite3.connect("./Attack_item.db")
     cursor = con.cursor()
     cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 1", (Flash,))
     cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 2", (Flame,))
@@ -124,7 +124,7 @@ def Attack(driver):
     S_sleeping = soup2.select_one('#tbodyItemList > tr:nth-child(10) > td:nth-child(4) > div > em')
     S_sleeping = int(S_sleeping.text)
 
-    con = sqlite3.connect("../Attack_item.db")
+    con = sqlite3.connect("./Attack_item.db")
     cursor = con.cursor()
     cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 11", (Holy,))
     cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 12", (Destruction,))
@@ -152,7 +152,7 @@ def Attack(driver):
     #S_Holy = soup3.select_one('#tbodyItemList > tr:nth-child(3) > td:nth-child(4) > div > em')
     #S_Holy = int(S_Holy.text)
 
-    con = sqlite3.connect("../Attack_item.db")
+    con = sqlite3.connect("./Attack_item.db")
     cursor = con.cursor()
     cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 21", (S_Destruction,))
     cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 22", (S_Corrosion,))

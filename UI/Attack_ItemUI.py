@@ -17,49 +17,52 @@ Attack_list = Attack.values.tolist()
 
 #class Material_price를 아래의 수수료 / 이익금 까지 넣을지 고민
 
-#재료값*개수 + ..., 조합비)
 class Material_price():
-  @dispatch(int, int, int, int, int, int, int, int, int, int, int)
-  def Mprice(self,Item_one, first, Item_two, second, Item_three, third, Item_four, fourth, Item_five, fifth, fee):
-    result = Item_one*first + Item_two*second + Item_three*third + Item_four*fourth + Item_five*fifth + fee
-    return result
-  @dispatch(float, int, float, int, float, int, float, int, int)
-  def Mprice(self,Item_one, first, Item_two, second, Item_three, third, Item_four, fourth, fee):
-    result = (Item_one*first) + (Item_two*second) + (Item_three*third) + (Item_four*fourth) + fee
-    print(Item_one, Item_two, Item_three,Item_four)
-    return round(result,2)
-  @dispatch(int, int, int, int, int, int, int)
-  def Mprice(self,Item_one, first, Item_two, second, Item_three, third, fee):
+  @dispatch(float, int, float, int, float, int, float, int, float, int, int)
+  def Mprice(self, Item_one, first, Item_two, second, Item_three, third, Item_four, fourth, Item_five, fifth, fee):
+    result = (Item_one * first) + (Item_two * second) + (Item_three * third) + (Item_four * fourth) + (Item_five * fifth) + fee
+    return round(result, 2)
 
-    result = Item_one*first + Item_two*second + Item_three*third + fee
-    return round(result,2)
-             
-  @dispatch(int, int, int, int, int)
-  def Mprice(self,Item_one, first, Item_two, second, fee):
-    result = Item_one*first + Item_two*second + fee
-    return result
-  
-#수수료    
+  @dispatch(float, int, float, int, float, int, float, int, int)
+  def Mprice(self, Item_one, first, Item_two, second, Item_three, third, Item_four, fourth, fee):
+    result = (Item_one * first) + (Item_two * second) + (Item_three * third) + (Item_four * fourth) + fee
+    print(Item_one, Item_two, Item_three, Item_four)
+    return round(result, 2)
+
+  @dispatch(float, int, float, int, float, int, int)
+  def Mprice(self, Item_one, first, Item_two, second, Item_three, third, fee):
+    result = (Item_one * first) + (Item_two * second) + (Item_three * third) + fee
+    return round(result, 2)
+
+  @dispatch(int, int, float, int, int)
+  def Mprice(self, Item_one, first, Item_two, second, fee):
+    result = (Item_one * first) + (Item_two * second) + fee
+    return round(result, 2)
+
+
+# 수수료
 def Lifting(value):
-  if(value == 1):
+  if (value == 1):
     return 0
-  if((value*0.05) < 20):
+  if (value < 20):
     return 1
-  if ((value*0.05)%10 != 0):
-    value = int(value*0.05) + 1
+  if ((value * 0.05) % 10 != 0):
+    value = int(value * 0.05) + 1
     return value
-  if ((value*0.05)%10 == 0):
-    return int(value*0.05)  
-  
-#템 값(수수료빠진 값) - 재료값 = 이익 / 
-def Set_Profit(Item,Item_Num,Mprice):
+  if ((value * 0.05) % 10 == 0):
+    return int(value * 0.05)
+
+  # 템 값(수수료빠진 값) - 재료값 = 이익 /
+
+
+def Set_Profit(Item, Item_Num, Mprice):
+  Lift_Item = Lifting(Item) * Item_Num
   Item = Item * Item_Num
-  Lift_Item = Lifting(Item)*Item_Num
-  text = str(Item) + "(" + str(Lift_Item) +")" + "-" + str(Mprice) + "=" + str(round(Item-Lift_Item-Mprice,2)) + "골드"
+  text = str(Item) + "(" + str(Lift_Item) + ")" + "-" + str(Mprice) + "=" + str(
+    round(Item - Lift_Item - Mprice, 2)) + "골드"
   return text
   
-  
-#class 추가 고민  
+
 def Flash(self):
   layout = QFormLayout()
 
@@ -155,8 +158,8 @@ def Cold_Air(self):
              
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
-  propit.setText(Set_Profit(Attack_list[2][2]), mprice)
+  mprice = mprice.Mprice(Life_list[10][2],3 ,Life_list[9][2],12, Life_list[8][2],24, Life_list[19][2],5,15)
+  propit.setText(Set_Profit(Attack_list[2][2],3, mprice))
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -191,8 +194,8 @@ def Electric(self):
              
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
-  propit.setText(Set_Profit(Attack_list[3][2]), mprice)
+  mprice = mprice.Mprice(Life_list[10][2],3, Life_list[9][2],12, Life_list[8][2],24, Life_list[19][2],5,15)
+  propit.setText(Set_Profit(Attack_list[3][2],3, mprice))
              
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -227,8 +230,8 @@ def Dark(self):
   
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[17][2],15)
-  propit.setText(Set_Profit(Attack_list[4][2]), mprice)
+  mprice = mprice.Mprice(Life_list[10][2],3, Life_list[9][2],12, Life_list[8][2],24, Life_list[17][2],3,15)
+  propit.setText(Set_Profit(Attack_list[4][2],3, mprice))
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -262,8 +265,8 @@ def Corrosion(self):
   
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[20][2],15)
-  propit.setText(Set_Profit(Attack_list[5][2]), mprice)
+  mprice = mprice.Mprice(Life_list[10][2],4, Life_list[9][2],12, Life_list[8][2],32, Life_list[20][2],6,15)
+  propit.setText(Set_Profit(Attack_list[5][2],3, mprice))
   
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -298,8 +301,8 @@ def Thunder(self):
   
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[24][2],15)
-  propit.setText(Set_Profit(Attack_list[6][2]), mprice)
+  mprice = mprice.Mprice(Life_list[10][2],4, Life_list[9][2],16, Life_list[8][2],32, Life_list[24][2],5,15)
+  propit.setText(Set_Profit(Attack_list[6][2],3, mprice))
   
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -334,8 +337,8 @@ def Tornado(self):
   
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
-  propit.setText(Set_Profit(Attack_list[7][2]), mprice)
+  mprice = mprice.Mprice(Life_list[10][2],3, Life_list[9][2],12, Life_list[8][2],24, Life_list[19][2],5,15)
+  propit.setText(Set_Profit(Attack_list[7][2],3, mprice))
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -370,8 +373,8 @@ def Clay(self):
   
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
-  propit.setText(Set_Profit(Attack_list[8][2]), mprice)
+  mprice = mprice.Mprice(Life_list[10][2],3, Life_list[9][2],12, Life_list[8][2],24, Life_list[19][2],5,15)
+  propit.setText(Set_Profit(Attack_list[8][2],3, mprice))
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -405,8 +408,8 @@ def Sleeping(self):
   
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
-  propit.setText(Set_Profit(Attack_list[9][2]), mprice)
+  mprice = mprice.Mprice(Life_list[10][2],4, Life_list[9][2],12, Life_list[8][2],32, Life_list[19][2],10,15)
+  propit.setText(Set_Profit(Attack_list[9][2],3, mprice))
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -441,8 +444,8 @@ def Holy(self):
   
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[19][2],15)
-  propit.setText(Set_Profit(Attack_list[10][2]), mprice)
+  mprice = mprice.Mprice(Life_list[10][2],3, Life_list[9][2],12, Life_list[8][2],24, Life_list[19][2],3,15)
+  propit.setText(Set_Profit(Attack_list[10][2],3, mprice))
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -477,8 +480,8 @@ def Destruction (self):
   
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Life_list[10][2], Life_list[9][2], Life_list[8][2], Life_list[20][2],15)
-  propit.setText(Set_Profit(Attack_list[11][2]), mprice)
+  mprice = mprice.Mprice(Life_list[10][2],4, Life_list[9][2],12, Life_list[8][2],32, Life_list[20][2],6,15)
+  propit.setText(Set_Profit(Attack_list[11][2],3, mprice))
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -507,15 +510,16 @@ def S_Flash (self):
   
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Attack_list[0][2],Life_list[10][2],15)
-  propit.setText(Set_Profit(Attack_list[12][2]), mprice)
+  mprice = mprice.Mprice(Attack_list[0][2],3,Life_list[10][2],4,15)
+  propit.setText(Set_Profit(Attack_list[12][2],2, mprice))
 
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
+  layout.addWidget(propit)
 
-  self.S_flash.setLayout(layout)
+  self.s_flash.setLayout(layout)
   
 def S_Flame(self):
   layout = QFormLayout()
@@ -534,8 +538,8 @@ def S_Flame(self):
   
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Attack_list[1][2],Life_list[10][2],15)
-  propit.setText(Set_Profit(Attack_list[13][2]), mprice)
+  mprice = mprice.Mprice(Attack_list[1][2],3,Life_list[10][2],4,15)
+  propit.setText(Set_Profit(Attack_list[13][2],2, mprice))
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -543,7 +547,7 @@ def S_Flame(self):
   layout.addWidget(label4)
   layout.addWidget(propit)
 
-  self.S_flame.setLayout(layout)
+  self.s_flame.setLayout(layout)
   
 def S_Cold_Air (self):
   layout = QFormLayout()
@@ -562,15 +566,16 @@ def S_Cold_Air (self):
   
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Attack_list[2][2],Life_list[10][2],15)
-  propit.setText(Set_Profit(Attack_list[14][2]), mprice)
+  mprice = mprice.Mprice(Attack_list[2][2],3,Life_list[10][2],4,15)
+  propit.setText(Set_Profit(Attack_list[14][2],2, mprice))
 
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
+  layout.addWidget(propit)
 
-  self.S_coldair.setLayout(layout)
+  self.s_coldair.setLayout(layout)
   
 def S_Electric (self):
   layout = QFormLayout()
@@ -589,16 +594,17 @@ def S_Electric (self):
   
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Attack_list[3][2],Life_list[10][2],15)
-  propit.setText(Set_Profit(Attack_list[15][2]), mprice)
+  mprice = mprice.Mprice(Attack_list[3][2],3,Life_list[10][2],4,15)
+  propit.setText(Set_Profit(Attack_list[15][2],2, mprice))
 
 
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
+  layout.addWidget(propit)
 
-  self.S_electric.setLayout(layout)
+  self.s_electric.setLayout(layout)
   
 def S_Clay (self):
   layout = QFormLayout()
@@ -617,18 +623,19 @@ def S_Clay (self):
   
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Attack_list[4][2],Life_list[10][2],15)
-  propit.setText(Set_Profit(Attack_list[16][2]), mprice)
+  mprice = mprice.Mprice(Attack_list[4][2],3,Life_list[10][2],4,15)
+  propit.setText(Set_Profit(Attack_list[16][2],2, mprice))
 
 
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
+  layout.addWidget(propit)
              
-  self.S_clay.setLayout(layout)  
+  self.s_clay.setLayout(layout)
   
-def S_Tornado  (self):
+def S_Tornado(self):
   layout = QFormLayout()
 
   label1 = QLabel()
@@ -645,15 +652,16 @@ def S_Tornado  (self):
   
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Attack_list[5][2],Life_list[10][2],15)
-  propit.setText(Set_Profit(Attack_list[17][2]), mprice)
+  mprice = mprice.Mprice(Attack_list[5][2],3,Life_list[10][2],4,15)
+  propit.setText(Set_Profit(Attack_list[17][2],2, mprice))
 
   layout.addWidget(label1)
   layout.addWidget(label2)
   layout.addWidget(label3)
   layout.addWidget(label4)
+  layout.addWidget(propit)
 
-  self.S_tornado.setLayout(layout)  
+  self.s_tornado.setLayout(layout)
   
 def S_Dark (self):
   layout = QFormLayout()
@@ -672,8 +680,8 @@ def S_Dark (self):
   
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Attack_list[6][2],Life_list[10][2],15)
-  propit.setText(Set_Profit(Attack_list[18][2]), mprice)
+  mprice = mprice.Mprice(Attack_list[6][2],3,Life_list[10][2],4,15)
+  propit.setText(Set_Profit(Attack_list[18][2],2, mprice))
   
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -681,7 +689,7 @@ def S_Dark (self):
   layout.addWidget(label4)
   layout.addWidget(propit)
 
-  self.S_dark.setLayout(layout)    
+  self.s_dark.setLayout(layout)
   
 def S_Sleeping(self):
   layout = QFormLayout()
@@ -700,8 +708,8 @@ def S_Sleeping(self):
   
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Attack_list[7][2],Life_list[10][2],15)
-  propit.setText(Set_Profit(Attack_list[19][2]), mprice)
+  mprice = mprice.Mprice(Attack_list[7][2],3,Life_list[10][2],2,15)
+  propit.setText(Set_Profit(Attack_list[19][2],2, mprice))
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -709,7 +717,7 @@ def S_Sleeping(self):
   layout.addWidget(label5)
   layout.addWidget(propit)
 
-  self.S_sleeping.setLayout(layout)      
+  self.s_sleeping.setLayout(layout)
   
 
 def S_Destruction (self):
@@ -729,8 +737,8 @@ def S_Destruction (self):
   
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Attack_list[8][2],Life_list[10][2],15)
-  propit.setText(Set_Profit(Attack_list[20][2]), mprice)
+  mprice = mprice.Mprice(Attack_list[8][2],3,Life_list[10][2],2,15)
+  propit.setText(Set_Profit(Attack_list[20][2],2, mprice))
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -738,7 +746,7 @@ def S_Destruction (self):
   layout.addWidget(label5)
   layout.addWidget(propit)
 
-  self.S_destruction.setLayout(layout)     
+  self.s_destruction.setLayout(layout)
   
 def S_Corrosion (self):
   layout = QFormLayout()
@@ -757,8 +765,8 @@ def S_Corrosion (self):
   
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.four(Attack_list[9][2],Life_list[10][2],15)
-  propit.setText(Set_Profit(Attack_list[21][2]), mprice)
+  mprice = mprice.Mprice(Attack_list[9][2],3,Life_list[10][2],2,15)
+  propit.setText(Set_Profit(Attack_list[21][2],2, mprice))
   
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -766,7 +774,7 @@ def S_Corrosion (self):
   layout.addWidget(label4)
   layout.addWidget(propit)
 
-  self.S_corrosion.setLayout(layout)    
+  self.s_corrosion.setLayout(layout)
   
 def S_Holy(self):
   layout = QFormLayout()
@@ -785,8 +793,8 @@ def S_Holy(self):
   
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Attack_list[10][2],Life_list[10][2],15)
-  propit.setText(Set_Profit(Attack_list[22][2]), mprice)
+  mprice = mprice.Mprice(Attack_list[10][2],3,Life_list[10][2],4,15)
+  propit.setText(Set_Profit(Attack_list[22][2],2, mprice))
 
   layout.addWidget(label1)
   layout.addWidget(label2)
@@ -794,7 +802,7 @@ def S_Holy(self):
   layout.addWidget(label4)
   layout.addWidget(propit)
 
-  self.S_holy.setLayout(layout)      
+  self.s_holy.setLayout(layout)
 
 def display(self, i):
   self.Stack.setCurrentIndex(i)

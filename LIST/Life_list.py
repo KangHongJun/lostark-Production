@@ -47,7 +47,7 @@ def Life(driver):
     Fish = int(Fish.text)/100
     # 낚시 결정 5
 
-    con = sqlite3.connect("../life.db")
+    con = sqlite3.connect("./life.db")
     cursor = con.cursor()
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 1", (K_Carp,))
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 2", (O_Carp,))
@@ -87,7 +87,7 @@ def Life(driver):
     Fancy_mushroom = soup.select_one('#tbodyItemList > tr:nth-child(5) > td:nth-child(4) > div > em')
     Fancy_mushroom = int(Fancy_mushroom.text)/10
 
-    con = sqlite3.connect("../life.db")
+    con = sqlite3.connect("./life.db")
     cursor = con.cursor()
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 6", (Flower,))
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 7", (Shy_flower,))
@@ -126,7 +126,7 @@ def Life(driver):
 
     # 수렵 결정 (5)
 
-    con = sqlite3.connect("../life.db")
+    con = sqlite3.connect("./life.db")
     cursor = con.cursor()
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 12", (Meat,))
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 13", (Thick_Meat,))
@@ -154,7 +154,7 @@ def Life(driver):
     Strong_Wood = soup.select_one('#tbodyItemList > tr:nth-child(3) > td:nth-child(4) > div > em')
     Strong_Wood = int(Strong_Wood.text)/10
 
-    con = sqlite3.connect("../life.db")
+    con = sqlite3.connect("./life.db")
     cursor = con.cursor()
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 17", (Wood,))
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 18", (Soft_Wood,))
@@ -180,7 +180,7 @@ def Life(driver):
     Hard_Iron_ore = soup.select_one('#tbodyItemList > tr:nth-child(3) > td:nth-child(4) > div > em')
     Hard_Iron_ore = int(Hard_Iron_ore.text)/10
 
-    con = sqlite3.connect("../life.db")
+    con = sqlite3.connect("./life.db")
     cursor = con.cursor()
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 20", (Iron_ore,))
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 21", (Heavy_Iron_ore,))
@@ -212,7 +212,7 @@ def Life(driver):
 
     # 고고학 결정(3)
 
-    con = sqlite3.connect("../life.db")
+    con = sqlite3.connect("./life.db")
     cursor = con.cursor()
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 23", (K_Relic,))
     cursor.execute("UPDATE life SET Price = ? WHERE Number = 24", (O_Relic,))
