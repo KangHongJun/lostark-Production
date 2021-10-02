@@ -26,7 +26,6 @@ class Material_price():
   @dispatch(float, int, float, int, float, int, float, int, int)
   def Mprice(self, Item_one, first, Item_two, second, Item_three, third, Item_four, fourth, fee):
     result = (Item_one * first) + (Item_two * second) + (Item_three * third) + (Item_four * fourth) + fee
-    print(Item_one, Item_two, Item_three, Item_four)
     return round(result, 2)
 
   @dispatch(float, int, float, int, float, int, int)
@@ -53,8 +52,6 @@ def Lifting(value):
     return int(value * 0.05)
 
   # 템 값(수수료빠진 값) - 재료값 = 이익 /
-
-
 def Set_Profit(Item, Item_Num, Mprice):
   Lift_Item = Lifting(Item) * Item_Num
   Item = Item * Item_Num

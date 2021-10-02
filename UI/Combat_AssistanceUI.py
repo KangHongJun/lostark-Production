@@ -22,7 +22,6 @@ class Material_price():
   @dispatch(float, int, float, int, float, int, float, int, int)
   def Mprice(self, Item_one, first, Item_two, second, Item_three, third, Item_four, fourth, fee):
     result = (Item_one * first) + (Item_two * second) + (Item_three * third) + (Item_four * fourth) + fee
-    print(Item_one, Item_two, Item_three, Item_four)
     return round(result, 2)
 
   @dispatch(int, int, int, int, int, int, int)

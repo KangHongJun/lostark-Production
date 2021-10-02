@@ -6,17 +6,18 @@ from selenium import webdriver
 from UI import EtcUI,Attack_ItemUI
 from LIST import Attack_Item_list,Combat_Assistance_list,Etc_list,Life_list
 
-chrome_optios = webdriver.ChromeOptions()
-chrome_optios.add_argument('--headless')
-chrome_optios.add_argument('--no-sandbox')
-chrome_optios.add_argument('--disable-dev-shm-usage')
-chrome_optios.add_argument("disable-gpu")
-driver = webdriver.Chrome('C:/Users/rkdgh/chromedriver', chrome_options=chrome_optios)
+chrome_options = webdriver.ChromeOptions()
+#chrome_options.add_argument('--headless')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage')
+chrome_options.add_argument("disable-gpu")
+driver = webdriver.Chrome('C:/Users/rkdgh/chromedriver',chrome_options=chrome_options)
 
 # driver.get('https://member.onstove.com/auth/login')
 
 driver.get(
     'https://member.onstove.com/auth/login?inflow_path=lost_ark&game_no=45&redirect_url=https%3a%2f%2flostark.game.onstove.com%2fMarket')
+driver.maximize_window()
 login_x_path = '/html/body/div[1]/div[2]/div/fieldset[1]/div[3]/button'
 ID = driver.find_element_by_xpath('/html/body/div[1]/div[2]/div/fieldset[1]/div[1]/div[1]/input')
 ID.clear()
@@ -28,13 +29,15 @@ PW.send_keys('starmine97@')
 # login
 driver.find_element_by_xpath(login_x_path).click()
 driver.implicitly_wait(10)
+
 # Life-Fishing
-driver.find_element_by_xpath('/html/body/div[2]/div/main/div/div[2]/div[1]/ul/li[8]/a').click()
+
+driver.find_element_by_xpath('/html/body/div[2]/div/main/div/div[3]/div[1]/ul/li[8]/a').click()
 
 Life_list.Life(driver)
 Etc_list.Etc(driver)
 Attack_Item_list.Attack(driver)
-#Combat_Assistance_list.Assistance(driver)
+Combat_Assistance_list.Assistance(driver)
 
 
 

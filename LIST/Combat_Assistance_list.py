@@ -4,8 +4,10 @@ from bs4 import BeautifulSoup
 import sqlite3
 
 def Assistance(driver):
-    A_url1='https://lostark.game.onstove.com/Market/List_v2?firstCategory=60000&secondCategory=60400&characterClass=&tier=0&grade=99&itemName=&pageNo=1&isInit=false&sortType=1&_=1627911349466'
-    A_url2='https://lostark.game.onstove.com/Market/List_v2?firstCategory=60000&secondCategory=60400&characterClass=&tier=0&grade=99&itemName=&pageNo=2&isInit=false&sortType=1&_=1627911349466'
+    A_url1='https://lostark.game.onstove.com/Market/List_v2?firstCategory=60000&secondCategory=60400&characterClass=&tier=0&grade=99&itemName=' \
+           '&pageNo=1&isInit=false&sortType=1&_=1627911349466'
+    A_url2='https://lostark.game.onstove.com/Market/List_v2?firstCategory=60000&secondCategory=60400&characterClass=&tier=0&grade=99&itemName=' \
+           '&pageNo=2&isInit=false&sortType=1&_=1627911349466'
 
     #1page
     driver.get(A_url1)
@@ -52,20 +54,19 @@ def Assistance(driver):
     S_All_purpose = soup.select_one('#tbodyItemList > tr:nth-child(10) > td:nth-child(4) > div > em')
     S_All_purpose = int(S_All_purpose.text)
     
-    con = sqlite3.connect(".db")
+    con = sqlite3.connect("Combat_Assistance.db")
     cursor = con.cursor()
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 1", (Signal_Gun,))
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 2", (S_Signal_Gun,))
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 3", (All_purpose,))
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 4", (Scarecrow,))
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 5", (Bonfire,))
+    cursor.execute("UPDATE Combat_Assistance SET Price = ? WHERE Number = 1", (Signal_Gun,))
+    cursor.execute("UPDATE Combat_Assistance SET Price = ? WHERE Number = 2", (S_Signal_Gun,))
+    cursor.execute("UPDATE Combat_Assistance SET Price = ? WHERE Number = 3", (All_purpose,))
+    cursor.execute("UPDATE Combat_Assistance SET Price = ? WHERE Number = 4", (Scarecrow,))
+    cursor.execute("UPDATE Combat_Assistance SET Price = ? WHERE Number = 5", (Bonfire,))
 
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 6", (Camouflage,))
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 7", (Amulet,))
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 8", (Spell,))
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 9", (Pheromones,))
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 10", (S_All_purpose,))
-    con.commit()
+    cursor.execute("UPDATE Combat_Assistance SET Price = ? WHERE Number = 6", (Camouflage,))
+    cursor.execute("UPDATE Combat_Assistance SET Price = ? WHERE Number = 7", (Amulet,))
+    cursor.execute("UPDATE Combat_Assistance SET Price = ? WHERE Number = 8", (Spell,))
+    cursor.execute("UPDATE Combat_Assistance SET Price = ? WHERE Number = 9", (Pheromones,))
+    cursor.execute("UPDATE Combat_Assistance SET Price = ? WHERE Number = 10", (S_All_purpose,))
    
     #2page
     driver.get(A_url2)
@@ -101,20 +102,20 @@ def Assistance(driver):
     Static_time = int(Static_time.text)
     
     #빛나는 은신 로브
-    S_Hiding = soup.select_one('#tbodyItemList > tr:nth-child(8) > td:nth-child(4) > div > em')
+    S_Hiding = soup.select_oCombat_Assistancene('#tbodyItemList > tr:nth-child(8) > td:nth-child(4) > div > em')
     S_Hiding = int(S_Hiding.text)
     
-    con = sqlite3.connect(".db")
-    cursor = con.cursor()
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 11", (S_Camouflage,))
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 12", (S_Bonfire,))
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 13", (S_Scarecrow,))
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 14", (S_Amulet,))
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 15", (Hiding,))
+    #con = sqlite3.connect(".db")
+    #cursor = con.cursor()
+    cursor.execute("UPDATE Combat_Assistance SET Price = ? WHERE Number = 11", (S_Camouflage,))
+    cursor.execute("UPDATE Combat_Assistance SET Price = ? WHERE Number = 12", (S_Bonfire,))
+    cursor.execute("UPDATE Combat_Assistance SET Price = ? WHERE Number = 13", (S_Scarecrow,))
+    cursor.execute("UPDATE Combat_Assistance SET Price = ? WHERE Number = 14", (S_Amulet,))
+    cursor.execute("UPDATE Combat_Assistance SET Price = ? WHERE Number = 15", (Hiding,))
 
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 16", (Trumpet,))
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 17", (Static_time,))
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 18", (S_Hiding,))
+    cursor.execute("UPDATE Combat_Assistance SET Price = ? WHERE Number = 16", (Trumpet,))
+    cursor.execute("UPDATE Combat_Assistance SET Price = ? WHERE Number = 17", (Static_time,))
+    cursor.execute("UPDATE Combat_Assistance SET Price = ? WHERE Number = 18", (S_Hiding,))
     con.commit()
     
     

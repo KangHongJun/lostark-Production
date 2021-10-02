@@ -11,20 +11,13 @@ import sqlite3
 
 
 def Life(driver):
-
     F_url = 'https://lostark.game.onstove.com/Market/List_v2?firstCategory=90000&secondCategory=90600&characterClass=&tier=0%27%20\%20%27&grade=99&itemName=&pageNo=1&isInit=false&sortType=1&_=1623805762406%27'
 
-
-
     #Life-Fishing
-    driver.find_element_by_xpath('/html/body/div[2]/div/main/div/div[2]/div[1]/ul/li[8]/a').click()
 
     driver.get(F_url)
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
-
-
-
 
     # 칼다르 태양잉어
     K_Carp = soup.select_one('#tbodyItemList > tr:nth-child(4) > td:nth-child(4) > div > em')
@@ -72,7 +65,7 @@ def Life(driver):
     Shy_flower = int(Shy_flower.text)/10
 
     # 화사한 들꽃
-    Bright_flower = soup.select_one('#tbodyItemList > tr:nth-child(6) > td:nth-child(4) > div > em')
+    Bright_flower = soup.select_one('#tbodyItemList > tr:nth-child(5) > td:nth-child(4) > div > em')
     Bright_flower = int(Bright_flower.text)/10
 
     # 투박한 버섯
@@ -84,7 +77,7 @@ def Life(driver):
     Fresh_mushroom = int(Fresh_mushroom.text)/10
 
     # 화려한 버섯
-    Fancy_mushroom = soup.select_one('#tbodyItemList > tr:nth-child(5) > td:nth-child(4) > div > em')
+    Fancy_mushroom = soup.select_one('#tbodyItemList > tr:nth-child(6) > td:nth-child(4) > div > em')
     Fancy_mushroom = int(Fancy_mushroom.text)/10
 
     con = sqlite3.connect("./life.db")

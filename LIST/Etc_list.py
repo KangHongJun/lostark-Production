@@ -29,7 +29,6 @@ def Etc(driver):
     cursor.execute("UPDATE Etc SET Price = ? WHERE Number = 1", (Low_union,))
     cursor.execute("UPDATE Etc SET Price = ? WHERE Number = 2", (Mid_union,))
 
-    # 3page
     driver.get(E_url2)
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
