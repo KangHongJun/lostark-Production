@@ -102,8 +102,8 @@ def Assistance(driver):
     Static_time = int(Static_time.text)
     
     #빛나는 은신 로브
-    S_Hiding = soup.select_oCombat_Assistancene('#tbodyItemList > tr:nth-child(8) > td:nth-child(4) > div > em')
-    S_Hiding = int(S_Hiding.text)
+    #S_Hiding = soup.select_oCombat_Assistancene('#tbodyItemList > tr:nth-child(8) > td:nth-child(4) > div > em')
+    #S_Hiding = int(S_Hiding.text)
     
     #con = sqlite3.connect(".db")
     #cursor = con.cursor()
@@ -115,7 +115,7 @@ def Assistance(driver):
 
     cursor.execute("UPDATE Combat_Assistance SET Price = ? WHERE Number = 16", (Trumpet,))
     cursor.execute("UPDATE Combat_Assistance SET Price = ? WHERE Number = 17", (Static_time,))
-    cursor.execute("UPDATE Combat_Assistance SET Price = ? WHERE Number = 18", (S_Hiding,))
+    #cursor.execute("UPDATE Combat_Assistance SET Price = ? WHERE Number = 18", (S_Hiding,))
     con.commit()
     
     

@@ -146,13 +146,13 @@ def Attack(driver):
     Clay = int(Clay.text)
 
     # 수면 폭탄
-    Sleeping = soup3.select_one('#tbodyItemList > tr:nth-child(4) > td:nth-child(4) > div > em')
-    Sleeping = int(Sleeping.text)
+    #Sleeping = soup3.select_one('#tbodyItemList > tr:nth-child(4) > td:nth-child(4) > div > em')
+    #Sleeping = int(Sleeping.text)
 
     cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 7", (Thunder,))
     cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 8", (Tornado,))
     cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 9", (Clay,))
-    cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 10", (Sleeping,))
+    #cursor.execute("UPDATE Attack_item SET Price = ? WHERE Number = 10", (Sleeping,))
     con.commit()
 
 

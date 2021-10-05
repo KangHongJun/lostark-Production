@@ -7,11 +7,11 @@ from UI import EtcUI,Attack_ItemUI
 from LIST import Attack_Item_list,Combat_Assistance_list,Etc_list,Life_list
 
 chrome_options = webdriver.ChromeOptions()
-#chrome_options.add_argument('--headless')
+chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
 chrome_options.add_argument("disable-gpu")
-driver = webdriver.Chrome('C:/Users/rkdgh/chromedriver',chrome_options=chrome_options)
+driver = webdriver.Chrome('chromedriver',chrome_options=chrome_options)
 
 # driver.get('https://member.onstove.com/auth/login')
 
@@ -683,6 +683,123 @@ class Attack_Item(QWidget):
         self.Stack.setCurrentIndex(i)
 
 
+class Combat_Assistance(QWidget):
+    def __init__(self):
+        super(Combat_Assistance, self).__init__()
+
+        self.leftlist = QListWidget()
+        self.leftlist.insertItem(0, '섬광 수류탄')
+        self.leftlist.insertItem(1, '화염 수류탄')
+        self.leftlist.insertItem(2, '냉기 수류탄')
+        self.leftlist.insertItem(3, '전기 수류탄')
+        self.leftlist.insertItem(4, '암흑 수류탄')
+        self.leftlist.insertItem(5, '부식 폭탄')
+        self.leftlist.insertItem(6, '천둥 물약')
+        self.leftlist.insertItem(7, '회오리 수류탄')
+        self.leftlist.insertItem(8, '점토 수류탄')
+        self.leftlist.insertItem(9, '수면 폭탄')
+        self.leftlist.insertItem(10, '성스러운 폭탄')
+        self.leftlist.insertItem(11, '파괴 폭탄')
+        self.leftlist.insertItem(12, '빛나는 섬광 수류탄')
+        self.leftlist.insertItem(13, '빛나는 화염 수류탄')
+        self.leftlist.insertItem(14, '빛나는 냉기 수류탄')
+        self.leftlist.insertItem(15, '빛나는 전기 수류탄')
+        self.leftlist.insertItem(16, '빛나는 점토 수류탄')
+        self.leftlist.insertItem(17, '빛나는 회오리 수류탄')
+        self.leftlist.insertItem(18, '빛나는 암흑 수류탄')
+        self.leftlist.insertItem(19, '빛나는 수면 폭탄')
+        self.leftlist.insertItem(20, '빛나는 파괴 폭탄')
+        self.leftlist.insertItem(21, '빛나는 부식 폭탄')
+        self.leftlist.insertItem(22, '빛나는 성스러운 폭탄')
+
+        self.flash = QWidget()
+        self.flame = QWidget()
+        self.coldair = QWidget()
+        self.electric = QWidget()
+        self.dark = QWidget()
+        self.corrosion = QWidget()
+        self.thunder = QWidget()
+        self.Tornado = QWidget()
+        self.clay = QWidget()
+        self.sleeping = QWidget()
+        self.holy = QWidget()
+        self.destruction = QWidget()
+        self.s_flash = QWidget()
+        self.s_flame = QWidget()
+        self.s_coldair = QWidget()
+        self.s_electric = QWidget()
+        self.s_clay = QWidget()
+        self.s_tornado = QWidget()
+        self.s_dark = QWidget()
+        self.s_sleeping = QWidget()
+        self.s_destruction = QWidget()
+        self.s_corrosion = QWidget()
+        self.s_holy = QWidget()
+
+
+
+        Attack_ItemUI.Flash(self)
+        Attack_ItemUI.Flame(self)
+        Attack_ItemUI.Cold_Air(self)
+        Attack_ItemUI.Electric(self)
+        Attack_ItemUI.Dark(self)
+        Attack_ItemUI.Corrosion(self)
+        Attack_ItemUI.Thunder(self)
+        Attack_ItemUI.Tornado(self)
+        Attack_ItemUI.Clay(self)
+        Attack_ItemUI.Sleeping(self)
+        Attack_ItemUI.Holy(self)
+        Attack_ItemUI.Destruction(self)
+        Attack_ItemUI.S_Flash(self)
+        Attack_ItemUI.S_Flame(self)
+        Attack_ItemUI.S_Cold_Air(self)
+        Attack_ItemUI.S_Electric(self)
+        Attack_ItemUI.S_Clay(self)
+        Attack_ItemUI.S_Tornado(self)
+        Attack_ItemUI.S_Dark(self)
+        Attack_ItemUI.S_Sleeping(self)
+        Attack_ItemUI.S_Destruction(self)
+        Attack_ItemUI.S_Corrosion(self)
+        Attack_ItemUI.S_Holy(self)
+
+        self.Stack = QStackedWidget(self)
+        self.Stack.addWidget(self.flash)
+        self.Stack.addWidget(self.flame)
+        self.Stack.addWidget(self.coldair)
+        self.Stack.addWidget(self.electric)
+        self.Stack.addWidget(self.dark)
+        self.Stack.addWidget(self.corrosion)
+        self.Stack.addWidget(self.thunder)
+        self.Stack.addWidget(self.Tornado)
+        self.Stack.addWidget(self.clay)
+        self.Stack.addWidget(self.sleeping)
+        self.Stack.addWidget(self.holy)
+        self.Stack.addWidget(self.destruction)
+        self.Stack.addWidget(self.s_flash)
+        self.Stack.addWidget(self.s_flame)
+        self.Stack.addWidget(self.s_coldair)
+        self.Stack.addWidget(self.s_electric)
+        self.Stack.addWidget(self.s_clay)
+        self.Stack.addWidget(self.s_tornado)
+        self.Stack.addWidget(self.s_dark)
+        self.Stack.addWidget(self.s_sleeping)
+        self.Stack.addWidget(self.s_destruction)
+        self.Stack.addWidget(self.s_corrosion)
+        self.Stack.addWidget(self.s_holy)
+
+        hbox = QHBoxLayout(self)
+        hbox.addWidget(self.leftlist)
+        hbox.addWidget(self.Stack)
+
+        self.setLayout(hbox)
+        self.leftlist.currentRowChanged.connect(self.display)
+        self.setGeometry(300, 50, 10, 10)
+        self.setWindowTitle('StackedWidget demo')
+        self.show()
+
+    def display(self, i):
+        self.Stack.setCurrentIndex(i)
+
 class MyApp(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -705,6 +822,7 @@ class MyApp(QMainWindow):
         tabs.addTab(self.Tab_Potion(), '포션')
         tabs.addTab(self.Tab_Special_Item(), '특수 아이템')
         tabs.addTab(self.Tab_Attack_Item(), '공격 아이템')
+        tabs.addTab(self.Tab_Combat_Assistance(), '전투보조 아이템')
         self.setCentralWidget(tabs)
 
     def Tab_Potion(self):
@@ -713,7 +831,6 @@ class MyApp(QMainWindow):
 
         hbox = QHBoxLayout()
         hbox.addWidget(wg)
-
 
         vbox = QVBoxLayout()
         vbox.addLayout(hbox)
@@ -744,6 +861,20 @@ class MyApp(QMainWindow):
         hbox = QHBoxLayout()
         hbox.addWidget(wg)
 
+
+        vbox = QVBoxLayout()
+        vbox.addLayout(hbox)
+
+        tab = QWidget()
+        tab.setLayout(vbox)
+        return tab
+
+    def Tab_Combat_Assistance(self):
+        wg = Combat_Assistance()
+        self.setCentralWidget(wg)
+
+        hbox = QHBoxLayout()
+        hbox.addWidget(wg)
 
         vbox = QVBoxLayout()
         vbox.addLayout(hbox)

@@ -54,9 +54,12 @@ def Lifting(value):
   # 템 값(수수료빠진 값) - 재료값 = 이익 /
 def Set_Profit(Item, Item_Num, Mprice):
   Lift_Item = Lifting(Item) * Item_Num
-  Item = Item * Item_Num
-  text = str(Item) + "(" + str(Lift_Item) + ")" + "-" + str(Mprice) + "=" + str(
-    round(Item - Lift_Item - Mprice, 2)) + "골드"
+  Min_Item = Item * Item_Num
+  Item = (Item+1) * Item_Num
+  Min_Item_price = round(Min_Item - Lift_Item - Mprice, 2)
+  Item_price = round(Item - Lift_Item - Mprice, 2)
+
+  text = str(Min_Item) + " - " + str(Lift_Item) + " - " + str(Mprice) + " = " + str(Min_Item_price) + " ~ " + str(Item_price) +"골드"
   return text
 
 #수렵

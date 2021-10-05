@@ -64,10 +64,10 @@ def Signal_Gun (self):
   label1.setText("신호탄\n")
 
   label2 = QLabel()
-  label2.setText("자연산 진주x20")
+  label2.setText("들꽃x35")
 
   label3 = QLabel()
-  label3.setText("들꽃x35")
+  label3.setText("자연산 진주x20")
 
   label4 = QLabel()
   label4.setText("실링x1200")
@@ -77,7 +77,7 @@ def Signal_Gun (self):
   
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Life_list[3][2], 20, Life_list[5][2], 35, 0)
+  mprice = mprice.Mprice(Life_list[5][2], 35, Life_list[3][2], 20,  0)
   propit.setText(Set_Profit(Assistance_list[0][2], 3, mprice))
 
   layout.addWidget(label1)
@@ -291,20 +291,20 @@ def Spell(self):
   label1.setText("정비소 이동 포탈 주문서\n")
 
   label2 = QLabel()
-  label2.setText("화사한 들꽃x18")
+  label2.setText("들꽃x14")
 
   label3 = QLabel()
-  label3.setText("자연산 진주x16")
-  
+  label3.setText("화사한 들꽃x18")
+
   label4 = QLabel()
-  label4.setText("들꽃x14")
+  label4.setText("자연산 진주x16")
 
   label5 = QLabel()
   label5.setText("15골드")
 
   propit = QLabel()
   mprice = Material_price()
-  mprice = mprice.Mprice(Life_list[7][2], 18, Life_list[3][2], 16, Life_list[5][2], 14, 15)
+  mprice = mprice.Mprice(Life_list[5][2], 14, Life_list[7][2], 18, Life_list[3][2], 16, 15)
   propit.setText(Set_Profit(Assistance_list[7][2],3, mprice))
 
   layout.addWidget(label1)
