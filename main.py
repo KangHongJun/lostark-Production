@@ -4,9 +4,6 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from selenium import webdriver
 from selenium.webdriver import DesiredCapabilities
-from selenium.webdriver.support.ui import WebDriverWait as wait
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as Ec
 from UI import EtcUI,Attack_ItemUI
 from LIST import Attack_Item_list,Combat_Assistance_list,Etc_list,Life_list
 
