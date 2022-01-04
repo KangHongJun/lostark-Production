@@ -3,22 +3,31 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from selenium import webdriver
+from selenium.webdriver import DesiredCapabilities
+from selenium.webdriver.support.ui import WebDriverWait as wait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as Ec
 from UI import EtcUI,Attack_ItemUI
 from LIST import Attack_Item_list,Combat_Assistance_list,Etc_list,Life_list
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('--headless')
+chrome_options.add_argument('--de')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
-chrome_options.add_argument("disable-gpu")
+caps = DesiredCapabilities().CHROME
+caps["pageLoadStrategy"]="none"
+
+
 driver = webdriver.Chrome('chromedriver',chrome_options=chrome_options)
 
-# driver.get('https://member.onstove.com/auth/login')
+
 
 driver.get(
     'https://member.onstove.com/auth/login?inflow_path=lost_ark&game_no=45&redirect_url=https%3a%2f%2flostark.game.onstove.com%2fMarket')
 driver.maximize_window()
-login_x_path = '/html/body/div[1]/div[2]/div/fieldset[1]/div[3]/button'
+login_x_path = '/html/body/div[1]/div[2]/div/fieldset[1]/div[4]/button'
+            #/html/body/div[1]/div[2]/div/fieldset[1]/div[4]/button/span
 ID = driver.find_element_by_xpath('/html/body/div[1]/div[2]/div/fieldset[1]/div[1]/div[1]/input')
 ID.clear()
 ID.send_keys('starmine325@gmail.com')
@@ -28,7 +37,9 @@ PW.send_keys('starmine97@')
 
 # login
 driver.find_element_by_xpath(login_x_path).click()
+#wait(driver, 10)
 driver.implicitly_wait(10)
+
 
 # Life-Fishing
 

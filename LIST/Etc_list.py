@@ -27,22 +27,24 @@ def Etc(driver):
     con = sqlite3.connect("Etc.db")
     cursor = con.cursor()
     cursor.execute("UPDATE Etc SET Price = ? WHERE Number = 1", (Low_union,))
-    cursor.execute("UPDATE Etc SET Price = ? WHERE Number = 2", (Mid_union,))
-    print(Mid_union)
+    #cursor.execute("UPDATE Etc SET Price = ? WHERE Number = 2", (Mid_union,))
+
 
     driver.get(E_url2)
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
 
     # 2page
-
+    #Mid_union = soup.select_one('#tbodyItemList > tr:nth-child(3) > td:nth-child(4) > div > em')
+    #Mid_union = int(Mid_union.text)
 
 
     # 상급 오레하 융합
     High_union = soup.select_one('#tbodyItemList > tr:nth-child(1) > td:nth-child(4) > div > em')
+    #High_union = soup.select_one('#tbodyItemList > tr:nth-child(8) > td:nth-child(4) > div > em')
     High_union = int(High_union.text)
 
-
+    cursor.execute("UPDATE Etc SET Price = ? WHERE Number = 2", (Mid_union,))
     cursor.execute("UPDATE Etc SET Price = ? WHERE Number = 3", (High_union,))
     print(High_union)
     con.commit()
