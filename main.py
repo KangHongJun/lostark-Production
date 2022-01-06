@@ -16,15 +16,12 @@ caps = DesiredCapabilities().CHROME
 caps["pageLoadStrategy"]="none"
 
 
-driver = webdriver.Chrome('chromedriver',chrome_options=chrome_options)
-
-
+driver = webdriver.Chrome('chromedriver',options=chrome_options)
 
 driver.get(
     'https://member.onstove.com/auth/login?inflow_path=lost_ark&game_no=45&redirect_url=https%3a%2f%2flostark.game.onstove.com%2fMarket')
 driver.maximize_window()
 login_x_path = '/html/body/div[1]/div[2]/div/fieldset[1]/div[4]/button'
-            #/html/body/div[1]/div[2]/div/fieldset[1]/div[4]/button/span
 ID = driver.find_element_by_xpath('/html/body/div[1]/div[2]/div/fieldset[1]/div[1]/div[1]/input')
 ID.clear()
 ID.send_keys('starmine325@gmail.com')
@@ -38,6 +35,7 @@ driver.find_element_by_xpath(login_x_path).click()
 driver.implicitly_wait(10)
 
 
+
 # Life-Fishing
 
 driver.find_element_by_xpath('/html/body/div[2]/div/main/div/div[3]/div[1]/ul/li[8]/a').click()
@@ -46,8 +44,6 @@ Life_list.Life(driver)
 Etc_list.Etc(driver)
 Attack_Item_list.Attack(driver)
 Combat_Assistance_list.Assistance(driver)
-
-
 
 #포션
 class Potion(QWidget):
@@ -107,12 +103,6 @@ class Potion(QWidget):
         
         profit = QLabel()
 
-
-
-
-        
-        #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
-
         layout.addWidget(label1)
         layout.addWidget(label2)
         layout.addWidget(label3)
@@ -170,11 +160,7 @@ class Potion(QWidget):
 
         label5 = QLabel()
         label5.setText("30골드")
-        
 
-
-        
-        #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
         layout.addWidget(label1)
         layout.addWidget(label2)
         layout.addWidget(label3)
@@ -199,10 +185,7 @@ class Potion(QWidget):
 
         label4 = QLabel()
         label4.setText("30골드")
-        
 
-
-        #label.move(20, 20) 형식으로 제작템 가격 - 수수료 계산
         layout.addWidget(label1)
         layout.addWidget(label2)
         layout.addWidget(label3)

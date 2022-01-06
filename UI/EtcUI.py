@@ -1,10 +1,7 @@
-import sys
 import pandas as pd
-from pandas import Series, DataFrame
 from multipledispatch import dispatch
 from PyQt5.QtWidgets import *
 import sqlite3
-
 
 #read db life_list 
 conn = sqlite3.connect("life.db")
@@ -15,7 +12,12 @@ Life_list = Life.values.tolist()
 conn = sqlite3.connect("etc.db")
 etc = pd.read_sql("SELECT * FROM Etc",conn,index_col=None)
 etc_list = etc.values.tolist()
-  
+
+#read db data
+from UI import getdata
+a = getdata.getdata_db()
+print("test"+str(a.dbetc_list[0][0]))
+
 #재료값*개수 + ..., 조합비)
 class Material_price():
   @dispatch(float, int, float, int, float, int, float, int, float, int, int)
